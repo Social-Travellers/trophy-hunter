@@ -22,7 +22,7 @@ People will have the option to start an event happening around them or join an e
 
 **Nice To Have/Optional:**
  * [ ] Optional: Users can receive push notifications to their calendar, smart watch, etc
- * [ ] Optional: You could setup lunch groups
+ * [ ] Optional: Users can setup custom groups
  * [ ] Optional: Users can login with Facebook/twitter
  * [ ] Optional: Extra details for the activity
  * [ ] Optional: Pinpoint specific address
