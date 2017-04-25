@@ -3,6 +3,7 @@
 Social travelers is an app for people who want to socialize with people in their vicinity. It is a location based meetup app
 
 ##How it works
+
 People will have the option to start an event happening around them or join an existing happening around them and wait for people to join their activity
 
 
