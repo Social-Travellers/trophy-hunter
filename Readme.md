@@ -5,7 +5,7 @@ Social travelers is an app for people who want to socialize with people in their
 ##How it works**
 People will have the option to start an event happening around them or join an existing happening around them and wait for people to join their activity.
 
-<img src='https://files.slack.com/files-pri/T0J064FCJ-F54LVPVB8/image_uploaded_from_ios.jpg' title='Wireframe' width='' alt='Wireframe' />
+<img src='http://i.imgur.com/MKsZY6x.jpg' title='Wireframe' width='' alt='Wireframe' />
 
 **Required User Stories:**
  * [ ] Required: User can sign up with a username and password
