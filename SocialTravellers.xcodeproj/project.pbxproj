@@ -14,6 +14,8 @@
 		0E316C541EA5C7DC0030D8DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E316C521EA5C7DC0030D8DE /* LaunchScreen.storyboard */; };
 		0EBC89541EB14BDF00B443A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89531EB14BDF00B443A1 /* User.swift */; };
 		0EBC89561EB14CC500B443A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89551EB14CC500B443A1 /* Event.swift */; };
+		0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89581EB14F6000B443A1 /* Constants.swift */; };
+		6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		0E316C551EA5C7DC0030D8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EBC89531EB14BDF00B443A1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0EBC89551EB14CC500B443A1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		0EBC89581EB14F6000B443A1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		277846345235161371D062B2 /* Pods-SocialTravellers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.debug.xcconfig"; sourceTree = "<group>"; };
+		8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.release.xcconfig"; sourceTree = "<group>"; };
+		A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTravellers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,8 @@
 			children = (
 				0E316C481EA5C7DC0030D8DE /* SocialTravellers */,
 				0E316C471EA5C7DC0030D8DE /* Products */,
+				B3798745E8D2DEA2173112C0 /* Pods */,
+				3FA4DA985BEBD61950E21697 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				0EBC89511EB14BB500B443A1 /* API */,
+				0EBC89571EB14F3D00B443A1 /* Helper Files */,
 				0EBC89521EB14BC200B443A1 /* Models */,
 				0E316C491EA5C7DC0030D8DE /* AppDelegate.swift */,
 				0E316C4B1EA5C7DC0030D8DE /* ViewController.swift */,
@@ -86,6 +96,31 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		0EBC89571EB14F3D00B443A1 /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC89581EB14F6000B443A1 /* Constants.swift */,
+			);
+			name = "Helper Files";
+			sourceTree = "<group>";
+		};
+		3FA4DA985BEBD61950E21697 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3798745E8D2DEA2173112C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				277846345235161371D062B2 /* Pods-SocialTravellers.debug.xcconfig */,
+				8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,9 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E316C581EA5C7DC0030D8DE /* Build configuration list for PBXNativeTarget "SocialTravellers" */;
 			buildPhases = (
+				0A07963899D98A031C4B1838 /* [CP] Check Pods Manifest.lock */,
 				0E316C421EA5C7DC0030D8DE /* Sources */,
 				0E316C431EA5C7DC0030D8DE /* Frameworks */,
 				0E316C441EA5C7DC0030D8DE /* Resources */,
+				24460D24146D1B9B893469AF /* [CP] Embed Pods Frameworks */,
+				589DCD17186BD92A79036AE4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,11 +192,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A07963899D98A031C4B1838 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		24460D24146D1B9B893469AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		589DCD17186BD92A79036AE4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0E316C421EA5C7DC0030D8DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				0EBC89561EB14CC500B443A1 /* Event.swift in Sources */,
 				0E316C4C1EA5C7DC0030D8DE /* ViewController.swift in Sources */,
 				0E316C4A1EA5C7DC0030D8DE /* AppDelegate.swift in Sources */,
@@ -285,6 +372,7 @@
 		};
 		0E316C591EA5C7DC0030D8DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 277846345235161371D062B2 /* Pods-SocialTravellers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L9ZNDAL5Z9;
@@ -298,6 +386,7 @@
 		};
 		0E316C5A1EA5C7DC0030D8DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L9ZNDAL5Z9;
