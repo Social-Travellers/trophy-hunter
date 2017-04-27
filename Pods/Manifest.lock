@@ -1,15 +1,48 @@
 PODS:
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - FacebookCore (0.2.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.15)
+  - FacebookLogin (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKLoginKit (~> 4.15)
+  - FacebookShare (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKShareKit (~> 4.15)
+  - FBSDKCoreKit (4.22.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.22.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.22.0):
+    - FBSDKCoreKit
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
 
 DEPENDENCIES:
+  - FacebookCore
+  - FacebookLogin
+  - FacebookShare
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
+  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
+  FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
+  FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
+  FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
+  FBSDKShareKit: 21ab3c8d173f4fa20c47c1061f3a9fac5950b5fa
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
 
-PODFILE CHECKSUM: 4bec0ebdfc6e40d607938f108988baf444ce0d6b
+PODFILE CHECKSUM: 3114a8be46c21e9f52c4289aff761264018c7ccf
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
