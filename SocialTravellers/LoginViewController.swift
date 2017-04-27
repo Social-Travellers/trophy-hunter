@@ -20,13 +20,17 @@ class LoginViewController: UIViewController {
             if let userId = accessToken.userId {
                 print("User ID: \(userId)")
             }
-            // Move to the home screen
         }
 
         let loginButton = LoginButton(readPermissions: [.publicProfile])
         loginButton.center = CGPoint(x: view.bounds.width/2.0, y: view.bounds.height/2.0 + 100)
+        loginButton.delegate = self
         
         view.addSubview(loginButton)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,4 +49,17 @@ class LoginViewController: UIViewController {
     }
     */
 
+}
+
+extension LoginViewController: LoginButtonDelegate {
+    
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+        // Move to the home screen
+        performSegue(withIdentifier: "LoginToEventFeed", sender: self)
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        print("Logged out")
+    }
+    
 }
