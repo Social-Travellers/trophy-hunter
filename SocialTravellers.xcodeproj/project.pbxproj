@@ -8,20 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0E316C4A1EA5C7DC0030D8DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E316C491EA5C7DC0030D8DE /* AppDelegate.swift */; };
-		0E316C4C1EA5C7DC0030D8DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E316C4B1EA5C7DC0030D8DE /* ViewController.swift */; };
 		0E316C4F1EA5C7DC0030D8DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E316C4D1EA5C7DC0030D8DE /* Main.storyboard */; };
 		0E316C511EA5C7DC0030D8DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E316C501EA5C7DC0030D8DE /* Assets.xcassets */; };
 		0E316C541EA5C7DC0030D8DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E316C521EA5C7DC0030D8DE /* LaunchScreen.storyboard */; };
 		0EBC89541EB14BDF00B443A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89531EB14BDF00B443A1 /* User.swift */; };
 		0EBC89561EB14CC500B443A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89551EB14CC500B443A1 /* Event.swift */; };
 		0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89581EB14F6000B443A1 /* Constants.swift */; };
+		51607D581EB2891A005D0909 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D571EB2891A005D0909 /* LoginViewController.swift */; };
 		6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E316C461EA5C7DC0030D8DE /* SocialTravellers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTravellers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E316C491EA5C7DC0030D8DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0E316C4B1EA5C7DC0030D8DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E316C4E1EA5C7DC0030D8DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E316C501EA5C7DC0030D8DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E316C531EA5C7DC0030D8DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +29,7 @@
 		0EBC89551EB14CC500B443A1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0EBC89581EB14F6000B443A1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		277846345235161371D062B2 /* Pods-SocialTravellers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.debug.xcconfig"; sourceTree = "<group>"; };
+		51607D571EB2891A005D0909 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.release.xcconfig"; sourceTree = "<group>"; };
 		A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTravellers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,8 +71,8 @@
 				0EBC89571EB14F3D00B443A1 /* Helper Files */,
 				0EBC89521EB14BC200B443A1 /* Models */,
 				0E316C491EA5C7DC0030D8DE /* AppDelegate.swift */,
-				0E316C4B1EA5C7DC0030D8DE /* ViewController.swift */,
 				0E316C4D1EA5C7DC0030D8DE /* Main.storyboard */,
+				51607D571EB2891A005D0909 /* LoginViewController.swift */,
 				0E316C501EA5C7DC0030D8DE /* Assets.xcassets */,
 				0E316C521EA5C7DC0030D8DE /* LaunchScreen.storyboard */,
 				0E316C551EA5C7DC0030D8DE /* Info.plist */,
@@ -247,8 +247,8 @@
 			files = (
 				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				0EBC89561EB14CC500B443A1 /* Event.swift in Sources */,
-				0E316C4C1EA5C7DC0030D8DE /* ViewController.swift in Sources */,
 				0E316C4A1EA5C7DC0030D8DE /* AppDelegate.swift in Sources */,
+				51607D581EB2891A005D0909 /* LoginViewController.swift in Sources */,
 				0EBC89541EB14BDF00B443A1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
