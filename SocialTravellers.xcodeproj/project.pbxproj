@@ -14,6 +14,7 @@
 		0EBC89541EB14BDF00B443A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89531EB14BDF00B443A1 /* User.swift */; };
 		0EBC89561EB14CC500B443A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89551EB14CC500B443A1 /* Event.swift */; };
 		0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89581EB14F6000B443A1 /* Constants.swift */; };
+		139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AA3D81EB44ACB009A42E5 /* EventCell.swift */; };
 		51607D581EB2891A005D0909 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D571EB2891A005D0909 /* LoginViewController.swift */; };
 		51607D5A1EB2B022005D0909 /* EventFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D591EB2B022005D0909 /* EventFeedViewController.swift */; };
 		51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */; };
@@ -32,6 +33,7 @@
 		0EBC89531EB14BDF00B443A1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0EBC89551EB14CC500B443A1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0EBC89581EB14F6000B443A1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		139AA3D81EB44ACB009A42E5 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		277846345235161371D062B2 /* Pods-SocialTravellers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.debug.xcconfig"; sourceTree = "<group>"; };
 		51607D571EB2891A005D0909 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		51607D591EB2B022005D0909 /* EventFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFeedViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				0EBC89521EB14BC200B443A1 /* Models */,
 				0E316C491EA5C7DC0030D8DE /* AppDelegate.swift */,
 				0E316C4D1EA5C7DC0030D8DE /* Main.storyboard */,
+				139AA3D81EB44ACB009A42E5 /* EventCell.swift */,
 				51607D571EB2891A005D0909 /* LoginViewController.swift */,
 				51607D591EB2B022005D0909 /* EventFeedViewController.swift */,
 				51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */,
@@ -259,6 +262,7 @@
 			files = (
 				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */,
+				139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */,
 				51607D5A1EB2B022005D0909 /* EventFeedViewController.swift in Sources */,
 				0EBC89561EB14CC500B443A1 /* Event.swift in Sources */,
 				0E316C4A1EA5C7DC0030D8DE /* AppDelegate.swift in Sources */,
