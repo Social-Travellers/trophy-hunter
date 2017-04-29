@@ -540,6 +540,71 @@
             </objects>
             <point key="canvasLocation" x="4002" y="125"/>
         </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="Fp8-mk-yaJ">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileViewController" id="Rml-9V-QM6" customClass="UserProfileViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fIX-k8-JXa"/>
+                        <viewControllerLayoutGuide type="bottom" id="mxm-8C-UWS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9S4-qA-NUe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3E2-UT-lYH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vl1-mP-jMy">
+                                        <rect key="frame" x="62" y="80" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="84X-oq-r3E"/>
+                                            <constraint firstAttribute="height" constant="250" id="b4j-lp-1EG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victor Rodriguez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJx-Dq-9R8">
+                                        <rect key="frame" x="99" y="350" width="177" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An engineer who likes to tinker with software and hardware." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0I0-rx-ac8">
+                                        <rect key="frame" x="8" y="387" width="359" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="JJx-Dq-9R8" firstAttribute="top" secondItem="vl1-mP-jMy" secondAttribute="bottom" constant="20" id="Nxg-vh-KnS"/>
+                                    <constraint firstItem="JJx-Dq-9R8" firstAttribute="centerX" secondItem="3E2-UT-lYH" secondAttribute="centerX" id="POR-eM-mze"/>
+                                    <constraint firstItem="vl1-mP-jMy" firstAttribute="centerX" secondItem="3E2-UT-lYH" secondAttribute="centerX" id="aZI-bv-ogK"/>
+                                    <constraint firstItem="0I0-rx-ac8" firstAttribute="top" secondItem="JJx-Dq-9R8" secondAttribute="bottom" constant="8" id="bc0-L0-aIk"/>
+                                    <constraint firstItem="0I0-rx-ac8" firstAttribute="leading" secondItem="3E2-UT-lYH" secondAttribute="leading" constant="8" id="fXc-R0-BH0"/>
+                                    <constraint firstItem="vl1-mP-jMy" firstAttribute="top" secondItem="3E2-UT-lYH" secondAttribute="top" constant="80" id="gLc-m2-gn3"/>
+                                    <constraint firstAttribute="trailing" secondItem="0I0-rx-ac8" secondAttribute="trailing" constant="8" id="kG0-WA-m06"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mxm-8C-UWS" firstAttribute="top" secondItem="3E2-UT-lYH" secondAttribute="bottom" id="LYn-J9-kDv"/>
+                            <constraint firstAttribute="trailing" secondItem="3E2-UT-lYH" secondAttribute="trailing" id="dJA-NO-m2S"/>
+                            <constraint firstItem="3E2-UT-lYH" firstAttribute="top" secondItem="9S4-qA-NUe" secondAttribute="top" id="l7L-jW-G9g"/>
+                            <constraint firstItem="3E2-UT-lYH" firstAttribute="leading" secondItem="9S4-qA-NUe" secondAttribute="leading" id="oSz-Ta-vSy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="vl1-mP-jMy" id="qqX-rD-bAq"/>
+                        <outlet property="userNameLabel" destination="JJx-Dq-9R8" id="dlt-Gd-Kye"/>
+                        <outlet property="userTagline" destination="0I0-rx-ac8" id="AX7-fS-uHT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PId-Oq-h26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3608.8000000000002" y="849.62518740629696"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="PfX-QA-zhv">
             <objects>
