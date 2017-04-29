@@ -28,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: configuration)
         
+        if AccessToken.current != nil {
+            // User is logged in, so skip to the EventFeedVC
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let eventFeedNavigationVC = storyBoard.instantiateViewController(withIdentifier: "EventFeedNavigationController") as! UINavigationController
+            window?.rootViewController = eventFeedNavigationVC
+        }
+        
         return true
     }
 

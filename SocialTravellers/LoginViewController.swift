@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
         loginButton.delegate = self
         
         view.addSubview(loginButton)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

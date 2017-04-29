@@ -42,7 +42,7 @@
         <!--Event Feed-->
         <scene sceneID="W2t-ng-dpL">
             <objects>
-                <viewController id="SU2-vT-sBP" customClass="EventFeedViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventFeedViewController" id="SU2-vT-sBP" customClass="EventFeedViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L4A-s9-PgH"/>
                         <viewControllerLayoutGuide type="bottom" id="wYB-lj-c5q"/>
@@ -608,7 +608,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PfX-QA-zhv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kho-o1-o1H" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="EventFeedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="kho-o1-o1H" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1h1-gD-GcD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
