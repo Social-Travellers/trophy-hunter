@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -131,7 +131,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Event Feed" id="HcP-bT-qPq"/>
+                    <navigationItem key="navigationItem" title="Event Feed" id="HcP-bT-qPq">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="YaR-x9-qrF">
+                            <connections>
+                                <action selector="onLogout:" destination="SU2-vT-sBP" id="HSa-wz-GUK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="eventFeedTableView" destination="yt5-7I-w3Z" id="GTF-n1-5ZR"/>
                         <segue destination="Mu1-Ql-xQr" kind="presentation" identifier="EventFeedToDetails" id="vxd-Cd-Dvu"/>

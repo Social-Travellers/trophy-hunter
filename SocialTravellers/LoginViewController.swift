@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
             }
         }
 
-        let loginButton = LoginButton(readPermissions: [.publicProfile])
+        let loginButton = LoginButton(readPermissions: [.publicProfile, .email, .userFriends])
         loginButton.center = CGPoint(x: view.bounds.width/2.0, y: view.bounds.height/2.0 + 100)
         loginButton.delegate = self
         
