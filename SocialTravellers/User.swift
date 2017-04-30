@@ -11,6 +11,7 @@ import Foundation
 class User: NSObject {
     
     // MARK: - Properties
+    var objectId: String? // Parse Id
     var email: String?
     var password: String?
     var firstName: String?
@@ -34,6 +35,7 @@ class User: NSObject {
     
     private static var _currentUser: User?
     
+    // Facebook response dictionary
     init(dictionary: [String: AnyObject]) {
         self.dictionary = dictionary
         print(dictionary)
@@ -55,6 +57,19 @@ class User: NSObject {
         id = dictionary["id"] as? String
         //tagline = dictionary["about"] as? String Do we want to get this from FB or have user input later?
 
+    }
+    
+    // Parse response dictionary
+    init(parseDictionary: [String : AnyObject]) {
+        self.objectId = parseDictionary["objectId"] as? String
+        self.email = parseDictionary["email"] as? String
+        self.password = parseDictionary["password"] as? String
+        self.firstName = parseDictionary["firstName"] as? String
+        self.lastName = parseDictionary["lastName"] as? String
+        self.userName = parseDictionary["userName"] as? String
+        self.profilePicUrl = parseDictionary["profilePicUrl"] as? String
+        self.phoneNumber = parseDictionary["phoneNumber"] as? String
+        self.tagline = parseDictionary["tagline"] as? String
     }
     
     class var currentUser: User? {

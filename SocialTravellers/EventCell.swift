@@ -20,7 +20,7 @@ class EventCell: UITableViewCell {
         didSet {
             nameLabel.text = event.name
             taglineLabel.text = event.tagline
-            userCountLabel.text = String(describing: event.users?.count)
+            userCountLabel.text = "\(event.users?.count ?? 0)"
            // timeStampLabel.text =             Gotta do some date magic here.
            // distanceLabel.text = event.location?.distance(from: <#T##CLLocation#>)    requires some location magic
         }

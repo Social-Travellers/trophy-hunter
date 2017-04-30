@@ -12,20 +12,25 @@ import FacebookLogin
 import Parse
 import CoreLocation
 
-class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
+class EventFeedViewController: UIViewController {
     @IBOutlet weak var eventFeedTableView: UITableView!
-
+    
+    var firstLoad: Bool = true
+    var events: [Event] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         eventFeedTableView.delegate = self
         eventFeedTableView.dataSource = self
         
+        retrieveEventsAroundMe()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        retrieveEventsAroundMe()
-
+        if !firstLoad {
+            retrieveEventsAroundMe()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,18 +58,26 @@ class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         let location = locationManager.location
         
-        let userGeoPoint: PFGeoPoint = PFGeoPoint(latitude:(location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!)
+        let lat = (location?.coordinate.latitude)! as Double
+        let long = (location?.coordinate.longitude)! as Double
+        let userGeoPoint: PFGeoPoint = PFGeoPoint(latitude:lat, longitude:long)
         // Create a query for places
         let query = PFQuery(className:"Event")
         // Interested in locations near user.
-        query.whereKey("location", nearGeoPoint:userGeoPoint)
+        query.whereKey("location", nearGeoPoint: userGeoPoint, withinMiles: 100.0)
         // Limit what could be a lot of points.
         query.limit = 20
         
         do {
             let eventsAroundMe = try query.findObjects()
-            
-            print("Events Around me : ",eventsAroundMe.count)
+            var retrievedEvents: [Event] = []
+            for eventObject in eventsAroundMe {
+                let event = Event(event: eventObject)
+                retrievedEvents.append(event)
+            }
+            events = retrievedEvents
+            print("Events Around me : ", eventsAroundMe.count)
+            firstLoad = false
         } catch {
             print(error)
         }
@@ -74,14 +87,16 @@ class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
 
 }
 
+// MARK: - Table view delegate methods
 extension EventFeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
+        cell.event = events[indexPath.row]
         return cell
     }
     
@@ -89,4 +104,9 @@ extension EventFeedViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "EventFeedToDetails", sender: self)
     }
+}
+
+// MARK: - Location manager delegate methods
+extension EventFeedViewController: CLLocationManagerDelegate {
+    
 }

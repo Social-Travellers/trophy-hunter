@@ -11,6 +11,8 @@ import Parse
 
 class EventDetailsViewController: UIViewController {
     
+    var selectedEvent: Event?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,12 +31,12 @@ class EventDetailsViewController: UIViewController {
     // Update an event
     func updateEvent()
     {
-        let localEvent: Event = Event()
+        guard let localEvent = selectedEvent else { return }
         
         let query = PFQuery(className:"Event")
         query.getObjectInBackground(withId: "") { (event: PFObject?, error: Error?) in
             if (error != nil) {
-                print(error)
+                print(error!.localizedDescription)
             } else if let event = event{
                 
                 event["name"] = localEvent.name
