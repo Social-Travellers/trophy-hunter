@@ -20,6 +20,7 @@ class User: NSObject {
     var phoneNumber: String?
     var tagline: String?
     var events: [Event]?
+    var facebookId: String?
     
     
     static let userDidLogoutNotification = "UserDidLogout"

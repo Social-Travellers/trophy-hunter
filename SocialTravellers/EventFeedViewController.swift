@@ -39,6 +39,7 @@ class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
         print("loggedout")
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User.userDidLogoutNotification), object: nil)
     }
+    
     @IBAction func onUserButton(_ sender: Any) {
         performSegue(withIdentifier: "EventFeedToUserProfile", sender: self)
     }

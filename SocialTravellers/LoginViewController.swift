@@ -75,9 +75,9 @@ extension LoginViewController: LoginButtonDelegate {
                     print(urlData)
                     let imageUrl = urlData["url"]
                     
-                    print(responseDictionary["name"])
-                    print(responseDictionary["email"])
-                    print(imageUrl)
+                    print(responseDictionary["name"]!)
+                    print(responseDictionary["email"]!)
+                    print(imageUrl!)
                 }
             }
         }
