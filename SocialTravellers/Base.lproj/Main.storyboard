@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iSx-1P-EtY" id="8MT-OM-wEQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tennis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIL-Xw-xey">
@@ -135,6 +135,12 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="YaR-x9-qrF">
                             <connections>
                                 <action selector="onLogout:" destination="SU2-vT-sBP" id="HSa-wz-GUK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="User" id="JWX-QW-dQm">
+                            <connections>
+                                <action selector="onUserButton:" destination="SU2-vT-sBP" id="9Qd-zl-bjj"/>
+                                <segue destination="Rml-9V-QM6" kind="presentation" identifier="EventFeedToUserProfile" id="Kdr-Yi-MAu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -218,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzp-Ru-nMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.8" y="805.54722638680664"/>
+            <point key="canvasLocation" x="1622" y="934"/>
         </scene>
         <!--Select Location View Controller-->
         <scene sceneID="Wx0-NF-9Yx">
@@ -256,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMR-R6-KeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503.1999999999998" y="805.54722638680664"/>
+            <point key="canvasLocation" x="2503" y="894"/>
         </scene>
         <!--Event User List View Controller-->
         <scene sceneID="u9v-6K-lxw">
@@ -279,7 +285,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m1S-KE-yhV" id="RSL-qB-wyD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3PY-yK-YML">
@@ -580,6 +586,16 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QR2-Qm-0Q4">
+                                        <rect key="frame" x="24" y="20" width="48" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onCancelButton:" destination="Rml-9V-QM6" eventType="touchUpInside" id="gXA-zQ-oMo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

@@ -57,6 +57,31 @@ extension LoginViewController: LoginButtonDelegate {
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         // Move to the home screen
         performSegue(withIdentifier: "LoginToEventFeed", sender: self)
+        
+        let params = ["fields" : "email, name, picture.type(large)"]
+        let graphRequest = GraphRequest(graphPath: "me", parameters: params)
+        graphRequest.start {
+            (urlResponse, requestResult) in
+            
+            switch requestResult {
+            case .failed(let error):
+                print("error in graph request:", error)
+                break
+            case .success(let graphResponse):
+                if let responseDictionary = graphResponse.dictionaryValue {
+                    print(responseDictionary)
+
+                    let urlData = (responseDictionary["picture"] as AnyObject).value(forKey: "data") as! [String: AnyObject]
+                    print(urlData)
+                    let imageUrl = urlData["url"]
+                    
+                    print(responseDictionary["name"])
+                    print(responseDictionary["email"])
+                    print(imageUrl)
+                }
+            }
+        }
+        
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {

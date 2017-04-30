@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AFNetworking
+import FacebookCore
 
 class UserProfileViewController: UIViewController {
 
@@ -14,6 +16,13 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userTagline: UILabel!
     
+    var user: User! {
+        didSet{
+            profileImageView.setImageWith((URL(string: user.profilePicUrl!))!)
+            userNameLabel.text = "\(user.firstName) \(user.lastName)"
+            userTagline.text = user.tagline
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +35,12 @@ class UserProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onCancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    func requestCurrentUserDetails(){
+//fb magic
+    }
 
     /*
     // MARK: - Navigation

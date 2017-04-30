@@ -6,5 +6,6 @@ target 'SocialTravellers' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'AFNetworking'
 
 end

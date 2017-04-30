@@ -9,9 +9,13 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
+import Parse
+import CoreLocation
 
 
-class EventFeedViewController: UIViewController {
+class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
+
+    
     @IBOutlet weak var eventFeedTableView: UITableView!
 
     override func viewDidLoad() {
@@ -31,6 +35,9 @@ class EventFeedViewController: UIViewController {
         loginManager.logOut()
         print("loggedout")
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User.userDidLogoutNotification), object: nil)
+    }
+    @IBAction func onUserButton(_ sender: Any) {
+        performSegue(withIdentifier: "EventFeedToUserProfile", sender: self)
     }
     
 
