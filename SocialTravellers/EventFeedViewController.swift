@@ -12,14 +12,7 @@ import FacebookLogin
 import Parse
 import CoreLocation
 
-<<<<<<< HEAD
-
 class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
-
-    
-=======
-class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
->>>>>>> 13df61d5a446c427c76df6d63b92bc89ac9f7bef
     @IBOutlet weak var eventFeedTableView: UITableView!
 
     override func viewDidLoad() {
@@ -28,7 +21,11 @@ class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
         eventFeedTableView.delegate = self
         eventFeedTableView.dataSource = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         retrieveEventsAroundMe()
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,10 +10,6 @@ import UIKit
 import Parse
 import CoreLocation
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 13df61d5a446c427c76df6d63b92bc89ac9f7bef
 class EventCreateViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var eventNameTextView: UITextView!
@@ -53,17 +49,10 @@ class EventCreateViewController: UIViewController, CLLocationManagerDelegate {
                 print("Error Saving event ",error.debugDescription)
             }
         }
-<<<<<<< HEAD
 
         navigationController?.popViewController(animated: true)
     }
     
-
-=======
-        navigationController?.popViewController(animated: true)
-    }
-    
->>>>>>> 13df61d5a446c427c76df6d63b92bc89ac9f7bef
     /*
      // MARK: - Navigation
      
