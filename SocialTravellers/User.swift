@@ -40,12 +40,12 @@ class User: NSObject {
         let profilePictureData = (dictionary["picture"] as AnyObject).value(forKey: "data") as! [String: AnyObject]
         let coverPictureData = dictionary["cover"] as! [String: AnyObject]
         
-        if let urlString = profilePictureData["url"]{
-            profilePicUrl = urlString as? String
+        if let profilePicUrlString = profilePictureData["url"]{
+            profilePicUrl = profilePicUrlString as? String
         }
         
-        if let urlString = coverPictureData["source"]{
-            coverPicUrl = urlString as? String
+        if let coverPicUrlString = coverPictureData["source"]{
+            coverPicUrl = coverPicUrlString as? String
         }
         
         fullName = dictionary["name"] as? String
