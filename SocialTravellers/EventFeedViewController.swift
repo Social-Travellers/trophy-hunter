@@ -12,10 +12,14 @@ import FacebookLogin
 import Parse
 import CoreLocation
 
+<<<<<<< HEAD
 
 class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
 
     
+=======
+class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
+>>>>>>> 13df61d5a446c427c76df6d63b92bc89ac9f7bef
     @IBOutlet weak var eventFeedTableView: UITableView!
 
     override func viewDidLoad() {
@@ -23,6 +27,8 @@ class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
 
         eventFeedTableView.delegate = self
         eventFeedTableView.dataSource = self
+        
+        retrieveEventsAroundMe()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +44,33 @@ class EventFeedViewController: UIViewController, CLLocationManagerDelegate {
     }
     @IBAction func onUserButton(_ sender: Any) {
         performSegue(withIdentifier: "EventFeedToUserProfile", sender: self)
+    }
+    
+    //Method to retrieve events from Parse backend
+    func retrieveEventsAroundMe() {
+        
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        let location = locationManager.location
+        
+        let userGeoPoint: PFGeoPoint = PFGeoPoint(latitude:(location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!)
+        // Create a query for places
+        let query = PFQuery(className:"Event")
+        // Interested in locations near user.
+        query.whereKey("location", nearGeoPoint:userGeoPoint)
+        // Limit what could be a lot of points.
+        query.limit = 20
+        
+        do {
+            let eventsAroundMe = try query.findObjects()
+            
+            print("Events Around me : ",eventsAroundMe.count)
+        } catch {
+            print(error)
+        }
+        
     }
     
 
