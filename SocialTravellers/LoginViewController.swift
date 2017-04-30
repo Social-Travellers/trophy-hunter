@@ -58,7 +58,8 @@ extension LoginViewController: LoginButtonDelegate {
         // Move to the home screen
         performSegue(withIdentifier: "LoginToEventFeed", sender: self)
         
-        let params = ["fields" : "email, name, picture.type(large)"]
+        let params = ["fields" : "email, name, first_name, last_name, picture.type(large), cover"]
+        // Request permission to read e-mail, first/last name, and profile picture
         let graphRequest = GraphRequest(graphPath: "me", parameters: params)
         graphRequest.start {
             (urlResponse, requestResult) in
@@ -70,14 +71,10 @@ extension LoginViewController: LoginButtonDelegate {
             case .success(let graphResponse):
                 if let responseDictionary = graphResponse.dictionaryValue {
                     print(responseDictionary)
-
-                    let urlData = (responseDictionary["picture"] as AnyObject).value(forKey: "data") as! [String: AnyObject]
-                    print(urlData)
-                    let imageUrl = urlData["url"]
+                   let data = responseDictionary as [String: AnyObject]
                     
-                    print(responseDictionary["name"]!)
-                    print(responseDictionary["email"]!)
-                    print(imageUrl!)
+                    User.currentUser = User(dictionary: data)
+                    print("setting User.currentUser in DidCompleteLogin")
                 }
             }
         }

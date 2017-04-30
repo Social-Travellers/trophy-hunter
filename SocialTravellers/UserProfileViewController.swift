@@ -13,6 +13,7 @@ import Parse
 
 class UserProfileViewController: UIViewController {
     
+    @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userTagline: UILabel!
@@ -22,13 +23,29 @@ class UserProfileViewController: UIViewController {
             profileImageView.setImageWith((URL(string: user.profilePicUrl!))!)
             userNameLabel.text = "\(user.firstName!) \(user.lastName!)"
             userTagline.text = user.tagline
+            if let profilePictureUrl = user.profilePicUrl{
+                profileImageView.setImageWith((URL(string: profilePictureUrl))!)
+                //Convert square photo to circle
+                profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2;
+                profileImageView.clipsToBounds = true
+                
+                //Add border and color
+                profileImageView.layer.borderWidth = 3.0
+                profileImageView.layer.borderColor =  UIColor(red:1.0, green:1.0, blue:1.0, alpha:1.0).cgColor
+            }
+            print(user.coverPicUrl)
+            if let coverPictureUrl = user.coverPicUrl{
+                coverImageView.setImageWith((URL(string: coverPictureUrl))!)
+            }
+            userNameLabel.text = user.fullName
+            // userTagline.text = user.tagline Need to ask extra permissions for this. Should we?
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        requestCurrentUserDetails()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +56,10 @@ class UserProfileViewController: UIViewController {
     @IBAction func onCancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    //I originally thought this function was going to be more than one line -_- lol
     func requestCurrentUserDetails(){
+        user = User.currentUser
         //fb magic
     }
     
@@ -79,7 +99,7 @@ class UserProfileViewController: UIViewController {
     //Update a User given a user id
     func updateUserInBackend(userId: String) {
         
-        let localUser: User = User()
+        //        let localUser: User = User()
         
         let query = PFQuery(className:"AppUser")
         query.getObjectInBackground(withId: userId) { (user: PFObject?, error: Error?) in
@@ -87,30 +107,29 @@ class UserProfileViewController: UIViewController {
                 print(error)
             } else if let user = user{
                 
-                user["firstName"] = localUser.firstName
+                //                user["firstName"] = localUser.firstName
                 // .... update other User attributes
                 user.saveInBackground()
             }
         }
     }
-
+    
     // retrieve a user from backend given a user id
-    func fetchUserFromBackend(userId: String) -> User
+    func fetchUserFromBackend(userId: String)
     {
-        let localUser: User = User()
+        //        let localUser: User = User()
         
         let query = PFQuery(className:"AppUser")
         query.getObjectInBackground(withId: userId) {
             (user: PFObject?, error: Error?) in
             if error == nil && user != nil {
                 
-                localUser.firstName = user?["firstName"] as! String
+                //                localUser.firstName = user?["firstName"] as! String
                 
             } else {
                 print(error.debugDescription)
             }
         }
-        return localUser
     }
     
     
