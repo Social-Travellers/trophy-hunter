@@ -11,25 +11,40 @@ import AFNetworking
 import FacebookCore
 
 class UserProfileViewController: UIViewController {
-
+    
+    @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userTagline: UILabel!
     
     var user: User! {
         didSet{
-            profileImageView.setImageWith((URL(string: user.profilePicUrl!))!)
-            userNameLabel.text = "\(user.firstName) \(user.lastName)"
-            userTagline.text = user.tagline
+            if let profilePictureUrl = user.profilePicUrl{
+                profileImageView.setImageWith((URL(string: profilePictureUrl))!)
+                //Convert square photo to circle
+                profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2;
+                profileImageView.clipsToBounds = true
+                
+                //Add border and color
+                profileImageView.layer.borderWidth = 3.0
+                profileImageView.layer.borderColor =  UIColor(red:1.0, green:1.0, blue:1.0, alpha:1.0).cgColor
+            }
+            print(user.coverPicUrl)
+            if let coverPictureUrl = user.coverPicUrl{
+                coverImageView.setImageWith((URL(string: coverPictureUrl))!)
+            }
+            userNameLabel.text = user.fullName
+           // userTagline.text = user.tagline Need to ask extra permissions for this. Should we?
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        requestCurrentUserDetails()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,18 +53,20 @@ class UserProfileViewController: UIViewController {
     @IBAction func onCancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    //I originally thought this function was going to be more than one line -_- lol
     func requestCurrentUserDetails(){
-//fb magic
+        user = User.currentUser
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
