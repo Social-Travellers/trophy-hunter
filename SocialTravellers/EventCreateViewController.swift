@@ -25,7 +25,14 @@ class EventCreateViewController: UIViewController {
         mapView.delegate = self
         mapView.showsUserLocation = true
         
+        // Intuit building 20 -> 37.429171, -122.097773
+        let defaultLatitude: CLLocationDegrees = 37.429171
+        let defaultLongitude: CLLocationDegrees = -122.097773
+        let defaultLocation = CLLocation(latitude: defaultLatitude, longitude: defaultLongitude)
+        userLocation = defaultLocation
+        
         startStandardUpdates()
+        
         if let location = userLocation {
             setMapLocation(location: location)
         }
