@@ -49,6 +49,11 @@ class EventFeedViewController: UIViewController {
         performSegue(withIdentifier: "EventFeedToUserProfile", sender: self)
     }
     
+    @IBAction func createEventClicked(_ sender: UIButton) {
+        firstLoad = false
+        performSegue(withIdentifier: "EventFeedToCreate", sender: self)
+    }
+    
     //Method to retrieve events from Parse backend
     func retrieveEventsAroundMe() {
         

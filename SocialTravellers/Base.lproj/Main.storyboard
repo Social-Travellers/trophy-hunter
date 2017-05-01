@@ -125,7 +125,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="Create Your Event"/>
                                 <connections>
-                                    <segue destination="Fmg-Lm-OzK" kind="show" identifier="EventFeedToCreate" id="DOv-hQ-Gvz"/>
+                                    <action selector="createEventClicked:" destination="SU2-vT-sBP" eventType="touchUpInside" id="jr0-Sf-XMb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -147,6 +147,7 @@
                     <connections>
                         <outlet property="eventFeedTableView" destination="yt5-7I-w3Z" id="GTF-n1-5ZR"/>
                         <segue destination="Mu1-Ql-xQr" kind="presentation" identifier="EventFeedToDetails" id="vxd-Cd-Dvu"/>
+                        <segue destination="Fmg-Lm-OzK" kind="show" identifier="EventFeedToCreate" id="uVj-ii-p3m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Usv-3J-Qog" userLabel="First Responder" sceneMemberID="firstResponder"/>

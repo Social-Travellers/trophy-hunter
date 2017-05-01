@@ -23,6 +23,8 @@ class EventCreateViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
+        mapView.showsUserLocation = true
+        
         startStandardUpdates()
         if let location = userLocation {
             setMapLocation(location: location)
@@ -99,7 +101,7 @@ class EventCreateViewController: UIViewController {
     
     func setMapLocation(location: CLLocation) {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: center, span: span)
         mapView.setRegion(region, animated: true)
     }
@@ -121,6 +123,9 @@ extension EventCreateViewController: CLLocationManagerDelegate, MKMapViewDelegat
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         userLocation = location
+        if let location = location {
+            setMapLocation(location: location)
+        }
     }
     
 }
