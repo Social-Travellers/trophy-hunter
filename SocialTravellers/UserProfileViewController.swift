@@ -57,85 +57,40 @@ class UserProfileViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    //I originally thought this function was going to be more than one line -_- lol
+
     func requestCurrentUserDetails(){
         user = User.currentUser
-        //fb magic
     }
     
-    
-    //Method to save data to parse backend
-    func saveUserToBackend()
-    {
-        // check if user already exists
-        // if user exists do not save a record but update record
-        // UPDATE RECORD BY CHECKING FACEBOOK ID
-        // if user DOES NOT exists create a new record
-        
-        // update user
-        
-        // save new user
-        
-        let backendUser = PFObject(className:"AppUser")
-        backendUser["firstName"] = user.firstName
-        backendUser["lastName"] = user.lastName
-        backendUser["email"] = user.email
-        backendUser["userName"] = user.userName
-        backendUser["tagline"] = user.tagline
-        backendUser["profilePicUrl"] = user.profilePicUrl
-        backendUser["phoneNumber"] = user.phoneNumber
-        backendUser["facebookId"] = user.facebookId
-        
-        backendUser.saveInBackground { (succeeded: Bool, error: Error?) in
-            if (succeeded) {
-                print("User Saved")
-            } else {
-                print("Error Saving User to Parse ",error.debugDescription)
-            }
-        }
-        
-    }
-    
-    //Update a User given a user id
-    func updateUserInBackend(userId: String) {
-        
-        //        let localUser: User = User()
-        
-        let query = PFQuery(className:"AppUser")
-        query.getObjectInBackground(withId: userId) { (user: PFObject?, error: Error?) in
-            if (error != nil) {
-                print(error)
-            } else if let user = user{
-                
-                //                user["firstName"] = localUser.firstName
-                // .... update other User attributes
-                user.saveInBackground()
-            }
-        }
-    }
-    
-    // retrieve a user from backend given a user id
-    func fetchUserFromBackend(userId: String)
-    {
-        //        let localUser: User = User()
-        
-        let query = PFQuery(className:"AppUser")
-        query.getObjectInBackground(withId: userId) {
-            (user: PFObject?, error: Error?) in
-            if error == nil && user != nil {
-                
-                //                localUser.firstName = user?["firstName"] as! String
-                
-            } else {
-                print(error.debugDescription)
-            }
-        }
-    }
-    
-    
+
+       /*
+ // Create a query for places
+ let query = PFQuery(className:"Event")
+ // Interested in locations near user.
+ query.whereKey("location", nearGeoPoint: userGeoPoint, withinMiles: 100.0)
+ // Limit what could be a lot of points.
+ query.limit = 20
+ 
+ do {
+ let eventsAroundMe = try query.findObjects()
+ var retrievedEvents: [Event] = []
+ for eventObject in eventsAroundMe {
+ let event = Event(event: eventObject)
+ retrievedEvents.append(event)
+ }
+ events = retrievedEvents
+ print("Events Around me : ", eventsAroundMe.count)
+ firstLoad = false
+ } catch {
+ print(error)
+ }*/
+ 
+ 
+ 
+ 
     /*
      // MARK: - Navigation
-     
+ 
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.

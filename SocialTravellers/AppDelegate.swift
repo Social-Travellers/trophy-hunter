@@ -28,21 +28,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: configuration)
         
-//        if AccessToken.current != nil {
-//            // User is logged in, so skip to the EventFeedVC
-//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//            let eventFeedNavigationVC = storyBoard.instantiateViewController(withIdentifier: "EventFeedNavigationController") as! UINavigationController
-//            window?.rootViewController = eventFeedNavigationVC
-//        }
-        print(AccessToken.current)
-        if User.currentUser != nil {
+        if AccessToken.current != nil {
             // User is logged in, so skip to the EventFeedVC
-            print("User is logged in, so skip to the EventFeedVC")
-            print("User.currentUser = \(User.currentUser)")
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let eventFeedNavigationVC = storyBoard.instantiateViewController(withIdentifier: "EventFeedNavigationController") as! UINavigationController
             window?.rootViewController = eventFeedNavigationVC
         }
+        print("AccessToken =\(AccessToken.current)")
+//        if User.currentUser != nil {
+//            // User is logged in, so skip to the EventFeedVC
+//            print("User is logged in, so skip to the EventFeedVC")
+//            print("User.currentUser = \(User.currentUser)")
+//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//            let eventFeedNavigationVC = storyBoard.instantiateViewController(withIdentifier: "EventFeedNavigationController") as! UINavigationController
+//            window?.rootViewController = eventFeedNavigationVC
+//        }
 
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) {_ in 

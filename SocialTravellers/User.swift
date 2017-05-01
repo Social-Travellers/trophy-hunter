@@ -16,9 +16,9 @@ class User: NSObject {
     var password: String?
     var firstName: String?
     var lastName: String?
-    var id: String?
+    var facebookId: String?
     
-    var fullName: String? // FB returns name as full name so I'm going to keep it as fullName for now
+    var fullName: String? 
     
     var userName: String?  // is this still needed?
     var profilePicUrl: String?
@@ -26,7 +26,7 @@ class User: NSObject {
     var phoneNumber: String?
     var tagline: String?
     var events: [Event]?
-    var facebookId: String?
+    
     
     var dictionary: [String: AnyObject]?
     
@@ -38,7 +38,7 @@ class User: NSObject {
     // Facebook response dictionary
     init(dictionary: [String: AnyObject]) {
         self.dictionary = dictionary
-        print(dictionary)
+        //print(dictionary)
         let profilePictureData = (dictionary["picture"] as AnyObject).value(forKey: "data") as! [String: AnyObject]
         let coverPictureData = dictionary["cover"] as! [String: AnyObject]
         
@@ -54,8 +54,8 @@ class User: NSObject {
         firstName = dictionary["first_name"] as? String
         lastName = dictionary["last_name"] as? String
         email = dictionary["email"] as? String
-        id = dictionary["id"] as? String
-        //tagline = dictionary["about"] as? String Do we want to get this from FB or have user input later?
+        facebookId = dictionary["id"] as? String
+        tagline = dictionary["about"] as? String
 
     }
     
@@ -70,7 +70,7 @@ class User: NSObject {
         self.profilePicUrl = parseDictionary["profilePicUrl"] as? String
         self.phoneNumber = parseDictionary["phoneNumber"] as? String
         self.tagline = parseDictionary["tagline"] as? String
-    }
+    } 
     
     class var currentUser: User? {
         get{
