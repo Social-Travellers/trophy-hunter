@@ -58,7 +58,7 @@ extension LoginViewController: LoginButtonDelegate {
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         // Move to the home screen
         performSegue(withIdentifier: "LoginToEventFeed", sender: self)
-
+        
         let params = ["fields" : "id, email, name, first_name, last_name, picture.type(large), cover, about"]
         // Request data
         let graphRequest = GraphRequest(graphPath: "me", parameters: params)
@@ -108,11 +108,9 @@ extension LoginViewController: LoginButtonDelegate {
                 backendUser["firstName"] = user.firstName ?? "N/A"
                 backendUser["lastName"] = user.lastName ?? "N/A"
                 backendUser["email"] = user.email ?? "N/A"
-                backendUser["userName"] = user.userName ?? "N/A" //Facebook deprecated this
                 backendUser["tagline"] = user.tagline ?? "N/A" //Requires app submission to FB for review
                 backendUser["profilePicUrl"] = user.profilePicUrl ?? "N/A"
                 backendUser["coverPicUrl"] = user.coverPicUrl ?? "N/A"
-                backendUser["phoneNumber"] = user.phoneNumber ?? "N/A" //Requires app submission to FB for review
                 backendUser["facebookId"] = user.facebookId ?? "N/A"
                 
                 backendUser.saveInBackground { (succeeded: Bool, error: Error?) in
@@ -131,7 +129,7 @@ extension LoginViewController: LoginButtonDelegate {
             }
         }
         
-
+        
         
     }
     
@@ -148,13 +146,11 @@ extension LoginViewController: LoginButtonDelegate {
                     backendUser["firstName"] = currentUser.firstName ?? "N/A"
                     backendUser["lastName"] = currentUser.lastName ?? "N/A"
                     backendUser["email"] = currentUser.email ?? "N/A"
-                    backendUser["userName"] = currentUser.userName ?? "N/A" //Facebook deprecated this
                     backendUser["tagline"] = currentUser.tagline ?? "N/A" //Requires app submission to FB for review
                     backendUser["profilePicUrl"] = currentUser.profilePicUrl ?? "N/A"
                     backendUser["coverPicUrl"] = currentUser.coverPicUrl ?? "N/A"
-                    backendUser["phoneNumber"] = currentUser.phoneNumber ?? "N/A" //Requires app submission to FB for review
                     backendUser["facebookId"] = currentUser.facebookId ?? "N/A"
-
+                    
                     backendUser.saveInBackground()
                 }
             }
@@ -175,11 +171,9 @@ extension LoginViewController: LoginButtonDelegate {
                     currentUser.firstName = backendUser?["firstName"] as? String
                     currentUser.lastName = backendUser?["lastName"] as? String
                     currentUser.email = backendUser?["email"] as? String
-                    currentUser.userName = backendUser?["userName"] as? String //Facebook deprecated this
                     currentUser.tagline = backendUser?["tagline"] as? String //Requires app submission to FB for review
                     currentUser.profilePicUrl = backendUser?["profilePicUrl"] as? String
                     currentUser.coverPicUrl = backendUser?["coverPicUrl"] as? String
-                    currentUser.phoneNumber = backendUser?["phoneNumber"] as? String //Requires app submission to FB for review
                     currentUser.facebookId = backendUser?["facebookId"] as? String
                 }
             } else {

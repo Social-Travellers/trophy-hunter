@@ -17,16 +17,11 @@ class User: NSObject {
     var firstName: String?
     var lastName: String?
     var facebookId: String?
-    
-    var fullName: String? 
-    
-    var userName: String?  // is this still needed?
+    var fullName: String?
     var profilePicUrl: String?
     var coverPicUrl: String?
-    var phoneNumber: String?
     var tagline: String?
     var events: [Event]?
-    
     
     var dictionary: [String: AnyObject]?
     
@@ -56,7 +51,7 @@ class User: NSObject {
         email = dictionary["email"] as? String
         facebookId = dictionary["id"] as? String
         tagline = dictionary["about"] as? String
-
+        
     }
     
     // Parse response dictionary
@@ -66,11 +61,9 @@ class User: NSObject {
         self.password = parseDictionary["password"] as? String
         self.firstName = parseDictionary["firstName"] as? String
         self.lastName = parseDictionary["lastName"] as? String
-        self.userName = parseDictionary["userName"] as? String
         self.profilePicUrl = parseDictionary["profilePicUrl"] as? String
-        self.phoneNumber = parseDictionary["phoneNumber"] as? String
         self.tagline = parseDictionary["tagline"] as? String
-    } 
+    }
     
     class var currentUser: User? {
         get{

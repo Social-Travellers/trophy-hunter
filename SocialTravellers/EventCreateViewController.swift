@@ -66,10 +66,10 @@ class EventCreateViewController: UIViewController {
             currentUser["firstName"] = user.firstName ?? NSNull()
             currentUser["lastName"] = user.lastName ?? NSNull()
             currentUser["email"] = user.email ?? NSNull()
-            currentUser["userName"] = user.userName ?? NSNull()
+           // currentUser["userName"] = user.userName ?? NSNull()
             currentUser["tagline"] = user.tagline ?? NSNull()
             currentUser["profilePicUrl"] = user.profilePicUrl ?? NSNull()
-            currentUser["phoneNumber"] = user.phoneNumber ?? NSNull()
+           // currentUser["phoneNumber"] = user.phoneNumber ?? NSNull()
             currentUser["facebookId"] = user.facebookId ?? NSNull()
             
             // Create a relation between event and the user creating the event
