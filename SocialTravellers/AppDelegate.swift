@@ -28,6 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: configuration)
         
+        /*
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let eventDetailsViewController = storyboard.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+        let eventChatViewController = storyboard.instantiateViewController(withIdentifier: "EventChatViewController")
+        let eventUserListViewController = storyboard.instantiateViewController(withIdentifier: "EventUserListViewController")
+        
+        let threeTabViewController = storyboard.instantiateViewController(withIdentifier: "ThreeTabViewController")
+        */
+        
         if AccessToken.current != nil {
             // User is logged in, so skip to the EventFeedVC
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)

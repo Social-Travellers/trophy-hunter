@@ -107,7 +107,7 @@ extension EventFeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "EventFeedToDetails", sender: self)
+        performSegue(withIdentifier: "EventFeedToThreeTab", sender: self)
     }
 }
 

@@ -19,7 +19,7 @@ class EventUserListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        eventDetailHeaderView.event = event
+        //eventDetailHeaderView.event = event
         
         // Do any additional setup after loading the view.
     }
