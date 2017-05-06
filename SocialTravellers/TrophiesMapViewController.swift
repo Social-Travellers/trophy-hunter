@@ -16,7 +16,7 @@ class TrophiesMapViewController: UIViewController {
     @IBOutlet weak var showCameraSceneButton: UIButton!
 
     let locationManager = CLLocationManager()
-    let userLocation: CLLocation!
+    var userLocation: CLLocation!
     
     var firstLoad = true
     var allEvents: [Event] = []
@@ -95,8 +95,8 @@ class TrophiesMapViewController: UIViewController {
         
         do {
             let eventsAroundMe = try query.findObjects()
-            var retrievedEvents: [PFObject] = []
-            for eventObj in retrievedEvents {
+            var retrievedEvents: [Event] = []
+            for eventObj in eventsAroundMe {
                 let event = Event(event: eventObj)
                 retrievedEvents.append(event)
                 addPinToMapView(forMapView: trophiesMapView, location: location, event: event)
