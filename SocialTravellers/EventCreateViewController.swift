@@ -60,7 +60,7 @@ class EventCreateViewController: UIViewController {
         event["location"] = geoPoint
         event["tagline"] = eventDescriptionTextField.text
         // Get current user
-        if let user = User1.currentUser {
+        if let user = User.currentUser {
             // Create an user
             let currentUser = PFObject(className: "User1")
             currentUser["firstName"] = user.firstName ?? NSNull()

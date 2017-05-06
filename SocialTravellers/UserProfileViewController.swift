@@ -18,7 +18,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userTagline: UILabel!
     
-    var user: User1! {
+    var user: User! {
         didSet{
             profileImageView.setImageWith((URL(string: user.profilePicUrl!))!)
             userNameLabel.text = "\(user.firstName!) \(user.lastName!)"
@@ -58,7 +58,7 @@ class UserProfileViewController: UIViewController {
     
 
     func requestCurrentUserDetails(){
-        user = User1.currentUser
+        user = User.currentUser
     }
     
 

@@ -15,7 +15,7 @@ class Event1: NSObject{
     var location: CLLocation?
     var level: NSNumber?
     var picture: PFFile?
-    var completedBy: [User1]?
+    var completedBy: [User]?
     var trophy: Trophy? // Made this a relation in parse change it to an object if it is easier
 
     init(event1: PFObject) {
@@ -33,7 +33,7 @@ class Event1: NSObject{
         
         if let users = event1["completedBy"] as? [[String : AnyObject]] {
             for userDictionary in users {
-                let user = User1(parseDictionary: userDictionary)
+                let user = User(parseDictionary: userDictionary)
                 self.completedBy?.append(user)
             }
         }

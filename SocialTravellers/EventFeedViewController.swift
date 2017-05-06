@@ -42,7 +42,7 @@ class EventFeedViewController: UIViewController {
         let loginManager = LoginManager()
         loginManager.logOut()
         print("loggedout")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User1.userDidLogoutNotification), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User.userDidLogoutNotification), object: nil)
     }
     
     @IBAction func onUserButton(_ sender: Any) {

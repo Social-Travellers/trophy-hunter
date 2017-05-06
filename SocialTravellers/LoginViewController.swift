@@ -74,8 +74,8 @@ extension LoginViewController: LoginButtonDelegate {
                     print(responseDictionary)
                     let data = responseDictionary as [String: AnyObject]
                     
-                    User1.currentUser = User1(dictionary: data)
-                    if let currentUser = User1.currentUser{
+                    User.currentUser = User(dictionary: data)
+                    if let currentUser = User.currentUser{
                         self.saveUserToBackend(user: currentUser)
                     }
                     print("setting User.currentUser in DidCompleteLogin")
@@ -90,7 +90,7 @@ extension LoginViewController: LoginButtonDelegate {
     }
     
     //Method to save data to parse backend
-    func saveUserToBackend(user:User1){
+    func saveUserToBackend(user:User){
         // check if user already exists
         // if user exists do not save a record but update record
         // UPDATE RECORD BY CHECKING FACEBOOK ID
@@ -139,7 +139,7 @@ extension LoginViewController: LoginButtonDelegate {
                 print(error)
             } else if let backendUser = backendUser{
                 
-                if let currentUser = User1.currentUser{
+                if let currentUser = User.currentUser{
                     print("Updating user in back end")
                     backendUser["firstName"] = currentUser.firstName ?? "N/A"
                     backendUser["lastName"] = currentUser.lastName ?? "N/A"
@@ -164,7 +164,7 @@ extension LoginViewController: LoginButtonDelegate {
         query.getObjectInBackground(withId: objectId) {
             (backendUser: PFObject?, error: Error?) in
             if error == nil && backendUser != nil {
-                if let currentUser = User1.currentUser{
+                if let currentUser = User.currentUser{
                     currentUser.firstName = backendUser?["firstName"] as? String
                     currentUser.lastName = backendUser?["lastName"] as? String
                     currentUser.email = backendUser?["email"] as? String
