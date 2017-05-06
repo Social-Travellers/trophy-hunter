@@ -16,7 +16,7 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var timeStampLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    var event: Event1! {
+    var event: Event! {
         didSet {
 //            nameLabel.text = event.name
 //            taglineLabel.text = event.tagline

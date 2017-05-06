@@ -17,7 +17,7 @@ class EventDetailHeader: UIView {
     
     var event: Event! {
         didSet {
-            nameLabel.text = event.name
+            //nameLabel.text = event.name
            // addressLabel.text = event.address event does not have an address property yet
            // distanceLabel.text = event.location?.distance(from: <#T##CLLocation#>)    requires some location magic
         }

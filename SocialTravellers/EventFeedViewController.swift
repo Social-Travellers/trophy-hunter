@@ -16,7 +16,7 @@ class EventFeedViewController: UIViewController {
     @IBOutlet weak var eventFeedTableView: UITableView!
     
     var firstLoad: Bool = true
-    var events: [Event1] = []
+    var events: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,9 +75,9 @@ class EventFeedViewController: UIViewController {
         
         do {
             let eventsAroundMe = try query.findObjects()
-            var retrievedEvents: [Event1] = []
+            var retrievedEvents: [Event] = []
             for eventObject in eventsAroundMe {
-                let event = Event1(event1: eventObject)
+                let event = Event(event: eventObject)
                 retrievedEvents.append(event)
             }
             events = retrievedEvents

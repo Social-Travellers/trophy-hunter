@@ -11,7 +11,7 @@ import Parse
 
 class EventDetailsViewController: UIViewController {
     
-    var selectedEvent: Event1?
+    var selectedEvent: Event?
     
     override func viewDidLoad() {
         super.viewDidLoad()
