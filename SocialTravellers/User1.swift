@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Parse
+
 class User1: NSObject {
     
     // MARK: - Properties
@@ -20,8 +22,8 @@ class User1: NSObject {
     var profilePicUrl: String?
     var coverPicUrl: String?
     
-//    var trophy: [Trophy]
-//    var experiencePoints: NSNumber
+    var trophies: [Trophy]?
+    var experiencePoints: NSNumber?
     
     var dictionary: [String: AnyObject]?
     
@@ -61,6 +63,13 @@ class User1: NSObject {
         self.firstName = parseDictionary["firstName"] as? String
         self.lastName = parseDictionary["lastName"] as? String
         self.profilePicUrl = parseDictionary["profilePicUrl"] as? String
+        if let backendTrophies = parseDictionary["trophies"] as? [PFObject] {
+            for trophyObj in backendTrophies {
+                let trophy = Trophy(trophy: trophyObj)
+                self.trophies?.append(trophy)
+            }
+        }
+        self.experiencePoints = parseDictionary["experiencePoints"] as? NSNumber
     }
     
     class var currentUser: User1? {

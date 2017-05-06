@@ -16,7 +16,7 @@ class EventFeedViewController: UIViewController {
     @IBOutlet weak var eventFeedTableView: UITableView!
     
     var firstLoad: Bool = true
-    var events: [Event] = []
+    var events: [Event1] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class EventFeedViewController: UIViewController {
         let loginManager = LoginManager()
         loginManager.logOut()
         print("loggedout")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User.userDidLogoutNotification), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User1.userDidLogoutNotification), object: nil)
     }
     
     @IBAction func onUserButton(_ sender: Any) {
@@ -75,9 +75,9 @@ class EventFeedViewController: UIViewController {
         
         do {
             let eventsAroundMe = try query.findObjects()
-            var retrievedEvents: [Event] = []
+            var retrievedEvents: [Event1] = []
             for eventObject in eventsAroundMe {
-                let event = Event(event: eventObject)
+                let event = Event1(event1: eventObject)
                 retrievedEvents.append(event)
             }
             events = retrievedEvents

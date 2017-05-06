@@ -16,7 +16,7 @@ class Event: NSObject {
     var objectId: String?
     var location: CLLocation?
     var name: String?
-    var users: [User]?
+    //var users: [User]?
     var startTime: Date?
     var endTime: Date?
     var tagline: String?
@@ -31,12 +31,12 @@ class Event: NSObject {
         if let name = event["name"] as? String {
             self.name = name
         }
-        if let users = event["users"] as? [[String : AnyObject]] {
-            for userDictionary in users {
-                let user = User(parseDictionary: userDictionary)
-                self.users?.append(user)
-            }
-        }
+//        if let users = event["users"] as? [[String : AnyObject]] {
+//            for userDictionary in users {
+//                let user = User(parseDictionary: userDictionary)
+//                self.users?.append(user)
+//            }
+//        }
         if let start = event["startTime"] as? Date {
             self.startTime = start
         }

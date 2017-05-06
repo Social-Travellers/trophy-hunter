@@ -11,7 +11,7 @@ import Parse
 
 class EventDetailsViewController: UIViewController {
     
-    var selectedEvent: Event?
+    var selectedEvent: Event1?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class EventDetailsViewController: UIViewController {
                 print(error!.localizedDescription)
             } else if let event = event{
                 
-                event["name"] = localEvent.name
+                //event["name"] = localEvent.name
                 // .... update other event attributes
                 event.saveInBackground()
             }

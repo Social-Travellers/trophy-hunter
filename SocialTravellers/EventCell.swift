@@ -16,11 +16,11 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var timeStampLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    var event: Event! {
+    var event: Event1! {
         didSet {
-            nameLabel.text = event.name
-            taglineLabel.text = event.tagline
-            userCountLabel.text = "\(event.users?.count ?? 0)"
+//            nameLabel.text = event.name
+//            taglineLabel.text = event.tagline
+//            userCountLabel.text = "\(event.users?.count ?? 0)"
            // timeStampLabel.text =             Gotta do some date magic here.
            // distanceLabel.text = event.location?.distance(from: <#T##CLLocation#>)    requires some location magic
         }

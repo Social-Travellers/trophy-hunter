@@ -18,11 +18,10 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userTagline: UILabel!
     
-    var user: User! {
+    var user: User1! {
         didSet{
             profileImageView.setImageWith((URL(string: user.profilePicUrl!))!)
             userNameLabel.text = "\(user.firstName!) \(user.lastName!)"
-            userTagline.text = user.tagline
             if let profilePictureUrl = user.profilePicUrl{
                 profileImageView.setImageWith((URL(string: profilePictureUrl))!)
                 //Convert square photo to circle
@@ -59,7 +58,7 @@ class UserProfileViewController: UIViewController {
     
 
     func requestCurrentUserDetails(){
-        user = User.currentUser
+        user = User1.currentUser
     }
     
 

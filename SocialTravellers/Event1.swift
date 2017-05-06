@@ -16,7 +16,7 @@ class Event1: NSObject{
     var level: NSNumber?
     var picture: PFFile?
     var completedBy: [User1]?
-    var trophy: Trophy // Made this a relation in parse change it to an object if it is easier
+    var trophy: Trophy? // Made this a relation in parse change it to an object if it is easier
 
     init(event1: PFObject) {
         //Dummy Initializers, please update them according to use case
@@ -29,14 +29,19 @@ class Event1: NSObject{
         }
 
         self.level = event1["level"] as? NSNumber
-        self.picture = event1["picture"] as! PFFile
-
-//        self.completedBy =
-
-        let obj: PFObject = PFObject(className: "Trophy")
-        let localTrophy = Trophy(trophy: obj)
-        self.trophy = localTrophy
+        self.picture = event1["picture"] as? PFFile
         
+        if let users = event1["completedBy"] as? [[String : AnyObject]] {
+            for userDictionary in users {
+                let user = User1(parseDictionary: userDictionary)
+                self.completedBy?.append(user)
+            }
+        }
+        
+        if let trophyObj = event1["trophy"] as? PFObject {
+            let trophy = Trophy(trophy: trophyObj)
+            self.trophy = trophy
+        }
         
     }
 }

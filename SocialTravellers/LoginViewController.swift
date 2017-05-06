@@ -74,9 +74,8 @@ extension LoginViewController: LoginButtonDelegate {
                     print(responseDictionary)
                     let data = responseDictionary as [String: AnyObject]
                     
-                    User.currentUser = User(dictionary: data)
-                    if let currentUser = User.currentUser{
-                        print("tagline = \(currentUser.tagline)")
+                    User1.currentUser = User1(dictionary: data)
+                    if let currentUser = User1.currentUser{
                         self.saveUserToBackend(user: currentUser)
                     }
                     print("setting User.currentUser in DidCompleteLogin")
@@ -91,12 +90,12 @@ extension LoginViewController: LoginButtonDelegate {
     }
     
     //Method to save data to parse backend
-    func saveUserToBackend(user:User){
+    func saveUserToBackend(user:User1){
         // check if user already exists
         // if user exists do not save a record but update record
         // UPDATE RECORD BY CHECKING FACEBOOK ID
         // if user DOES NOT exists create a new record
-        let query = PFQuery(className:"AppUser")
+        let query = PFQuery(className:"User1")
         query.whereKey("facebookId", equalTo: user.facebookId!)
         
         // Check if user already exists
@@ -104,11 +103,10 @@ extension LoginViewController: LoginButtonDelegate {
             if PFUsers == nil || PFUsers?.count == 0{
                 //User not in back end, now saving user as a new entry in back end
                 print("User not in back end, now saving user as a new entry in back end")
-                let backendUser = PFObject(className:"AppUser")
+                let backendUser = PFObject(className:"User1")
                 backendUser["firstName"] = user.firstName ?? "N/A"
                 backendUser["lastName"] = user.lastName ?? "N/A"
                 backendUser["email"] = user.email ?? "N/A"
-                backendUser["tagline"] = user.tagline ?? "N/A" //Requires app submission to FB for review
                 backendUser["profilePicUrl"] = user.profilePicUrl ?? "N/A"
                 backendUser["coverPicUrl"] = user.coverPicUrl ?? "N/A"
                 backendUser["facebookId"] = user.facebookId ?? "N/A"
@@ -135,18 +133,17 @@ extension LoginViewController: LoginButtonDelegate {
     
     //Update a User given that user's object id
     func updateUserInBackend(objectId: String) {
-        let query = PFQuery(className:"AppUser")
+        let query = PFQuery(className:"User1")
         query.getObjectInBackground(withId: objectId) { (backendUser: PFObject?, error: Error?) in
             if (error != nil) {
                 print(error)
             } else if let backendUser = backendUser{
                 
-                if let currentUser = User.currentUser{
+                if let currentUser = User1.currentUser{
                     print("Updating user in back end")
                     backendUser["firstName"] = currentUser.firstName ?? "N/A"
                     backendUser["lastName"] = currentUser.lastName ?? "N/A"
                     backendUser["email"] = currentUser.email ?? "N/A"
-                    backendUser["tagline"] = currentUser.tagline ?? "N/A" //Requires app submission to FB for review
                     backendUser["profilePicUrl"] = currentUser.profilePicUrl ?? "N/A"
                     backendUser["coverPicUrl"] = currentUser.coverPicUrl ?? "N/A"
                     backendUser["facebookId"] = currentUser.facebookId ?? "N/A"
@@ -163,15 +160,14 @@ extension LoginViewController: LoginButtonDelegate {
     {
         //        let localUser: User = User()
         // Create a query for appUsers
-        let query = PFQuery(className:"AppUser")
+        let query = PFQuery(className:"User1")
         query.getObjectInBackground(withId: objectId) {
             (backendUser: PFObject?, error: Error?) in
             if error == nil && backendUser != nil {
-                if let currentUser = User.currentUser{
+                if let currentUser = User1.currentUser{
                     currentUser.firstName = backendUser?["firstName"] as? String
                     currentUser.lastName = backendUser?["lastName"] as? String
                     currentUser.email = backendUser?["email"] as? String
-                    currentUser.tagline = backendUser?["tagline"] as? String //Requires app submission to FB for review
                     currentUser.profilePicUrl = backendUser?["profilePicUrl"] as? String
                     currentUser.coverPicUrl = backendUser?["coverPicUrl"] as? String
                     currentUser.facebookId = backendUser?["facebookId"] as? String
