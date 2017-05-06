@@ -28,6 +28,7 @@
 		51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */; };
 		51607D5E1EB2B05B005D0909 /* EventCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */; };
 		51607D601EB2B06E005D0909 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */; };
+		51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */; };
 		6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreateViewController.swift; sourceTree = "<group>"; };
 		51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
+		51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophiesMapViewController.swift; sourceTree = "<group>"; };
 		8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.release.xcconfig"; sourceTree = "<group>"; };
 		A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTravellers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -144,6 +146,7 @@
 				139AA3E01EB4791D009A42E5 /* EventUserListViewController.swift */,
 				139AA3E41EB47D18009A42E5 /* EventChatViewController.swift */,
 				139AA3E81EB483AA009A42E5 /* UserProfileViewController.swift */,
+				51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				0E3442F41EBDAE040002E073 /* Trophy.swift in Sources */,
 				139AA3E11EB4791D009A42E5 /* EventUserListViewController.swift in Sources */,
 				139AA3E91EB483AA009A42E5 /* UserProfileViewController.swift in Sources */,
+				51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */,
 				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */,
 				139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */,
