@@ -11,6 +11,9 @@
 		0E316C4F1EA5C7DC0030D8DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E316C4D1EA5C7DC0030D8DE /* Main.storyboard */; };
 		0E316C511EA5C7DC0030D8DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E316C501EA5C7DC0030D8DE /* Assets.xcassets */; };
 		0E316C541EA5C7DC0030D8DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E316C521EA5C7DC0030D8DE /* LaunchScreen.storyboard */; };
+		0E3442F41EBDAE040002E073 /* Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3442F31EBDAE040002E073 /* Trophy.swift */; };
+		0E3442F61EBDB1EE0002E073 /* Event1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3442F51EBDB1EE0002E073 /* Event1.swift */; };
+		0E3442F81EBDB1FE0002E073 /* User1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3442F71EBDB1FE0002E073 /* User1.swift */; };
 		0EBC89541EB14BDF00B443A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89531EB14BDF00B443A1 /* User.swift */; };
 		0EBC89561EB14CC500B443A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89551EB14CC500B443A1 /* Event.swift */; };
 		0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89581EB14F6000B443A1 /* Constants.swift */; };
@@ -37,6 +40,9 @@
 		0E316C501EA5C7DC0030D8DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E316C531EA5C7DC0030D8DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E316C551EA5C7DC0030D8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E3442F31EBDAE040002E073 /* Trophy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trophy.swift; sourceTree = "<group>"; };
+		0E3442F51EBDB1EE0002E073 /* Event1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event1.swift; sourceTree = "<group>"; };
+		0E3442F71EBDB1FE0002E073 /* User1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User1.swift; sourceTree = "<group>"; };
 		0EBC89531EB14BDF00B443A1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0EBC89551EB14CC500B443A1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0EBC89581EB14F6000B443A1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -117,6 +123,9 @@
 			children = (
 				0EBC89531EB14BDF00B443A1 /* User.swift */,
 				0EBC89551EB14CC500B443A1 /* Event.swift */,
+				0E3442F31EBDAE040002E073 /* Trophy.swift */,
+				0E3442F51EBDB1EE0002E073 /* Event1.swift */,
+				0E3442F71EBDB1FE0002E073 /* User1.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -298,17 +307,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E3442F41EBDAE040002E073 /* Trophy.swift in Sources */,
 				139AA3E11EB4791D009A42E5 /* EventUserListViewController.swift in Sources */,
 				139AA3E91EB483AA009A42E5 /* UserProfileViewController.swift in Sources */,
 				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */,
 				139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */,
+				0E3442F61EBDB1EE0002E073 /* Event1.swift in Sources */,
 				1386FD781EBAB22800A6DA21 /* ThreeTabViewController.swift in Sources */,
 				51607D5A1EB2B022005D0909 /* EventFeedViewController.swift in Sources */,
 				0EBC89561EB14CC500B443A1 /* Event.swift in Sources */,
 				139AA3E71EB47EA4009A42E5 /* UserCell.swift in Sources */,
 				139AA3DD1EB47446009A42E5 /* EventDetailHeader.swift in Sources */,
 				139AA3E51EB47D18009A42E5 /* EventChatViewController.swift in Sources */,
+				0E3442F81EBDB1FE0002E073 /* User1.swift in Sources */,
 				0E316C4A1EA5C7DC0030D8DE /* AppDelegate.swift in Sources */,
 				51607D601EB2B06E005D0909 /* SelectLocationViewController.swift in Sources */,
 				51607D581EB2891A005D0909 /* LoginViewController.swift in Sources */,
