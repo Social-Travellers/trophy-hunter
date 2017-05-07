@@ -56,7 +56,6 @@ class TrophiesMapViewController: UIViewController {
     }
     
     @IBAction func showCameraSceneClicked(_ sender: UIButton) {
-        //        performSegue(withIdentifier: "trophiesToCameraSegue", sender: nil)
         if let upperBound = UInt32(exactly: allEvents.count) {
             let randomNumber = arc4random_uniform(upperBound)
             if let randomIndex = Int(exactly: randomNumber) {
