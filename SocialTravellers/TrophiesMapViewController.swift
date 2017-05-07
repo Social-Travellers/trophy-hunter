@@ -16,7 +16,7 @@ import FacebookLogin
 class TrophiesMapViewController: UIViewController {
     @IBOutlet weak var trophiesMapView: MKMapView!
     @IBOutlet weak var showCameraSceneButton: UIButton!
-
+    
     let locationManager = CLLocationManager()
     var userLocation: CLLocation!
     
@@ -25,7 +25,7 @@ class TrophiesMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         trophiesMapView.delegate = self
         trophiesMapView.showsUserLocation = true
         
@@ -49,14 +49,28 @@ class TrophiesMapViewController: UIViewController {
             retrieveAllTrophiesAround(location: userLocation)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func showCameraSceneClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "trophiesToCameraSegue", sender: nil)
+        //        performSegue(withIdentifier: "trophiesToCameraSegue", sender: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
+            
+//            viewController.delegate = self
+            
+//            if let mapAnnotation = view.annotation as? MapAnnotation {
+            
+//                viewController.target = mapAnnotation.item
+//                viewController.userLocation = mapView.userLocation.location!
+//                selectedAnnotation = view.annotation
+                self.present(viewController, animated: true, completion: nil)
+//            }
+        }
     }
     
     @IBAction func logoutClicked(_ sender: UIButton) {
@@ -72,7 +86,7 @@ class TrophiesMapViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
-
+    
     func setMapViewRegion(forMapView mapView: MKMapView, location: CLLocation) {
         let span = MKCoordinateSpanMake(0.5, 0.5)
         let region = MKCoordinateRegionMake(location.coordinate, span)
@@ -120,15 +134,15 @@ class TrophiesMapViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {

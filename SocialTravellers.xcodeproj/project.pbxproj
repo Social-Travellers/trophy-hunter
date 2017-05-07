@@ -15,6 +15,8 @@
 		0EBC89541EB14BDF00B443A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89531EB14BDF00B443A1 /* User.swift */; };
 		0EBC89561EB14CC500B443A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89551EB14CC500B443A1 /* Event.swift */; };
 		0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89581EB14F6000B443A1 /* Constants.swift */; };
+		0EDFD2C91EBED107006FC677 /* ARItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFD2C81EBED107006FC677 /* ARItem.swift */; };
+		0EDFD2CB1EBED4E7006FC677 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDFD2CA1EBED4E7006FC677 /* art.scnassets */; };
 		1386FD781EBAB22800A6DA21 /* ThreeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386FD761EBAB22800A6DA21 /* ThreeTabViewController.swift */; };
 		139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AA3D81EB44ACB009A42E5 /* EventCell.swift */; };
 		139AA3DB1EB473CA009A42E5 /* EventDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AA3DA1EB473CA009A42E5 /* EventDetailHeader.xib */; };
@@ -45,6 +47,8 @@
 		0EBC89531EB14BDF00B443A1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0EBC89551EB14CC500B443A1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0EBC89581EB14F6000B443A1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0EDFD2C81EBED107006FC677 /* ARItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARItem.swift; sourceTree = "<group>"; };
+		0EDFD2CA1EBED4E7006FC677 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		1386FD761EBAB22800A6DA21 /* ThreeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeTabViewController.swift; sourceTree = "<group>"; };
 		139AA3D81EB44ACB009A42E5 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		139AA3DA1EB473CA009A42E5 /* EventDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailHeader.xib; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				0E316C501EA5C7DC0030D8DE /* Assets.xcassets */,
 				0E316C521EA5C7DC0030D8DE /* LaunchScreen.storyboard */,
 				0E316C551EA5C7DC0030D8DE /* Info.plist */,
+				0EDFD2CA1EBED4E7006FC677 /* art.scnassets */,
 			);
 			path = SocialTravellers;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 				0EBC89531EB14BDF00B443A1 /* User.swift */,
 				0EBC89551EB14CC500B443A1 /* Event.swift */,
 				0E3442F31EBDAE040002E073 /* Trophy.swift */,
+				0EDFD2C81EBED107006FC677 /* ARItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -228,7 +234,7 @@
 				TargetAttributes = {
 					0E316C451EA5C7DC0030D8DE = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 7QBT6FUF69;
+						DevelopmentTeam = S2LHGGTQ8D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -258,6 +264,7 @@
 			files = (
 				139AA3DB1EB473CA009A42E5 /* EventDetailHeader.xib in Resources */,
 				0E316C541EA5C7DC0030D8DE /* LaunchScreen.storyboard in Resources */,
+				0EDFD2CB1EBED4E7006FC677 /* art.scnassets in Resources */,
 				0E316C511EA5C7DC0030D8DE /* Assets.xcassets in Resources */,
 				0E316C4F1EA5C7DC0030D8DE /* Main.storyboard in Resources */,
 			);
@@ -327,6 +334,7 @@
 				51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */,
 				139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */,
 				1386FD781EBAB22800A6DA21 /* ThreeTabViewController.swift in Sources */,
+				0EDFD2C91EBED107006FC677 /* ARItem.swift in Sources */,
 				51607D5A1EB2B022005D0909 /* EventFeedViewController.swift in Sources */,
 				0EBC89561EB14CC500B443A1 /* Event.swift in Sources */,
 				139AA3E71EB47EA4009A42E5 /* UserCell.swift in Sources */,
@@ -463,7 +471,7 @@
 			baseConfigurationReference = 277846345235161371D062B2 /* Pods-SocialTravellers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7QBT6FUF69;
+				DEVELOPMENT_TEAM = S2LHGGTQ8D;
 				INFOPLIST_FILE = SocialTravellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -478,7 +486,7 @@
 			baseConfigurationReference = 8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7QBT6FUF69;
+				DEVELOPMENT_TEAM = S2LHGGTQ8D;
 				INFOPLIST_FILE = SocialTravellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
