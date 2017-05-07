@@ -7,13 +7,53 @@
 //
 
 import UIKit
+import Parse
 
 class TrophyUnlockedViewController: UIViewController {
-
+    var trophy: Trophy!
+    
+    @IBOutlet weak var trophyImageView: UIImageView!
+    
+    @IBOutlet weak var trophyNameLabel: UILabel!
+    @IBOutlet weak var expAcquiredLabel: UILabel!
+    @IBOutlet weak var currentExpLabel: UILabel!
+    @IBOutlet weak var expToNextLevelLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        retrieveTrophy()
+        //updateScreenLabels()
+        
         // Do any additional setup after loading the view.
+    }
+
+    
+    func retrieveTrophy(){
+        let query = PFQuery(className:"Trophy")
+
+        query.getObjectInBackground(withId: "Mw7eCMdS0H"){ (backendTrophy: PFObject?, error: Error?) in
+            if error == nil && backendTrophy != nil {
+                print(backendTrophy)
+                self.trophy = Trophy(trophy: backendTrophy!)
+                self.updateScreenLabels()
+            } else {
+                print(error)
+            }
+        }
+    }
+ 
+    
+    func updateScreenLabels(){
+        trophyNameLabel.text = trophy.name!
+        expAcquiredLabel.text = "\(String(describing: trophy.experiencePoints!))"
+        
+        currentExpLabel.text = "\(String(describing: User.currentUser?.experiencePoints))"
+     //  expToNextLevelLabel.text = Requires look-up table to know what exp points corresponds to what rank
+        
+     //   trophyImageView.image = trophy.picture
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +65,6 @@ class TrophyUnlockedViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+    
+ }
