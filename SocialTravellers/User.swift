@@ -9,6 +9,9 @@
 import Foundation
 import Parse
 
+let PFUserKeys = ["objectId","email","password","firstName","lastName","profilePicUrl", "trophies", "experiencePoints"]
+
+
 class User: NSObject {
     
     // MARK: - Properties
@@ -26,6 +29,7 @@ class User: NSObject {
     var experiencePoints: NSNumber?
     
     var dictionary: [String: AnyObject]?
+    
     
     static let currentUserDataKey = "currentUserData"
     static let userDidLogoutNotification = "UserDidLogout"
@@ -56,20 +60,32 @@ class User: NSObject {
     }
     
     // Parse response dictionary
-    init(parseDictionary: [String : AnyObject]) {
-        self.objectId = parseDictionary["objectId"] as? String
-        self.email = parseDictionary["email"] as? String
-        self.password = parseDictionary["password"] as? String
-        self.firstName = parseDictionary["firstName"] as? String
-        self.lastName = parseDictionary["lastName"] as? String
-        self.profilePicUrl = parseDictionary["profilePicUrl"] as? String
-        if let backendTrophies = parseDictionary["trophies"] as? [PFObject] {
+    init(PFObject: [String: AnyObject]) {
+        self.dictionary = PFObject
+      /*  var newDictionary = [String:AnyObject]()
+        for key in PFUserKeys{
+            if let value = PFObject[key] as AnyObject?{
+                newDictionary[key] = value
+                print("Key: \(key), Value: \(value)")
+                print("dictionary[\(key)] = \(newDictionary[key])")
+            }
+        }
+        print(self.dictionary)
+        self.dictionary = newDictionary */
+        
+        self.objectId = PFObject["objectId"] as? String
+        self.email = PFObject["email"] as? String
+        self.password = PFObject["password"] as? String
+        self.firstName = PFObject["firstName"] as? String
+        self.lastName = PFObject["lastName"] as? String
+        self.profilePicUrl = PFObject["profilePicUrl"] as? String
+        if let backendTrophies = PFObject["trophies"] as? [PFObject] {
             for trophyObj in backendTrophies {
                 let trophy = Trophy(trophy: trophyObj)
                 self.trophies?.append(trophy)
             }
         }
-        self.experiencePoints = parseDictionary["experiencePoints"] as? NSNumber
+        self.experiencePoints = PFObject["experiencePoints"] as? NSNumber
     }
     
     class var currentUser: User? {

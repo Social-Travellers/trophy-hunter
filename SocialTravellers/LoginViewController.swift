@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
             print("Auth Token: \(accessToken.authenticationToken)")
             if let userId = accessToken.userId {
                 print("User ID: \(userId)")
+                
             }
         }
         
@@ -79,6 +80,7 @@ extension LoginViewController: LoginButtonDelegate {
                     User.currentUser = User(dictionary: data)
                     if let currentUser = User.currentUser{
                         self.saveUserToBackend(user: currentUser)
+
                     }
                     print("setting User.currentUser in DidCompleteLogin")
                 }
@@ -113,6 +115,9 @@ extension LoginViewController: LoginButtonDelegate {
                 backendUser["coverPicUrl"] = user.coverPicUrl ?? "N/A"
                 backendUser["facebookId"] = user.facebookId ?? "N/A"
                 
+               // backendUser[tropies] = user.trophies
+                backendUser["experiencePoints"] = user.experiencePoints ?? 0
+                
                 backendUser.saveInBackground { (succeeded: Bool, error: Error?) in
                     if (succeeded) {
                         print("User Saved")
@@ -125,7 +130,12 @@ extension LoginViewController: LoginButtonDelegate {
                 //user was already in back end, now updating user object in back end
                 print("user was already in back end, now updating user object in back end")
                 let PFUser = PFUsers?[0] //FB ID is unique, so there are only two possibilities. Array has 1 PFUser only, or array is nil
+                
+                //update currentUser 
+                User.currentUser?.objectId = PFUser?.objectId! as! String
+                
                 self.updateUserInBackend(objectId: PFUser?.objectId! as! String)
+                self.fetchUserFromBackend(objectId: (User.currentUser?.objectId!)!)
             }
         }
         
@@ -150,6 +160,9 @@ extension LoginViewController: LoginButtonDelegate {
                     backendUser["coverPicUrl"] = currentUser.coverPicUrl ?? "N/A"
                     backendUser["facebookId"] = currentUser.facebookId ?? "N/A"
                     
+                    // backendUser[tropies] = user.trophies
+                    //backendUser["experiencePoints"] = currentUser.experiencePoints ?? 0
+                    
                     backendUser.saveInBackground()
                 }
             }
@@ -160,7 +173,7 @@ extension LoginViewController: LoginButtonDelegate {
     // retrieve a user from backend given a user id
     func fetchUserFromBackend(objectId: String)
     {
-        //        let localUser: User = User()
+       
         // Create a query for appUsers
         let query = PFQuery(className:"User1")
         query.getObjectInBackground(withId: objectId) {
@@ -173,6 +186,12 @@ extension LoginViewController: LoginButtonDelegate {
                     currentUser.profilePicUrl = backendUser?["profilePicUrl"] as? String
                     currentUser.coverPicUrl = backendUser?["coverPicUrl"] as? String
                     currentUser.facebookId = backendUser?["facebookId"] as? String
+                    
+                   // currentUser.trophies = backendUser?["tropies"] as? [Trophy]
+                    currentUser.experiencePoints = backendUser?["experiencePoints"] as? NSNumber
+                    
+                    //let user = User(PFObject: backendUser! )
+                   // User.currentUser = user
                 }
             } else {
                 print(error.debugDescription)

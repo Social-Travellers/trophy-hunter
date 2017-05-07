@@ -36,8 +36,8 @@ class Event: NSObject {
         
         if let users = event["completedBy"] as? [[String : AnyObject]] {
             for userDictionary in users {
-                let user = User(parseDictionary: userDictionary)
-                self.completedBy?.append(user)
+               // let user = User(PFObject: userDictionary) //shouldn't this be of type PFObject, not [string:anyobject]
+              //  self.completedBy?.append(user)
             }
         }
         
