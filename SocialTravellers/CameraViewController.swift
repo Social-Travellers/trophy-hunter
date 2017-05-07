@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import SceneKit
+import AVFoundation
+import CoreLocation
+
+protocol CameraViewControllerDelegate {
+//    func cameraViewController(controller: CameraViewController, tappedTarget: ARItem)
+}
 
 class CameraViewController: UIViewController {
 
