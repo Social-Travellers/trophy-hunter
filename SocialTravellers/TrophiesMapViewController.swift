@@ -56,6 +56,13 @@ class TrophiesMapViewController: UIViewController {
     }
     
     @IBAction func showCameraSceneClicked(_ sender: UIButton) {
+        if let upperBound = UInt32(exactly: allEvents.count) {
+            let randomNumber = arc4random_uniform(upperBound)
+            if let randomIndex = Int(exactly: randomNumber) {
+                let randomEvent = allEvents[randomIndex]
+                print("Randomly selected event: \(randomEvent)")
+            }
+        }
         performSegue(withIdentifier: "trophiesToCameraSegue", sender: nil)
     }
     
@@ -80,12 +87,13 @@ class TrophiesMapViewController: UIViewController {
     }
     
     func addPinToMapView(forMapView mapView: MKMapView, location: CLLocation, event: Event) {
-        let pointAnnotation = MKPointAnnotation()
-        pointAnnotation.coordinate = location.coordinate
-        if let name = event.name {
-            pointAnnotation.title = name
-        }
-        mapView.addAnnotation(pointAnnotation)
+//        let pointAnnotation = MKPointAnnotation()
+//        pointAnnotation.coordinate = location.coordinate
+//        if let name = event.name {
+//            pointAnnotation.title = name
+//        }
+        let mapAnnotation = MapAnnotation(coordinate: location.coordinate, item: event)
+        mapView.addAnnotation(mapAnnotation)
     }
     
     // MARK: - Backend helper methods
@@ -108,8 +116,12 @@ class TrophiesMapViewController: UIViewController {
             for eventObj in eventsAroundMe {
                 let event = Event(event: eventObj)
                 retrievedEvents.append(event)
-                addPinToMapView(forMapView: trophiesMapView, location: event.location!, event: event)
-                print("Pin added for event")
+                if let location = event.location {
+                    addPinToMapView(forMapView: trophiesMapView, location: location, event: event)
+                    print("Pin added for event")
+                } else {
+                    print("Could not add pin for event")
+                }
             }
             allEvents = retrievedEvents
             print("Events around me: \(eventsAroundMe.count)")
@@ -133,10 +145,16 @@ class TrophiesMapViewController: UIViewController {
 
 extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     
+    // MARK: - Location manager delegate methods
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             userLocation = location
         }
     }
+    
+    // MARK: - MapView delegate methods
+    
+    
     
 }

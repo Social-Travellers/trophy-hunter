@@ -31,6 +31,7 @@
 		51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */; };
 		51607DCC1EBE9402005D0909 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCB1EBE9401005D0909 /* CameraViewController.swift */; };
 		51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */; };
+		51607DD01EBECF07005D0909 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCF1EBECF07005D0909 /* MapAnnotation.swift */; };
 		6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophiesMapViewController.swift; sourceTree = "<group>"; };
 		51607DCB1EBE9401005D0909 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyUnlockedViewController.swift; sourceTree = "<group>"; };
+		51607DCF1EBECF07005D0909 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.release.xcconfig"; sourceTree = "<group>"; };
 		A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTravellers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 				0EBC89531EB14BDF00B443A1 /* User.swift */,
 				0EBC89551EB14CC500B443A1 /* Event.swift */,
 				0E3442F31EBDAE040002E073 /* Trophy.swift */,
+				51607DCF1EBECF07005D0909 /* MapAnnotation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				0E3442F41EBDAE040002E073 /* Trophy.swift in Sources */,
 				139AA3E11EB4791D009A42E5 /* EventUserListViewController.swift in Sources */,
+				51607DD01EBECF07005D0909 /* MapAnnotation.swift in Sources */,
 				139AA3E91EB483AA009A42E5 /* UserProfileViewController.swift in Sources */,
 				51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */,
 				51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */,
