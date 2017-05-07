@@ -29,6 +29,8 @@
 		51607D5E1EB2B05B005D0909 /* EventCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */; };
 		51607D601EB2B06E005D0909 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */; };
 		51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */; };
+		51607DCC1EBE9402005D0909 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCB1EBE9401005D0909 /* CameraViewController.swift */; };
+		51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */; };
 		6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreateViewController.swift; sourceTree = "<group>"; };
 		51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophiesMapViewController.swift; sourceTree = "<group>"; };
+		51607DCB1EBE9401005D0909 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyUnlockedViewController.swift; sourceTree = "<group>"; };
 		8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.release.xcconfig"; sourceTree = "<group>"; };
 		A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTravellers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,6 +103,7 @@
 				0EBC89571EB14F3D00B443A1 /* Helper Files */,
 				0EBC89521EB14BC200B443A1 /* Models */,
 				139AA3DF1EB47480009A42E5 /* Views */,
+				51607DCA1EBE936D005D0909 /* Deprecated Files */,
 				139AA3DE1EB4745D009A42E5 /* ViewControllers */,
 				0E316C4D1EA5C7DC0030D8DE /* Main.storyboard */,
 				0E316C491EA5C7DC0030D8DE /* AppDelegate.swift */,
@@ -138,15 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				51607D571EB2891A005D0909 /* LoginViewController.swift */,
-				1386FD761EBAB22800A6DA21 /* ThreeTabViewController.swift */,
-				51607D591EB2B022005D0909 /* EventFeedViewController.swift */,
-				51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */,
-				51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */,
-				51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */,
-				139AA3E01EB4791D009A42E5 /* EventUserListViewController.swift */,
-				139AA3E41EB47D18009A42E5 /* EventChatViewController.swift */,
-				139AA3E81EB483AA009A42E5 /* UserProfileViewController.swift */,
 				51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */,
+				51607DCB1EBE9401005D0909 /* CameraViewController.swift */,
+				51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -168,6 +167,21 @@
 				A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51607DCA1EBE936D005D0909 /* Deprecated Files */ = {
+			isa = PBXGroup;
+			children = (
+				1386FD761EBAB22800A6DA21 /* ThreeTabViewController.swift */,
+				51607D591EB2B022005D0909 /* EventFeedViewController.swift */,
+				51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */,
+				51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */,
+				51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */,
+				139AA3E01EB4791D009A42E5 /* EventUserListViewController.swift */,
+				139AA3E41EB47D18009A42E5 /* EventChatViewController.swift */,
+				139AA3E81EB483AA009A42E5 /* UserProfileViewController.swift */,
+			);
+			name = "Deprecated Files";
 			sourceTree = "<group>";
 		};
 		B3798745E8D2DEA2173112C0 /* Pods */ = {
@@ -307,6 +321,7 @@
 				0E3442F41EBDAE040002E073 /* Trophy.swift in Sources */,
 				139AA3E11EB4791D009A42E5 /* EventUserListViewController.swift in Sources */,
 				139AA3E91EB483AA009A42E5 /* UserProfileViewController.swift in Sources */,
+				51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */,
 				51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */,
 				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */,
@@ -320,6 +335,7 @@
 				0E316C4A1EA5C7DC0030D8DE /* AppDelegate.swift in Sources */,
 				51607D601EB2B06E005D0909 /* SelectLocationViewController.swift in Sources */,
 				51607D581EB2891A005D0909 /* LoginViewController.swift in Sources */,
+				51607DCC1EBE9402005D0909 /* CameraViewController.swift in Sources */,
 				0EBC89541EB14BDF00B443A1 /* User.swift in Sources */,
 				51607D5E1EB2B05B005D0909 /* EventCreateViewController.swift in Sources */,
 			);

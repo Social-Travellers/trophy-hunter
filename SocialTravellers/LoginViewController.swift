@@ -57,7 +57,9 @@ extension LoginViewController: LoginButtonDelegate {
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         // Move to the home screen
-        performSegue(withIdentifier: "LoginToEventFeed", sender: self)
+//        performSegue(withIdentifier: "LoginToEventFeed", sender: self)
+        performSegue(withIdentifier: "loginToTrophies", sender: self)
+
         
         let params = ["fields" : "id, email, name, first_name, last_name, picture.type(large), cover, about"]
         // Request data

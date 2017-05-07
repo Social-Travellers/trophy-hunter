@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Facebook config - Initial setup
@@ -28,32 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: configuration)
         
-        /*
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let eventDetailsViewController = storyboard.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
-        let eventChatViewController = storyboard.instantiateViewController(withIdentifier: "EventChatViewController")
-        let eventUserListViewController = storyboard.instantiateViewController(withIdentifier: "EventUserListViewController")
-        
-        let threeTabViewController = storyboard.instantiateViewController(withIdentifier: "ThreeTabViewController")
-        */
-        
         if AccessToken.current != nil {
             // User is logged in, so skip to the EventFeedVC
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let eventFeedNavigationVC = storyBoard.instantiateViewController(withIdentifier: "EventFeedNavigationController") as! UINavigationController
-            window?.rootViewController = eventFeedNavigationVC
+            let navigationController = storyBoard.instantiateViewController(withIdentifier: "TrophiesNavigationController") as! UINavigationController
+            window?.rootViewController = navigationController
+
         }
         print("AccessToken =\(AccessToken.current)")
-//        if User.currentUser != nil {
-//            // User is logged in, so skip to the EventFeedVC
-//            print("User is logged in, so skip to the EventFeedVC")
-//            print("User.currentUser = \(User.currentUser)")
-//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//            let eventFeedNavigationVC = storyBoard.instantiateViewController(withIdentifier: "EventFeedNavigationController") as! UINavigationController
-//            window?.rootViewController = eventFeedNavigationVC
-//        }
 
-        
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) {_ in
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")

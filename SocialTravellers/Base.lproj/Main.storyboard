@@ -32,7 +32,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="kho-o1-o1H" kind="show" identifier="LoginToEventFeed" id="HQr-A8-oNW"/>
+                        <segue destination="hYR-4g-Q9g" kind="show" identifier="loginToTrophies" id="v4N-bw-0Gw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -157,7 +157,7 @@
         <!--Trophies Map View Controller-->
         <scene sceneID="ujA-Jr-qE1">
             <objects>
-                <viewController id="icU-6N-VsL" customClass="TrophiesMapViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrophiesMapViewController" id="icU-6N-VsL" customClass="TrophiesMapViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0mo-Cp-dhg"/>
                         <viewControllerLayoutGuide type="bottom" id="SwN-5C-jng"/>
@@ -178,17 +178,86 @@
                                     <action selector="showCameraSceneClicked:" destination="icU-6N-VsL" eventType="touchUpInside" id="9XE-OS-yH4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd2-r0-8zI">
+                                <rect key="frame" x="16" y="607" width="91" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutClicked:" destination="icU-6N-VsL" eventType="touchUpInside" id="LAf-Rr-afZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Kp2-6A-5zr"/>
                     <connections>
                         <outlet property="showCameraSceneButton" destination="QLx-w1-5jc" id="PLr-rb-m8S"/>
                         <outlet property="trophiesMapView" destination="uGs-3L-Qo0" id="fh1-wc-W7W"/>
+                        <segue destination="4t4-bi-A8Z" kind="show" identifier="trophiesToCameraSegue" id="aUw-xS-2iK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0L-Qq-T08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="801.94902548725645"/>
+            <point key="canvasLocation" x="972" y="961"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="vFf-TI-GCa">
+            <objects>
+                <viewController id="4t4-bi-A8Z" customClass="CameraViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pwo-Nt-cOk"/>
+                        <viewControllerLayoutGuide type="bottom" id="TA0-nw-G33"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wea-1s-F18">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgF-Fq-fcl">
+                                <rect key="frame" x="227" y="611" width="132" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Trophy Captured"/>
+                                <connections>
+                                    <action selector="trophyCaptured:" destination="4t4-bi-A8Z" eventType="touchUpInside" id="LvW-zi-kJP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="w7h-BE-5Ua" kind="show" identifier="cameraToUnlockedSegue" id="gre-qb-f7l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ues-9u-iUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1737" y="963"/>
+        </scene>
+        <!--Trophy Unlocked View Controller-->
+        <scene sceneID="DDC-PD-5VH">
+            <objects>
+                <viewController id="w7h-BE-5Ua" customClass="TrophyUnlockedViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5b6-ls-gGu"/>
+                        <viewControllerLayoutGuide type="bottom" id="GxW-Hr-1a9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l3X-nk-ZTs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uQ-cD-Lg2">
+                                <rect key="frame" x="264" y="611" width="95" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismissClicked:" destination="w7h-BE-5Ua" eventType="touchUpInside" id="zke-bT-rgf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xz9-Bf-6QK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2444" y="963"/>
         </scene>
         <!--Create Your Event-->
         <scene sceneID="36k-rP-ILc">
@@ -266,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzp-Ru-nMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1621.5999999999999" y="933.28335832083962"/>
+            <point key="canvasLocation" x="3140" y="951.27436281859082"/>
         </scene>
         <!--Select Location View Controller-->
         <scene sceneID="Wx0-NF-9Yx">
@@ -304,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMR-R6-KeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="894"/>
+            <point key="canvasLocation" x="3440.8000000000002" y="893.70314842578716"/>
         </scene>
         <!--Event User List View Controller-->
         <scene sceneID="u9v-6K-lxw">
@@ -740,7 +809,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PId-Oq-h26" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3608.8000000000002" y="849.62518740629696"/>
+            <point key="canvasLocation" x="4548" y="849.62518740629696"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PfX-QA-zhv">
@@ -759,6 +828,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCK-ci-7tk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852" y="124.58770614692655"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EFp-gO-5Xo">
+            <objects>
+                <navigationController storyboardIdentifier="TrophiesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hYR-4g-Q9g" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8gp-cj-ly8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="icU-6N-VsL" kind="relationship" relationship="rootViewController" id="SaD-Aa-VNp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBp-nh-jCI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="961.16941529235385"/>
         </scene>
     </scenes>
     <resources>

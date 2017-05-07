@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 import MapKit
 import Parse
+import FacebookLogin
+
 
 class TrophiesMapViewController: UIViewController {
     @IBOutlet weak var trophiesMapView: MKMapView!
@@ -54,8 +56,15 @@ class TrophiesMapViewController: UIViewController {
     }
     
     @IBAction func showCameraSceneClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "trophiesToCameraSegue", sender: nil)
     }
     
+    @IBAction func logoutClicked(_ sender: UIButton) {
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        print("loggedout")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User.userDidLogoutNotification), object: nil)
+    }
     // MARK: - MapView helper methods
     
     func startStandardUpdates() {
