@@ -108,7 +108,7 @@ class TrophiesMapViewController: UIViewController {
             for eventObj in eventsAroundMe {
                 let event = Event(event: eventObj)
                 retrievedEvents.append(event)
-                addPinToMapView(forMapView: trophiesMapView, location: location, event: event)
+                addPinToMapView(forMapView: trophiesMapView, location: event.location!, event: event)
                 print("Pin added for event")
             }
             allEvents = retrievedEvents

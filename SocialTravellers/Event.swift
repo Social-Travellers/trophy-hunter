@@ -25,9 +25,9 @@ class Event: NSObject {
         self.objectId = event["objectId"] as? String
         self.name = event["name"] as? String
         
-        if let location = event["location"] as? (CLLocationDegrees, CLLocationDegrees) {
-            let lat = location.0
-            let long = location.1
+        if let location = event["location"] as? PFGeoPoint {
+            let lat = location.latitude
+            let long = location.longitude
             self.location = CLLocation(latitude: lat, longitude: long)
         }
         
