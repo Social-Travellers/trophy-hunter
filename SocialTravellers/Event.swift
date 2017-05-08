@@ -41,9 +41,17 @@ class Event: NSObject {
             }
         }
         
-        if let trophyObj = event["trophy"] as? PFObject {
-            let trophy = Trophy(trophy: trophyObj)
-            self.trophy = trophy
+        let relation = event.relation(forKey: "trophy")
+        let query = relation.query()
+        
+        do {
+            let objects = try query.findObjects()
+            if let trophyObj = objects.first {
+                let trophy = Trophy(trophy: trophyObj)
+                self.trophy = trophy
+            }
+        } catch {
+            print("Could not fetch trophy for event \(self.objectId ?? "0")")
         }
         
     }    

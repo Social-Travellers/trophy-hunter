@@ -27,7 +27,9 @@ class CameraViewController: UIViewController {
     var locationManger = CLLocationManager()
     var heading: Double = 0
     var userLocation = CLLocation()
+    var eventLocation = CLLocation()
     var delegate: CameraViewControllerDelegate?
+    var selectedEvent: Event?
     
     let scene = SCNScene()
     let cameraNode = SCNNode()
@@ -42,9 +44,14 @@ class CameraViewController: UIViewController {
         self.locationManger.startUpdatingHeading()
         
         //TODO: setting local location get it from previous VC
-        self.userLocation = self.locationManger.location!
+        if let location = selectedEvent?.location {
+            eventLocation = location
+            print("Event location: \(eventLocation)")
+        } else {
+            print("Could not get location from event")
+        }
+        userLocation = self.locationManger.location!
         print(userLocation)
-        //
         
         sceneView.scene = scene
         cameraNode.camera = SCNCamera()
@@ -52,8 +59,22 @@ class CameraViewController: UIViewController {
         scene.rootNode.addChildNode(cameraNode)
         
         //TODO: setting local target, remove once target is set by PArse backend
-        self.target = ARItem(itemDescription: "dragon", location: CLLocation(latitude: 37.337, longitude: -121.8949), itemNode: nil)
-        //
+        if let event = selectedEvent {
+            if let trophy = event.trophy {
+                if let itemDesc = trophy.itemDescription {
+                    self.target = ARItem(itemDescription: itemDesc, location: eventLocation, itemNode: nil)
+//                    self.target = ARItem(itemDescription: "dragon", location: CLLocation(latitude: 37.337, longitude: -121.8949), itemNode: nil)
+//                    self.target = ARItem(itemDescription: "dragon", location: CLLocation(latitude: 37.337, longitude: -121.8949), itemNode: nil)
+                } else {
+                    print("Description error")
+                }
+            } else {
+                print("Trophy error")
+            }
+        }
+        else {
+            print("Event error")
+        }
         
         setupTarget()
     }

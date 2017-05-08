@@ -61,13 +61,15 @@ class TrophiesMapViewController: UIViewController {
             if let randomIndex = Int(exactly: randomNumber) {
                 let randomEvent = allEvents[randomIndex]
                 print("Randomly selected event: \(randomEvent)")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
+                    viewController.selectedEvent = randomEvent
+                    print("Location: \(randomEvent.location)")
+                    print("Description: \(randomEvent.trophy?.itemDescription)")
+                    self.present(viewController, animated: true, completion: nil)
+                }
             }
-        }
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
-            self.present(viewController, animated: true, completion: nil)
         }
     }
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import SceneKit
 
 class Trophy: NSObject{
     
@@ -15,6 +16,8 @@ class Trophy: NSObject{
     var name: String?
     var picture: PFFile? //adding a file as we dont want to save it elsewhere and fetch it by url
     var experiencePoints: NSNumber?
+    var itemDescription: String?
+    var itemNode: SCNNode?
     
     init(trophy: PFObject) {
         self.objectId = trophy["objectId"] as? String
@@ -23,5 +26,7 @@ class Trophy: NSObject{
         self.picture = trophy["picture"] as? PFFile
 
         self.experiencePoints = trophy["experiencePoints"] as? NSNumber
+        
+        self.itemDescription = trophy["itemDescription"] as? String
     }
 }
