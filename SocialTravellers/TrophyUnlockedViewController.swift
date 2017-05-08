@@ -63,7 +63,7 @@ class TrophyUnlockedViewController: UIViewController {
     
     @IBAction func dismissClicked(_ sender: UIButton) {
         navigationController?.popToRootViewController(animated: true)
-        if let viewController = storyboard?.instantiateViewController(withIdentifier: "TrophiesMapViewController") as? TrophiesMapViewController {
+        if let viewController = storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as? Container1ViewController {
             
             // TODO Remove trophy from Map
                     self.present(viewController, animated: true, completion: nil)

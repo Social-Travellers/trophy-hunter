@@ -39,7 +39,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         viewControllers.append(userProfileViewController)
         viewControllers.append(scoreboardViewController)
        
-        containerViewController?.contentViewController = userProfileViewController
+        containerViewController?.contentViewController = trophiesViewController
         
     }
     fileprivate func configureRowHeight() {
