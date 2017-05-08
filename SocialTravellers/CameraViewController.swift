@@ -212,6 +212,18 @@ class CameraViewController: UIViewController {
         
         if hitResult.first != nil {
             print("trophyTapped")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "TrophyUnlockedView") as? TrophyUnlockedViewController {
+                if let event = self.selectedEvent {
+                    if let trophy = event.trophy {
+                    viewController.trophy = trophy
+                    print("Description: \(String(describing: event.trophy?.itemDescription))")
+                    self.present(viewController, animated: true, completion: nil)
+                    }
+                }
+            }
+            
         }
         else {
             print("trophy Not Tapped")
