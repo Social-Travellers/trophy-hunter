@@ -11,9 +11,9 @@ import SceneKit
 import AVFoundation
 import CoreLocation
 
-protocol CameraViewControllerDelegate {
-    func cameraViewController(controller: CameraViewController, tappedTarget: ARItem)
-}
+//protocol CameraViewControllerDelegate {
+//    func cameraViewController(controller: CameraViewController, tappedTarget: Trophy)
+//}
 
 class CameraViewController: UIViewController {
 
@@ -23,11 +23,9 @@ class CameraViewController: UIViewController {
     
     var cameraSession: AVCaptureSession?
     var cameraLayer: AVCaptureVideoPreviewLayer?
-//    var target: ARItem!
     var locationManger = CLLocationManager()
     var heading: Double = 0
     var userLocation = CLLocation()
-    var delegate: CameraViewControllerDelegate?
     var selectedEvent: Event?
     
     var itemDesc: String?
@@ -60,15 +58,11 @@ class CameraViewController: UIViewController {
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
         scene.rootNode.addChildNode(cameraNode)
         
-        //TODO: setting local target, remove once target is set by PArse backend
         if let event = selectedEvent {
             if let trophy = event.trophy {
                 if let itemDesc = trophy.itemDescription {
                     
                     self.itemDesc = itemDesc
-//                    self.target = ARItem(itemDescription: itemDesc, location: eventLocation, itemNode: nil)
-//                    self.target = ARItem(itemDescription: "dragon", location: CLLocation(latitude: 37.337, longitude: -121.8949), itemNode: nil)
-//                    self.target = ARItem(itemDescription: "dragon", location: CLLocation(latitude: 37.337, longitude: -121.8949), itemNode: nil)
                 } else {
                     print("Description error")
                 }
@@ -140,7 +134,6 @@ class CameraViewController: UIViewController {
     }
     
     func repositionTarget() {
-//        let heading = getHeadingForDirectionFromCoordinate(from: userLocation, to: target.location)
         let heading = getHeadingForDirectionFromCoordinate(from: userLocation, to: eventLocation)
 
         
@@ -194,8 +187,6 @@ class CameraViewController: UIViewController {
     }
     
     func setupTarget() {
-//        let scene = SCNScene(named: "art.scnassets/\(target.itemDescription).dae")
-        print(itemDesc)
         let scene = SCNScene(named: "art.scnassets/\(itemDesc!).dae")
 
         let enemy = scene?.rootNode.childNode(withName: self.itemDesc!, recursively: true)
@@ -226,26 +217,6 @@ class CameraViewController: UIViewController {
             print("trophy Not Tapped")
 
         }
-
-//        let fireBall = SCNParticleSystem(named: "Fireball.scnp", inDirectory: nil)
-//        
-//        let emitterNode = SCNNode()
-//        emitterNode.position = SCNVector3(x: 0, y: -5, z: 10)
-//        emitterNode.addParticleSystem(fireBall!)
-//        scene.rootNode.addChildNode(emitterNode)
-//        
-//        if hitResult.first != nil {
-//            target.itemNode?.runAction(SCNAction.sequence([SCNAction.wait(duration: 0.5), SCNAction.removeFromParentNode(), SCNAction.hide()]))
-//            let sequence = SCNAction.sequence(
-//                [SCNAction.move(to: target.itemNode!.position, duration: 0.5),
-//                 SCNAction.wait(duration: 3.5),
-//                 SCNAction.run({_ in
-//                    self.delegate?.cameraViewController(controller: self, tappedTarget: self.target)
-//                 })])
-//            emitterNode.runAction(sequence)
-//        } else {
-//            emitterNode.runAction(SCNAction.move(to: SCNVector3(x: 0, y: 0, z: -30), duration: 0.5))
-//        }
     }
 }
 
