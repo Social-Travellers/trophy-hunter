@@ -9,19 +9,17 @@ People will have the option to start an event happening around them or join an e
 
 **Required User Stories:**
  * [ ] Required: User can sign up with a username and password
- * [ ] Required: Users can edit preferences in the settings tab even when app is closed
-  * Add Profile Picture
-  * Preferred activities
-  * Frequency: daily, weekly, selected days (pick your own)
-  * Distance they are willing to travel (select: within 1 mile, 5 miles, 10 miles)
  * [ ] Required: Profile pictures
- * [ ] Required: Activity nearby and customized backgrounds for each activity
- * [ ] Required: Notifications of Chat log between a group and a potential member
- * [ ] Required: End of Activity screen: signal that Activity was a success or not and potentially rate it
- * [ ] Required: You can see a map of Activities nearby
+ * [ ] Required: You can see a map of Trophies nearby as pins on the map
+ * [ ] Required: You can tap on a Trophy pin and enter the camera view
+ * [ ] Required: You can look around for a Trophy on the camera view and tap to unlock it
+ * [ ] Required: You can view a list of unlocked Trophies
+ * [ ] Required: You can view a scoreboard of users based on experience points
 
 
 **Nice To Have/Optional:**
+ * [ ] Required: Users can edit preferences in the settings tab even when app is closed
+   * Add Profile Picture
  * [ ] Optional: Users can receive push notifications to their calendar, smart watch, etc
  * [ ] Optional: Users can setup custom groups
  * [ ] Optional: Users can login with Facebook/twitter
@@ -29,4 +27,3 @@ People will have the option to start an event happening around them or join an e
  * [ ] Optional: Pinpoint specific address
  * [ ] Optional: Add onto calendar option
  * [ ] Optional: Profile section to add extra info
- * [ ] Optional: Anonymize user info till they agree to meet and are accepted by a group
