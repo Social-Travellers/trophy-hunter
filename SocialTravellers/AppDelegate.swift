@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let menuViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
             let containerViewController = storyBoard.instantiateViewController(withIdentifier: "ContainerViewController") as! Container1ViewController
-            let containerNavigationViewController = storyBoard.instantiateViewController(withIdentifier: "Container1NavigationController") as! UINavigationController
+ //           let containerNavigationViewController = storyBoard.instantiateViewController(withIdentifier: "Container1NavigationController") as! UINavigationController
             
 //            window?.rootViewController = containerNavigationViewController
             window?.rootViewController = containerViewController

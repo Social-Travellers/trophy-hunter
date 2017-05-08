@@ -12,7 +12,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var trophiesNavigationController: UINavigationController!
+    fileprivate var trophiesViewController: UIViewController!
     fileprivate var userProfileViewController: UIViewController!
     fileprivate var scoreboardViewController: UIViewController!
     
@@ -31,18 +31,22 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("ViewDidLoad: MenuViewController")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        trophiesNavigationController = storyboard.instantiateViewController(withIdentifier: "TrophiesNavigationController") as! UINavigationController
+        trophiesViewController = storyboard.instantiateViewController(withIdentifier: "TrophiesMapViewController") as! UIViewController
         userProfileViewController = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController") as! UIViewController
         scoreboardViewController = storyboard.instantiateViewController(withIdentifier: "ScoreboardViewController") as! UIViewController
         
-        viewControllers.append(trophiesNavigationController)
+        viewControllers.append(trophiesViewController)
         viewControllers.append(userProfileViewController)
         viewControllers.append(scoreboardViewController)
        
-        containerViewController?.contentViewController = trophiesNavigationController
+        containerViewController?.contentViewController = userProfileViewController
         
     }
-
+    fileprivate func configureRowHeight() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
         cell.menuLabel.text = menuLabels[indexPath.row]
@@ -57,12 +61,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         containerViewController.contentViewController = viewControllers[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    fileprivate func configureRowHeight() {
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
