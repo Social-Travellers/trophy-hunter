@@ -23,14 +23,16 @@ class CameraViewController: UIViewController {
     
     var cameraSession: AVCaptureSession?
     var cameraLayer: AVCaptureVideoPreviewLayer?
-    var target: ARItem!
+//    var target: ARItem!
     var locationManger = CLLocationManager()
     var heading: Double = 0
     var userLocation = CLLocation()
-    var eventLocation = CLLocation()
     var delegate: CameraViewControllerDelegate?
     var selectedEvent: Event?
     
+    var itemDesc: String?
+    var eventLocation = CLLocation()
+
     let scene = SCNScene()
     let cameraNode = SCNNode()
     let targetNode = SCNNode(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0))
@@ -62,7 +64,9 @@ class CameraViewController: UIViewController {
         if let event = selectedEvent {
             if let trophy = event.trophy {
                 if let itemDesc = trophy.itemDescription {
-                    self.target = ARItem(itemDescription: itemDesc, location: eventLocation, itemNode: nil)
+                    
+                    self.itemDesc = itemDesc
+//                    self.target = ARItem(itemDescription: itemDesc, location: eventLocation, itemNode: nil)
 //                    self.target = ARItem(itemDescription: "dragon", location: CLLocation(latitude: 37.337, longitude: -121.8949), itemNode: nil)
 //                    self.target = ARItem(itemDescription: "dragon", location: CLLocation(latitude: 37.337, longitude: -121.8949), itemNode: nil)
                 } else {
@@ -136,7 +140,9 @@ class CameraViewController: UIViewController {
     }
     
     func repositionTarget() {
-        let heading = getHeadingForDirectionFromCoordinate(from: userLocation, to: target.location)
+//        let heading = getHeadingForDirectionFromCoordinate(from: userLocation, to: target.location)
+        let heading = getHeadingForDirectionFromCoordinate(from: userLocation, to: eventLocation)
+
         
         let delta = heading - self.heading
         
@@ -151,9 +157,9 @@ class CameraViewController: UIViewController {
             rightIndicator.isHidden = true
         }
         
-        let distance = userLocation.distance(from: target.location)
+        let distance = userLocation.distance(from: eventLocation)
         
-        if let node = target.itemNode {
+        if let node = selectedEvent?.trophy?.itemNode {
             if node.parent == nil {
                 node.position = SCNVector3(x: Float(delta), y: 0, z: Float(-distance))
                 scene.rootNode.addChildNode(node)
@@ -188,10 +194,13 @@ class CameraViewController: UIViewController {
     }
     
     func setupTarget() {
-        let scene = SCNScene(named: "art.scnassets/\(target.itemDescription).dae")
-        let enemy = scene?.rootNode.childNode(withName: target.itemDescription, recursively: true)
+//        let scene = SCNScene(named: "art.scnassets/\(target.itemDescription).dae")
+        print(itemDesc)
+        let scene = SCNScene(named: "art.scnassets/\(itemDesc!).dae")
+
+        let enemy = scene?.rootNode.childNode(withName: self.itemDesc!, recursively: true)
         
-        if target.itemDescription == "dragon" {
+        if self.itemDesc == "dragon" {
             enemy?.position = SCNVector3(x: 0, y: -15, z: 0)
         } else {
             enemy?.position = SCNVector3(x: 0, y: 0, z: 0)
@@ -200,7 +209,7 @@ class CameraViewController: UIViewController {
         let node = SCNNode()
         node.addChildNode(enemy!)
         node.name = "enemy"
-        self.target.itemNode = node
+        self.selectedEvent?.trophy?.itemNode = node
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
