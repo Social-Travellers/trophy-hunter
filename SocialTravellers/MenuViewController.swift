@@ -8,14 +8,62 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    fileprivate var trophiesNavigationController: UINavigationController!
+    fileprivate var userProfileViewController: UIViewController!
+    fileprivate var scoreboardViewController: UIViewController!
+    
+    var menuLabels = ["Map", "Profile", "High Scores"]
+    
+    var viewControllers: [UIViewController] = []
+    var containerViewController: Container1ViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        configureRowHeight()
+        
+        print("ViewDidLoad: MenuViewController")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        trophiesNavigationController = storyboard.instantiateViewController(withIdentifier: "TrophiesNavigationController") as! UINavigationController
+        userProfileViewController = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController") as! UIViewController
+        scoreboardViewController = storyboard.instantiateViewController(withIdentifier: "ScoreboardViewController") as! UIViewController
+        
+        viewControllers.append(trophiesNavigationController)
+        viewControllers.append(userProfileViewController)
+        viewControllers.append(scoreboardViewController)
+       
+        containerViewController?.contentViewController = trophiesNavigationController
+        
     }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
+        cell.menuLabel.text = menuLabels[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewControllers.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        containerViewController.contentViewController = viewControllers[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    fileprivate func configureRowHeight() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

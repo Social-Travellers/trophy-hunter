@@ -9,7 +9,7 @@
 import Foundation
 import Parse
 
-let PFUserKeys = ["objectId","email","password","firstName","lastName","profilePicUrl", "trophies", "experiencePoints"]
+let PFUserKeys = ["email","facebookId","password","firstName","lastName","profilePicUrl", "trophies", "experiencePoints"]
 
 
 class User: NSObject {
@@ -27,6 +27,7 @@ class User: NSObject {
     
     var trophies: [Trophy]?
     var experiencePoints: NSNumber?
+    var rank: String?
     
     var dictionary: [String: AnyObject]?
     
@@ -60,20 +61,21 @@ class User: NSObject {
     }
     
     // Parse response dictionary
-    init(PFObject: [String: AnyObject]) {
-        self.dictionary = PFObject
-      /*  var newDictionary = [String:AnyObject]()
+    init(PFObject: PFObject) {
+       // self.dictionary = PFObject
+       var newDictionary = [String:AnyObject]()
         for key in PFUserKeys{
             if let value = PFObject[key] as AnyObject?{
+                
                 newDictionary[key] = value
-                print("Key: \(key), Value: \(value)")
-                print("dictionary[\(key)] = \(newDictionary[key])")
+            //    print("Key: \(key), Value: \(value)")
+            //    print("dictionary[\(key)] = \(newDictionary[key])")
             }
         }
-        print(self.dictionary)
-        self.dictionary = newDictionary */
+        //print(self.dictionary)
+        self.dictionary = newDictionary
         
-        self.objectId = PFObject["objectId"] as? String
+        self.objectId = PFObject.objectId
         self.email = PFObject["email"] as? String
         self.password = PFObject["password"] as? String
         self.firstName = PFObject["firstName"] as? String
