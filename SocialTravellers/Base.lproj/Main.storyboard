@@ -170,14 +170,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLx-w1-5jc">
-                                <rect key="frame" x="269" y="607" width="90" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <action selector="showCameraSceneClicked:" destination="icU-6N-VsL" eventType="touchUpInside" id="9XE-OS-yH4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd2-r0-8zI">
                                 <rect key="frame" x="16" y="607" width="91" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -191,7 +183,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Kp2-6A-5zr"/>
                     <connections>
-                        <outlet property="showCameraSceneButton" destination="QLx-w1-5jc" id="PLr-rb-m8S"/>
                         <outlet property="trophiesMapView" destination="uGs-3L-Qo0" id="fh1-wc-W7W"/>
                         <segue destination="4t4-bi-A8Z" kind="show" identifier="trophiesToCameraSegue" id="aUw-xS-2iK"/>
                     </connections>

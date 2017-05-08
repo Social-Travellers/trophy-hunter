@@ -40,10 +40,10 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSCameraUsageDescription</key>
-    <string>Needed for viewing Trophy</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Needed for AR Trophy Location</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Needed for viewing Trophy</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Needed for AR Trophy Location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Whos Down would like access to your Photos</string>
 	<key>UILaunchStoryboardName</key>

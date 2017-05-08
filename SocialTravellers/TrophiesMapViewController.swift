@@ -22,6 +22,7 @@ class TrophiesMapViewController: UIViewController {
     
     var firstLoad = true
     var allEvents: [Event] = []
+    var selectedEvent: Event?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,23 +56,33 @@ class TrophiesMapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func showCameraSceneClicked(_ sender: UIButton) {
-        if let upperBound = UInt32(exactly: allEvents.count) {
-            let randomNumber = arc4random_uniform(upperBound)
-            if let randomIndex = Int(exactly: randomNumber) {
-                let randomEvent = allEvents[randomIndex]
-                print("Randomly selected event: \(randomEvent)")
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                
-                if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
-                    viewController.selectedEvent = randomEvent
-                    print("Location: \(randomEvent.location)")
-                    print("Description: \(randomEvent.trophy?.itemDescription)")
-                    self.present(viewController, animated: true, completion: nil)
-                }
-            }
-        }
-    }
+//    @IBAction func showCameraSceneClicked(_ sender: UIButton) {
+////        if let upperBound = UInt32(exactly: allEvents.count) {
+////            let randomNumber = arc4random_uniform(upperBound)
+////            if let randomIndex = Int(exactly: randomNumber) {
+////                let randomEvent = allEvents[randomIndex]
+////                print("Randomly selected event: \(randomEvent)")
+////                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+////                
+////                if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
+////                    viewController.selectedEvent = randomEvent
+////                    print("Location: \(randomEvent.location)")
+////                    print("Description: \(randomEvent.trophy?.itemDescription)")
+////                    self.present(viewController, animated: true, completion: nil)
+////                }
+////            }
+////        }
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
+//            if let event = self.selectedEvent {
+//                viewController.selectedEvent = event
+//                print("Location: \(String(describing: event.location))")
+//                print("Description: \(String(describing: event.trophy?.itemDescription))")
+//                self.present(viewController, animated: true, completion: nil)
+//            }
+//        }
+//    }
     
     @IBAction func logoutClicked(_ sender: UIButton) {
         let loginManager = LoginManager()
@@ -162,6 +173,40 @@ extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegat
     
     // MARK: - MapView delegate methods
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let mapAnnotation = annotation as? MapAnnotation {
+            let pinIdentifier = "Trophy"
+            
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: pinIdentifier)
+            
+            if annotationView == nil {
+                annotationView = MKPinAnnotationView(annotation: mapAnnotation, reuseIdentifier: pinIdentifier)
+                annotationView!.canShowCallout = true
+                annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            }
+            
+            return annotationView
+        }
+        
+        return nil
+    }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let tappedAnnotation = view.annotation as? MapAnnotation {
+            let selectedEvent = tappedAnnotation.item
+            self.selectedEvent = selectedEvent
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
+                if let event = self.selectedEvent {
+                    viewController.selectedEvent = event
+                    print("Location: \(String(describing: event.location))")
+                    print("Description: \(String(describing: event.trophy?.itemDescription))")
+                    self.present(viewController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
     
 }
