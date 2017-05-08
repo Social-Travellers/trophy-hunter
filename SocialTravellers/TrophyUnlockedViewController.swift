@@ -52,8 +52,18 @@ class TrophyUnlockedViewController: UIViewController {
         currentExpLabel.text = "\(String(describing: User.currentUser?.experiencePoints))"
      //  expToNextLevelLabel.text = Requires look-up table to know what exp points corresponds to what rank
         
-     //   trophyImageView.image = trophy.picture
-        
+        let userImageFile = trophy.picture!
+        userImageFile.getDataInBackground {
+            (imageData: Data?, error: Error?) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    self.trophyImageView.image = image
+                    print("loaded image successfully")
+                }
+            }
+        }
+      //  trophyImageView.image = trophy.picture
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,11 +72,12 @@ class TrophyUnlockedViewController: UIViewController {
     }
     
     @IBAction func dismissClicked(_ sender: UIButton) {
-        navigationController?.popToRootViewController(animated: true)
+       // navigationController?.popViewController(animated: true)
+        print("dismissClicked")
         if let viewController = storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as? Container1ViewController {
             
             // TODO Remove trophy from Map
-                    self.present(viewController, animated: true, completion: nil)
+                //    self.present(viewController, animated: true, completion: nil)
         }
     }
  }
