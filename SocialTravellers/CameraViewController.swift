@@ -193,6 +193,12 @@ class CameraViewController: UIViewController {
         
         if self.itemDesc == "dragon" {
             enemy?.position = SCNVector3(x: 0, y: -15, z: 0)
+        } else if self.itemDesc == "wolf" {
+            enemy?.position = SCNVector3(x: 0, y: 0, z: 0)
+        } else if self.itemDesc == "wrench"{
+            enemy?.position = SCNVector3(x: 0, y: 5, z: 0)
+        } else if self.itemDesc == "arcanine"{
+            enemy?.position = SCNVector3(x: 0, y: 40, z: 0)
         } else {
             enemy?.position = SCNVector3(x: 0, y: 0, z: 0)
         }
