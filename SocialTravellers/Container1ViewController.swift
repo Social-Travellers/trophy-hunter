@@ -60,7 +60,10 @@ class Container1ViewController: UIViewController {
             originalLeftMarginConstraint = leftMarginConstraint.constant
         } else if sender.state == .changed {
             print("GestureRecognizer CHANGED")
-            leftMarginConstraint.constant = originalLeftMarginConstraint + translation.x
+            if !(originalLeftMarginConstraint == 0 && velocity.x < 0){
+                leftMarginConstraint.constant = originalLeftMarginConstraint + translation.x
+            }
+            
         } else if sender.state == .ended {
             print("GestureRecognizer ENDED")
             UIView.animate(withDuration: 0.3, animations: {

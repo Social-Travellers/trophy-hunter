@@ -8,26 +8,27 @@
 
 import Foundation
 
-//class RankTable: NSOBject {
-//    
-//    func lookUpRank(experiencePoints: NSNumber) -> String {
-//        
-//        if experiencePoints = experiencePoints{
-//            switch experiencePoints {
-//            case 0..<50:
-//                return "noob"
-//            case 50..<150:
-//                return "Grown-up"
-//            case 150..<1000:
-//                return "Warrior"
-//            case 1000..<5000:
-//                return "Knight"
-//            case <5000:
-//                return "Royalty"
-//            default:
-//                return "noob"
-//            }
-//        }
-//        return "noob"
-//    }
-//}
+class RankTable: NSObject {
+
+    func lookUpRank(experiencePoints: NSNumber) -> String {
+        let expAsInt = Int(experiencePoints)
+        
+        if expAsInt != nil{
+            switch expAsInt {
+            case 0..<50:
+                return "Noob"
+            case 50..<150:
+                return "Grown-up"
+            case 150..<1000:
+                return "Warrior"
+            case 1000..<5000:
+                return "Knight"
+            case 5000..<Int.max:
+                return "Royalty"
+            default:
+                return "Noob"
+            }
+        }
+        return "Noob"
+    }
+}

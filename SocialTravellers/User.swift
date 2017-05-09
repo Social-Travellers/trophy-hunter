@@ -27,7 +27,14 @@ class User: NSObject {
     
     var trophies: [Trophy]?
     var experiencePoints: NSNumber?
-    var rank: String?
+    lazy var rank:String = {
+        let rankTable = RankTable()
+        if let expPoints = self.experiencePoints{
+        return rankTable.lookUpRank(experiencePoints: expPoints)
+        }
+        return "Noob"
+    }()
+    
     
     var dictionary: [String: AnyObject]?
     
