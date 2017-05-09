@@ -16,7 +16,6 @@
 		0EBC89561EB14CC500B443A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89551EB14CC500B443A1 /* Event.swift */; };
 		0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC89581EB14F6000B443A1 /* Constants.swift */; };
 		0EDFD2CB1EBED4E7006FC677 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDFD2CA1EBED4E7006FC677 /* art.scnassets */; };
-		1386FD781EBAB22800A6DA21 /* ThreeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386FD761EBAB22800A6DA21 /* ThreeTabViewController.swift */; };
 		138F9F921EBFF648002DD4E6 /* Container1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138F9F911EBFF648002DD4E6 /* Container1ViewController.swift */; };
 		138F9F941EBFF673002DD4E6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138F9F931EBFF673002DD4E6 /* MenuViewController.swift */; };
 		138F9F961EBFF7F7002DD4E6 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138F9F951EBFF7F7002DD4E6 /* MenuCell.swift */; };
@@ -25,15 +24,9 @@
 		139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AA3D81EB44ACB009A42E5 /* EventCell.swift */; };
 		139AA3DB1EB473CA009A42E5 /* EventDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AA3DA1EB473CA009A42E5 /* EventDetailHeader.xib */; };
 		139AA3DD1EB47446009A42E5 /* EventDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AA3DC1EB47446009A42E5 /* EventDetailHeader.swift */; };
-		139AA3E11EB4791D009A42E5 /* EventUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AA3E01EB4791D009A42E5 /* EventUserListViewController.swift */; };
-		139AA3E51EB47D18009A42E5 /* EventChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AA3E41EB47D18009A42E5 /* EventChatViewController.swift */; };
 		139AA3E71EB47EA4009A42E5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AA3E61EB47EA4009A42E5 /* UserCell.swift */; };
 		139AA3E91EB483AA009A42E5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AA3E81EB483AA009A42E5 /* UserProfileViewController.swift */; };
 		51607D581EB2891A005D0909 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D571EB2891A005D0909 /* LoginViewController.swift */; };
-		51607D5A1EB2B022005D0909 /* EventFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D591EB2B022005D0909 /* EventFeedViewController.swift */; };
-		51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */; };
-		51607D5E1EB2B05B005D0909 /* EventCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */; };
-		51607D601EB2B06E005D0909 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */; };
 		51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */; };
 		51607DCC1EBE9402005D0909 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCB1EBE9401005D0909 /* CameraViewController.swift */; };
 		51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */; };
@@ -53,7 +46,6 @@
 		0EBC89551EB14CC500B443A1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0EBC89581EB14F6000B443A1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0EDFD2CA1EBED4E7006FC677 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		1386FD761EBAB22800A6DA21 /* ThreeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeTabViewController.swift; sourceTree = "<group>"; };
 		138F9F911EBFF648002DD4E6 /* Container1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container1ViewController.swift; sourceTree = "<group>"; };
 		138F9F931EBFF673002DD4E6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		138F9F951EBFF7F7002DD4E6 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -62,16 +54,10 @@
 		139AA3D81EB44ACB009A42E5 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		139AA3DA1EB473CA009A42E5 /* EventDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailHeader.xib; sourceTree = "<group>"; };
 		139AA3DC1EB47446009A42E5 /* EventDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailHeader.swift; sourceTree = "<group>"; };
-		139AA3E01EB4791D009A42E5 /* EventUserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventUserListViewController.swift; sourceTree = "<group>"; };
-		139AA3E41EB47D18009A42E5 /* EventChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventChatViewController.swift; sourceTree = "<group>"; };
 		139AA3E61EB47EA4009A42E5 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		139AA3E81EB483AA009A42E5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		277846345235161371D062B2 /* Pods-SocialTravellers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.debug.xcconfig"; sourceTree = "<group>"; };
 		51607D571EB2891A005D0909 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		51607D591EB2B022005D0909 /* EventFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFeedViewController.swift; sourceTree = "<group>"; };
-		51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
-		51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreateViewController.swift; sourceTree = "<group>"; };
-		51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophiesMapViewController.swift; sourceTree = "<group>"; };
 		51607DCB1EBE9401005D0909 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyUnlockedViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +144,7 @@
 		139AA3DE1EB4745D009A42E5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				139AA3E81EB483AA009A42E5 /* UserProfileViewController.swift */,
 				51607D571EB2891A005D0909 /* LoginViewController.swift */,
 				51607DC81EBE7D76005D0909 /* TrophiesMapViewController.swift */,
 				51607DCB1EBE9401005D0909 /* CameraViewController.swift */,
@@ -193,14 +180,6 @@
 		51607DCA1EBE936D005D0909 /* Deprecated Files */ = {
 			isa = PBXGroup;
 			children = (
-				1386FD761EBAB22800A6DA21 /* ThreeTabViewController.swift */,
-				51607D591EB2B022005D0909 /* EventFeedViewController.swift */,
-				51607D5B1EB2B040005D0909 /* EventDetailsViewController.swift */,
-				51607D5D1EB2B05B005D0909 /* EventCreateViewController.swift */,
-				51607D5F1EB2B06E005D0909 /* SelectLocationViewController.swift */,
-				139AA3E01EB4791D009A42E5 /* EventUserListViewController.swift */,
-				139AA3E41EB47D18009A42E5 /* EventChatViewController.swift */,
-				139AA3E81EB483AA009A42E5 /* UserProfileViewController.swift */,
 			);
 			name = "Deprecated Files";
 			sourceTree = "<group>";
@@ -342,30 +321,23 @@
 			files = (
 				138F9F981EBFFEB2002DD4E6 /* ScoreboardViewController.swift in Sources */,
 				0E3442F41EBDAE040002E073 /* Trophy.swift in Sources */,
-				139AA3E11EB4791D009A42E5 /* EventUserListViewController.swift in Sources */,
 				51607DD01EBECF07005D0909 /* MapAnnotation.swift in Sources */,
 				139AA3E91EB483AA009A42E5 /* UserProfileViewController.swift in Sources */,
 				51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */,
 				51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */,
 				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				138F9F941EBFF673002DD4E6 /* MenuViewController.swift in Sources */,
-				51607D5C1EB2B040005D0909 /* EventDetailsViewController.swift in Sources */,
 				139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */,
 				138F9F921EBFF648002DD4E6 /* Container1ViewController.swift in Sources */,
-				1386FD781EBAB22800A6DA21 /* ThreeTabViewController.swift in Sources */,
-				51607D5A1EB2B022005D0909 /* EventFeedViewController.swift in Sources */,
 				0EBC89561EB14CC500B443A1 /* Event.swift in Sources */,
 				139AA3E71EB47EA4009A42E5 /* UserCell.swift in Sources */,
 				139AA3DD1EB47446009A42E5 /* EventDetailHeader.swift in Sources */,
-				139AA3E51EB47D18009A42E5 /* EventChatViewController.swift in Sources */,
 				138F9F9A1EBFFF8C002DD4E6 /* User1Cell.swift in Sources */,
 				0E316C4A1EA5C7DC0030D8DE /* AppDelegate.swift in Sources */,
-				51607D601EB2B06E005D0909 /* SelectLocationViewController.swift in Sources */,
 				51607D581EB2891A005D0909 /* LoginViewController.swift in Sources */,
 				138F9F961EBFF7F7002DD4E6 /* MenuCell.swift in Sources */,
 				51607DCC1EBE9402005D0909 /* CameraViewController.swift in Sources */,
 				0EBC89541EB14BDF00B443A1 /* User.swift in Sources */,
-				51607D5E1EB2B05B005D0909 /* EventCreateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
