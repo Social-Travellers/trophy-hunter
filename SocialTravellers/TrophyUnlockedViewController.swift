@@ -10,16 +10,6 @@ import UIKit
 import Parse
 
 class TrophyUnlockedViewController: UIViewController {
-    var trophy: Trophy!
-    
-    var user: User! {
-        didSet {
-            expToNextLevelLabel.text = rankTable.lookUpRank(experiencePoints: user.experiencePoints!)
-            currentExpLabel.text = "\(user.experiencePoints!)"
-        }
-    }
-    
-    var rankTable = RankTable()
     
     @IBOutlet weak var trophyImageView: UIImageView!
     
@@ -27,31 +17,28 @@ class TrophyUnlockedViewController: UIViewController {
     @IBOutlet weak var expAcquiredLabel: UILabel!
     @IBOutlet weak var currentExpLabel: UILabel!
     @IBOutlet weak var expToNextLevelLabel: UILabel!
+    @IBOutlet weak var currentRankLabel: UILabel!
     
+    var trophy: Trophy!
+    
+    var user: User! {
+        didSet {
+            if let userExp = user.experiencePoints{
+            currentExpLabel.text = "\(userExp)"
+            currentRankLabel.text = rankTable.lookUpRank(experiencePoints: userExp)
+            expToNextLevelLabel.text = rankTable.expToNextRank(experiencePoints: userExp)
+            }
+        }
+    }
+    
+    var rankTable = RankTable()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        retrieveTrophy()
+
         fetchUserAndUpdateExp(userId: User.currentUser!.facebookId!)
-        //updateScreenLabels()
-        
-        // Do any additional setup after loading the view.
-    }
+        updateTrophyLabels(trophy: trophy)
 
-    
-    func retrieveTrophy(){
-        let query = PFQuery(className:"Trophy")
-
-        query.getObjectInBackground(withId: "Mw7eCMdS0H"){ (backendTrophy: PFObject?, error: Error?) in
-            if error == nil && backendTrophy != nil {
-                print(backendTrophy!)
-                self.trophy = Trophy(trophy: backendTrophy!)
-                self.updateScreenLabels()
-            } else {
-                print(error!)
-            }
-        }
     }
     
     func fetchUserAndUpdateExp(userId facebookId: String) {
@@ -88,13 +75,10 @@ class TrophyUnlockedViewController: UIViewController {
     }
     
     
-    func updateScreenLabels(){
+    func updateTrophyLabels(trophy: Trophy){
         trophyNameLabel.text = trophy.name!
         expAcquiredLabel.text = "\(String(describing: trophy.experiencePoints!))"
-        
-//        currentExpLabel.text = "\(String(describing: User.currentUser?.experiencePoints))"
-     //  expToNextLevelLabel.text = Requires look-up table to know what exp points corresponds to what rank
-        
+
         let userImageFile = trophy.picture!
         userImageFile.getDataInBackground {
             (imageData: Data?, error: Error?) -> Void in
@@ -106,24 +90,18 @@ class TrophyUnlockedViewController: UIViewController {
                 }
             }
         }
-      //  trophyImageView.image = trophy.picture
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func dismissClicked(_ sender: UIButton) {
-       // navigationController?.popViewController(animated: true)
+        // navigationController?.popViewController(animated: true)
         print("dismissClicked")
         let trophyUnlockedName = NSNotification.Name(rawValue: "TrophyUnlocked")
         NotificationCenter.default.post(name: trophyUnlockedName, object: nil)
         print("TrophyUnlocked notification posted")
-//        if let viewController = storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as? Container1ViewController {
-//            
-//            // TODO Remove trophy from Map
-//                //    self.present(viewController, animated: true, completion: nil)
-//        }
     }
- }
+}
