@@ -74,10 +74,13 @@ class TrophyUnlockedViewController: UIViewController {
     @IBAction func dismissClicked(_ sender: UIButton) {
        // navigationController?.popViewController(animated: true)
         print("dismissClicked")
-        if let viewController = storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as? Container1ViewController {
-            
-            // TODO Remove trophy from Map
-                //    self.present(viewController, animated: true, completion: nil)
-        }
+        let trophyUnlockedName = NSNotification.Name(rawValue: "TrophyUnlocked")
+        NotificationCenter.default.post(name: trophyUnlockedName, object: nil)
+        print("TrophyUnlocked notification posted")
+//        if let viewController = storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as? Container1ViewController {
+//            
+//            // TODO Remove trophy from Map
+//                //    self.present(viewController, animated: true, completion: nil)
+//        }
     }
  }

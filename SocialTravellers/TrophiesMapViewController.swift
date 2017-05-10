@@ -23,6 +23,7 @@ class TrophiesMapViewController: UIViewController {
     var firstLoad = true
     var allEvents: [Event] = []
     var selectedEvent: Event?
+    var selectedAnnotationView: MKPinAnnotationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,9 @@ class TrophiesMapViewController: UIViewController {
         setMapViewRegion(forMapView: trophiesMapView, location: userLocation)
         
         retrieveAllTrophiesAround(location: userLocation)
+        
+        let trophyUnlockedName = NSNotification.Name(rawValue: "TrophyUnlocked")
+        NotificationCenter.default.addObserver(self, selector: #selector(trophyUnlocked), name: trophyUnlockedName, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,35 +59,7 @@ class TrophiesMapViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    @IBAction func showCameraSceneClicked(_ sender: UIButton) {
-////        if let upperBound = UInt32(exactly: allEvents.count) {
-////            let randomNumber = arc4random_uniform(upperBound)
-////            if let randomIndex = Int(exactly: randomNumber) {
-////                let randomEvent = allEvents[randomIndex]
-////                print("Randomly selected event: \(randomEvent)")
-////                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-////                
-////                if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
-////                    viewController.selectedEvent = randomEvent
-////                    print("Location: \(randomEvent.location)")
-////                    print("Description: \(randomEvent.trophy?.itemDescription)")
-////                    self.present(viewController, animated: true, completion: nil)
-////                }
-////            }
-////        }
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        
-//        if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
-//            if let event = self.selectedEvent {
-//                viewController.selectedEvent = event
-//                print("Location: \(String(describing: event.location))")
-//                print("Description: \(String(describing: event.trophy?.itemDescription))")
-//                self.present(viewController, animated: true, completion: nil)
-//            }
-//        }
-//    }
-    
+        
     @IBAction func logoutClicked(_ sender: UIButton) {
         let loginManager = LoginManager()
         loginManager.logOut()
@@ -105,11 +81,6 @@ class TrophiesMapViewController: UIViewController {
     }
     
     func addPinToMapView(forMapView mapView: MKMapView, location: CLLocation, event: Event) {
-//        let pointAnnotation = MKPointAnnotation()
-//        pointAnnotation.coordinate = location.coordinate
-//        if let name = event.name {
-//            pointAnnotation.title = name
-//        }
         let mapAnnotation = MapAnnotation(coordinate: location.coordinate, item: event)
         mapView.addAnnotation(mapAnnotation)
     }
@@ -146,6 +117,22 @@ class TrophiesMapViewController: UIViewController {
             firstLoad = false
         } catch {
             print("Error: \(error.localizedDescription)")
+        }
+    }
+    
+    // MARK: - Notification observers
+    
+    func trophyUnlocked() {
+        print("Notification received")
+        print("Trophy has been unlocked")
+        selectedAnnotationView!.pinTintColor = UIColor.yellow
+        dismiss(animated: true) { 
+            let alertController = UIAlertController(title: "Trophy Unlocked", message: "You unlocked a trophy. Go get them all!", preferredStyle: .alert)
+        
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -193,6 +180,7 @@ extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegat
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let tappedAnnotation = view.annotation as? MapAnnotation {
+            self.selectedAnnotationView = (view as! MKPinAnnotationView)
             let selectedEvent = tappedAnnotation.item
             self.selectedEvent = selectedEvent
             
