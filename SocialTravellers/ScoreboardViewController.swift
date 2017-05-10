@@ -16,6 +16,7 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
     
     var users: [User] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,15 +60,22 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        if segue.identifier == "ScoreboardToUser"{
+            let userCell = sender as! User1Cell
+            let userIndexPath = tableView.indexPath(for: userCell)
+            let user = users[(userIndexPath?.row)!]
+            let userProfileVC = segue.destination as! UserProfileViewController
+            userProfileVC.userFromCell = user
+        }
+        
+        
      }
-     */
+    
     
     fileprivate func configureRowHeight() {
         tableView.rowHeight = UITableViewAutomaticDimension

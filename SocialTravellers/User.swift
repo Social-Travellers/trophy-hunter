@@ -88,6 +88,7 @@ class User: NSObject {
         self.firstName = PFObject["firstName"] as? String
         self.lastName = PFObject["lastName"] as? String
         self.profilePicUrl = PFObject["profilePicUrl"] as? String
+        self.coverPicUrl = PFObject["coverPicUrl"] as? String
         if let backendTrophies = PFObject["trophies"] as? [PFObject] {
             for trophyObj in backendTrophies {
                 let trophy = Trophy(trophy: trophyObj)
