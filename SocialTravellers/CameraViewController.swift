@@ -82,6 +82,10 @@ class CameraViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func closeClicked(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func createCaptureSession() -> (session: AVCaptureSession?, error: NSError?) {
         var error: NSError?
         var captureSession: AVCaptureSession?
