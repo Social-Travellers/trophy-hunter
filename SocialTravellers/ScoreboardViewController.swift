@@ -71,6 +71,7 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
             let user = users[(userIndexPath?.row)!]
             let userProfileVC = segue.destination as! UserProfileViewController
             userProfileVC.userFromCell = user
+            userProfileVC.transitionedFromSegue = true
         }
         
         
@@ -93,7 +94,6 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
             let user = users[indexPath.row]
             cell.user = user
         }
-        //cell.nameLabel.text = "foobar"
         print("setting up cell")
         return cell
     }

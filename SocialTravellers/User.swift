@@ -24,6 +24,7 @@ class User: NSObject {
     var fullName: String?
     var profilePicUrl: String?
     var coverPicUrl: String?
+    var tagline: String?
     
     var trophies: [Trophy]?
     var experiencePoints: NSNumber?
@@ -35,9 +36,16 @@ class User: NSObject {
         return "Noob"
     }()
     
+    lazy var expToNextRank:String = {
+        let rankTable = RankTable()
+        if let expPoints = self.experiencePoints{
+            return rankTable.expToNextRank(experiencePoints: expPoints)
+        }
+        return "expPoints is nil"
+    }()
+    
     
     var dictionary: [String: AnyObject]?
-    
     
     static let currentUserDataKey = "currentUserData"
     static let userDidLogoutNotification = "UserDidLogout"
@@ -73,10 +81,7 @@ class User: NSObject {
        var newDictionary = [String:AnyObject]()
         for key in PFUserKeys{
             if let value = PFObject[key] as AnyObject?{
-                
                 newDictionary[key] = value
-            //    print("Key: \(key), Value: \(value)")
-            //    print("dictionary[\(key)] = \(newDictionary[key])")
             }
         }
         //print(self.dictionary)
@@ -96,6 +101,7 @@ class User: NSObject {
             }
         }
         self.experiencePoints = PFObject["experiencePoints"] as? NSNumber
+        self.tagline = PFObject["tagline"] as? String
     }
     
     class var currentUser: User? {
@@ -121,7 +127,6 @@ class User: NSObject {
             else {
                 defaults.removeObject(forKey: currentUserDataKey)
             }
-            
             defaults.synchronize()
         }
     }

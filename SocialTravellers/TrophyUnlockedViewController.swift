@@ -24,9 +24,9 @@ class TrophyUnlockedViewController: UIViewController {
     var user: User! {
         didSet {
             if let userExp = user.experiencePoints{
-            currentExpLabel.text = "\(userExp)"
-            currentRankLabel.text = rankTable.lookUpRank(experiencePoints: userExp)
-            expToNextLevelLabel.text = rankTable.expToNextRank(experiencePoints: userExp)
+                currentExpLabel.text = "\(userExp)"
+                expToNextLevelLabel.text = user.expToNextRank
+                currentRankLabel.text = user.rank
             }
         }
     }
@@ -35,10 +35,10 @@ class TrophyUnlockedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         fetchUserAndUpdateExp(userId: User.currentUser!.facebookId!)
         updateTrophyLabels(trophy: trophy)
-
+        
     }
     
     func fetchUserAndUpdateExp(userId facebookId: String) {
@@ -78,7 +78,7 @@ class TrophyUnlockedViewController: UIViewController {
     func updateTrophyLabels(trophy: Trophy){
         trophyNameLabel.text = trophy.name!
         expAcquiredLabel.text = "\(String(describing: trophy.experiencePoints!))"
-
+        
         let userImageFile = trophy.picture!
         userImageFile.getDataInBackground {
             (imageData: Data?, error: Error?) -> Void in

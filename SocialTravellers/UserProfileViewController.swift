@@ -15,20 +15,25 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
+
+    @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var userTagline: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var experiencePointsLabel: UILabel!
     @IBOutlet weak var trophiesCountLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
+    
     
     var userFromCell: User!
+    var transitionedFromSegue: Bool!
     
     var user: User! {
         didSet{
-          //  profileImageView.setImageWith((URL(string: user.profilePicUrl!))!)
-            
-            userNameLabel.text = "\(user.firstName!) \(user.lastName!)"
+            nameLabel.text = "\(user.firstName!) \(user.lastName!)"
             rankLabel.text = user.rank
+            userTagline.text = user.tagline
+            
             if let exp = user.experiencePoints{
                 experiencePointsLabel.text = "\(exp)"
             }
@@ -47,9 +52,28 @@ class UserProfileViewController: UIViewController {
             if let coverPictureUrl = user.coverPicUrl{
                 coverImageView.setImageWith((URL(string: coverPictureUrl))!)
             }
-            userNameLabel.text = user.fullName
-            // userTagline.text = user.tagline Need to ask extra permissions for this. Should we?
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if userFromCell == nil{
+            print("fetching new user from parse")
+            fetchUser(facebookId: (User.currentUser?.facebookId)!)
+        } else{
+            print("receiving user from scoreboard")
+            user = userFromCell
+        }
+        if let transitionedFromSegue = transitionedFromSegue{
+            if transitionedFromSegue == true {
+                closeButton.isHidden = false
+            } else {
+                closeButton.isHidden = true
+            }
+        } else{
+            closeButton.isHidden = true
+        }
+        
     }
     
     func fetchUser(facebookId: String){
@@ -77,63 +101,12 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if userFromCell == nil{
-            print("fetching new user from parse")
-        fetchUser(facebookId: (User.currentUser?.facebookId)!)
-        } else{
-            print("receiving user from scoreboard")
-            user = userFromCell
-        }
-
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-    func requestCurrentUserDetails(){
-        user = User.currentUser
+    @IBAction func onCancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    
-    
-    /*
-     // Create a query for places
-     let query = PFQuery(className:"Event")
-     // Interested in locations near user.
-     query.whereKey("location", nearGeoPoint: userGeoPoint, withinMiles: 100.0)
-     // Limit what could be a lot of points.
-     query.limit = 20
-     
-     do {
-     let eventsAroundMe = try query.findObjects()
-     var retrievedEvents: [Event] = []
-     for eventObject in eventsAroundMe {
-     let event = Event(event: eventObject)
-     retrievedEvents.append(event)
-     }
-     events = retrievedEvents
-     print("Events Around me : ", eventsAroundMe.count)
-     firstLoad = false
-     } catch {
-     print(error)
-     }*/
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
