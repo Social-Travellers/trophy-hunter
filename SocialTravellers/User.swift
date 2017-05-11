@@ -31,7 +31,7 @@ class User: NSObject {
     lazy var rank:String = {
         let rankTable = RankTable()
         if let expPoints = self.experiencePoints{
-        return rankTable.lookUpRank(experiencePoints: expPoints)
+            return rankTable.lookUpRank(experiencePoints: expPoints)
         }
         return "Noob"
     }()
@@ -77,8 +77,8 @@ class User: NSObject {
     
     // Parse response dictionary
     init(PFObject: PFObject) {
-       // self.dictionary = PFObject
-       var newDictionary = [String:AnyObject]()
+        // self.dictionary = PFObject
+        var newDictionary = [String:AnyObject]()
         for key in PFUserKeys{
             if let value = PFObject[key] as AnyObject?{
                 newDictionary[key] = value
@@ -94,12 +94,27 @@ class User: NSObject {
         self.lastName = PFObject["lastName"] as? String
         self.profilePicUrl = PFObject["profilePicUrl"] as? String
         self.coverPicUrl = PFObject["coverPicUrl"] as? String
-        if let backendTrophies = PFObject["trophies"] as? [PFObject] {
-            for trophyObj in backendTrophies {
-                let trophy = Trophy(trophy: trophyObj)
-                self.trophies?.append(trophy)
+        //        if let backendTrophies = PFObject["trophies"] as? [PFObject] {
+        //            for trophyObj in backendTrophies {
+        //                let trophy = Trophy(trophy: trophyObj)
+        //                self.trophies?.append(trophy!)
+        //            }
+        //        }
+        
+        let relation = PFObject.relation(forKey: "trophies")
+        let query = relation.query()
+        
+        do {
+            let objects = try query.findObjects()
+            
+            for object in objects{
+                let trophy = Trophy(trophy: object)
+                self.trophies?.append(trophy!)
             }
+        } catch {
+            print("Could not fetch trophy for user \(self.objectId ?? "0")")
         }
+        
         self.experiencePoints = PFObject["experiencePoints"] as? NSNumber
         self.tagline = PFObject["tagline"] as? String
     }

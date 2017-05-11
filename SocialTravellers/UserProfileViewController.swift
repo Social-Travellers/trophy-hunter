@@ -15,7 +15,7 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var userTagline: UILabel!
@@ -33,6 +33,7 @@ class UserProfileViewController: UIViewController {
             nameLabel.text = "\(user.firstName!) \(user.lastName!)"
             rankLabel.text = user.rank
             userTagline.text = user.tagline
+            trophiesCountLabel.text = "\(user.trophies?.count ?? 0)"
             
             if let exp = user.experiencePoints{
                 experiencePointsLabel.text = "\(exp)"
@@ -48,7 +49,6 @@ class UserProfileViewController: UIViewController {
                 profileImageView.layer.borderWidth = 3.0
                 profileImageView.layer.borderColor =  UIColor(red:1.0, green:1.0, blue:1.0, alpha:1.0).cgColor
             }
-            print(user.coverPicUrl)
             if let coverPictureUrl = user.coverPicUrl{
                 coverImageView.setImageWith((URL(string: coverPictureUrl))!)
             }

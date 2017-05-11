@@ -19,8 +19,10 @@ class Trophy: NSObject{
     var itemDescription: String?
     var itemNode: SCNNode?
     
-    init(trophy: PFObject) {
-        self.objectId = trophy["objectId"] as? String
+    init?(trophy: PFObject) {
+        guard let id = trophy.objectId as? String else{ return nil}
+        self.objectId = id
+        
         self.name = trophy["name"] as? String
         
         self.picture = trophy["picture"] as? PFFile

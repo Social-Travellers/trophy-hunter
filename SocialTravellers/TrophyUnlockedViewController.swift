@@ -59,11 +59,17 @@ class TrophyUnlockedViewController: UIViewController {
                     
                     if let currentXp = backendUser["experiencePoints"] as? NSNumber {
                         let newXp = currentXp.intValue + self.trophy.experiencePoints!.intValue
+                        backendUser.add(self.trophy, forKey: "trophies")
+                        
                         backendUser["experiencePoints"] = newXp
                         backendUser.saveInBackground() { (succeeded: Bool, error: Error?) in
+                            if succeeded{
                             print("User XP updated")
                             let frontendUser = User(PFObject: backendUser)
                             self.user = frontendUser
+                            } else {
+                                print("Error: \(error?.localizedDescription))")
+                            }
                         }
                     }
                 }
