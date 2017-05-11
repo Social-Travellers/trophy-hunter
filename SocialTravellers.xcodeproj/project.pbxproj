@@ -32,6 +32,8 @@
 		51607DCC1EBE9402005D0909 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCB1EBE9401005D0909 /* CameraViewController.swift */; };
 		51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */; };
 		51607DD01EBECF07005D0909 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCF1EBECF07005D0909 /* MapAnnotation.swift */; };
+		518037A21EC449C9003FB9A0 /* UserTrophiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518037A11EC449C9003FB9A0 /* UserTrophiesViewController.swift */; };
+		518037A41EC44D55003FB9A0 /* TrophyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518037A31EC44D55003FB9A0 /* TrophyCollectionViewCell.swift */; };
 		6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		51607DCB1EBE9401005D0909 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyUnlockedViewController.swift; sourceTree = "<group>"; };
 		51607DCF1EBECF07005D0909 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		518037A11EC449C9003FB9A0 /* UserTrophiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrophiesViewController.swift; sourceTree = "<group>"; };
+		518037A31EC44D55003FB9A0 /* TrophyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyCollectionViewCell.swift; sourceTree = "<group>"; };
 		8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.release.xcconfig"; sourceTree = "<group>"; };
 		A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTravellers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,6 +159,7 @@
 				138F9F911EBFF648002DD4E6 /* Container1ViewController.swift */,
 				138F9F931EBFF673002DD4E6 /* MenuViewController.swift */,
 				138F9F971EBFFEB2002DD4E6 /* ScoreboardViewController.swift */,
+				518037A11EC449C9003FB9A0 /* UserTrophiesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				139AA3E61EB47EA4009A42E5 /* UserCell.swift */,
 				138F9F991EBFFF8C002DD4E6 /* User1Cell.swift */,
 				138F9F951EBFF7F7002DD4E6 /* MenuCell.swift */,
+				518037A31EC44D55003FB9A0 /* TrophyCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -326,7 +332,9 @@
 				0E3442F41EBDAE040002E073 /* Trophy.swift in Sources */,
 				51607DD01EBECF07005D0909 /* MapAnnotation.swift in Sources */,
 				139AA3E91EB483AA009A42E5 /* UserProfileViewController.swift in Sources */,
+				518037A41EC44D55003FB9A0 /* TrophyCollectionViewCell.swift in Sources */,
 				51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */,
+				518037A21EC449C9003FB9A0 /* UserTrophiesViewController.swift in Sources */,
 				51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */,
 				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				138F9F941EBFF673002DD4E6 /* MenuViewController.swift in Sources */,
