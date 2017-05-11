@@ -14,9 +14,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     fileprivate var trophiesViewController: UIViewController!
     fileprivate var userProfileViewController: UIViewController!
+    fileprivate var userTrophiesViewController: UIViewController!
     fileprivate var scoreboardViewController: UIViewController!
     
-    var menuLabels = ["Map", "Profile", "High Scores"]
+    var menuLabels = ["Map", "Profile", "Trophies", "High Scores"]
     
     var viewControllers: [UIViewController] = []
     var containerViewController: Container1ViewController!
@@ -33,10 +34,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         trophiesViewController = storyboard.instantiateViewController(withIdentifier: "TrophiesMapViewController") as! UIViewController
         userProfileViewController = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController") as! UIViewController
+        userTrophiesViewController = storyboard.instantiateViewController(withIdentifier: "UserTrophiesViewController")  as! UIViewController
         scoreboardViewController = storyboard.instantiateViewController(withIdentifier: "ScoreboardViewController") as! UIViewController
         
         viewControllers.append(trophiesViewController)
         viewControllers.append(userProfileViewController)
+        viewControllers.append(userTrophiesViewController)
         viewControllers.append(scoreboardViewController)
        
         containerViewController?.contentViewController = trophiesViewController
