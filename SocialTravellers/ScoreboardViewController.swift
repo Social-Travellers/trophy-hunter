@@ -30,6 +30,7 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
     func fetchUserList(){
         var query = PFQuery(className:"User1")
         query.limit = 10; // limit to at most 10 results
+        query.order(byDescending: "experiencePoints")
         // Investigate if there's a query parameter that will sort this by a key-value (experience points)
         query.findObjectsInBackground {
             (backendUsers: [PFObject]?, error: Error?) -> Void in
