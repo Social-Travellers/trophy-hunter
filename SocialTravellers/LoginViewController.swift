@@ -41,27 +41,14 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 extension LoginViewController: LoginButtonDelegate {
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         // Move to the home screen
-//        performSegue(withIdentifier: "LoginToEventFeed", sender: self)
         performSegue(withIdentifier: "loginToTrophies", sender: self)
 
-        
         let params = ["fields" : "id, email, name, first_name, last_name, picture.type(large), cover, about"]
         // Request data
         let graphRequest = GraphRequest(graphPath: "me", parameters: params)
@@ -132,15 +119,12 @@ extension LoginViewController: LoginButtonDelegate {
                 let PFUser = PFUsers?[0] //FB ID is unique, so there are only two possibilities. Array has 1 PFUser only, or array is nil
                 
                 //update currentUser 
-                User.currentUser?.objectId = PFUser?.objectId! as! String
+                User.currentUser?.objectId = PFUser?.objectId!
                 
-                self.updateUserInBackend(objectId: PFUser?.objectId! as! String)
+                self.updateUserInBackend(objectId: (PFUser?.objectId!)!)
                 self.fetchUserFromBackend(objectId: (User.currentUser?.objectId!)!)
             }
         }
-        
-        
-        
     }
     
     //Update a User given that user's object id
@@ -148,7 +132,7 @@ extension LoginViewController: LoginButtonDelegate {
         let query = PFQuery(className:"User1")
         query.getObjectInBackground(withId: objectId) { (backendUser: PFObject?, error: Error?) in
             if (error != nil) {
-                print(error)
+                print(error!)
             } else if let backendUser = backendUser{
                 
                 if let currentUser = User.currentUser{

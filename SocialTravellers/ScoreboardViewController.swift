@@ -28,7 +28,7 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func fetchUserList(){
-        var query = PFQuery(className:"User1")
+        let query = PFQuery(className:"User1")
         query.limit = 10; // limit to at most 10 results
         query.order(byDescending: "experiencePoints")
         // Investigate if there's a query parameter that will sort this by a key-value (experience points)
@@ -41,7 +41,7 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
                 // Do something with the found objects
                 if let backendUsers = backendUsers {
                     for backendUser in backendUsers {
-                        print(backendUser.objectId)
+                        print(backendUser.objectId!)
                         let frontendUser = User(PFObject: backendUser)
                         self.users.append(frontendUser)
                         print("reloading table view")

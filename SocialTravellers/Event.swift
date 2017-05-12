@@ -20,8 +20,11 @@ class Event: NSObject {
     var completedBy: [User]?
     var trophy: Trophy? // Made this a relation in parse change it to an object if it is easier
     
+    
     init(event: PFObject) {
-        //Dummy Initializers, please update them according to use case
+        
+        super.init()
+        
         self.objectId = event["objectId"] as? String
         self.name = event["name"] as? String
         
@@ -35,24 +38,24 @@ class Event: NSObject {
         self.picture = event["picture"] as? PFFile
         
         if let users = event["completedBy"] as? [[String : AnyObject]] {
-            for userDictionary in users {
-               // let user = User(PFObject: userDictionary) //shouldn't this be of type PFObject, not [string:anyobject]
-              //  self.completedBy?.append(user)
+            for _ in users {
             }
         }
         
         let relation = event.relation(forKey: "trophy")
-        let query = relation.query()
+        self.getTrophy(query: relation.query())
         
-        do {
-            let objects = try query.findObjects()
-            if let trophyObj = objects.first {
-                let trophy = Trophy(trophy: trophyObj)
-                self.trophy = trophy
+    }
+    
+    func getTrophy(query: PFQuery<PFObject>){
+        query.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                if let trophyObj = objects?.first {
+                    let trophy = Trophy(trophy: trophyObj)
+                    self.trophy = trophy
+                }
             }
-        } catch {
-            print("Could not fetch trophy for event \(self.objectId ?? "0")")
         }
-        
-    }    
+    }
 }

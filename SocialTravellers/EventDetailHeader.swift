@@ -40,15 +40,5 @@ class EventDetailHeader: UIView {
         contentView.frame = bounds
         addSubview(contentView)
     }
-    
-    
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

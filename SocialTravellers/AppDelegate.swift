@@ -30,23 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if AccessToken.current != nil {
             // User is logged in, so skip to the EventFeedVC
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//            let navigationController = storyBoard.instantiateViewController(withIdentifier: "TrophiesNavigationController") as! UINavigationController
-//            window?.rootViewController = navigationController
-            
             let menuViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
             let containerViewController = storyBoard.instantiateViewController(withIdentifier: "ContainerViewController") as! Container1ViewController
- //           let containerNavigationViewController = storyBoard.instantiateViewController(withIdentifier: "Container1NavigationController") as! UINavigationController
             
-//            window?.rootViewController = containerNavigationViewController
             window?.rootViewController = containerViewController
 
-            
             menuViewController.containerViewController = containerViewController
             containerViewController.menuViewController = menuViewController
             
-
         }
-        print("AccessToken =\(AccessToken.current)")
+        print("AccessToken =\(String(describing: AccessToken.current))")
 
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) {_ in
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)

@@ -13,7 +13,6 @@ class MapAnnotation: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
     var title: String?
-    
     var item: Event
     
     init(coordinate: CLLocationCoordinate2D, item: Event) {
@@ -23,5 +22,4 @@ class MapAnnotation: NSObject, MKAnnotation {
         
         super.init()
     }
-
 }

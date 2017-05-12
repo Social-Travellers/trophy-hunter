@@ -101,23 +101,26 @@ class TrophiesMapViewController: UIViewController {
         query.limit = 20
         
         do {
-            let eventsAroundMe = try query.findObjects()
-            var retrievedEvents: [Event] = []
-            for eventObj in eventsAroundMe {
-                let event = Event(event: eventObj)
-                retrievedEvents.append(event)
-                if let location = event.location {
-                    addPinToMapView(forMapView: trophiesMapView, location: location, event: event)
-                    print("Pin added for event")
-                } else {
-                    print("Could not add pin for event")
+            query.findObjectsInBackground {
+                (eventsAroundMe: [PFObject]?, error: Error?) in
+                if error == nil {
+
+                    var retrievedEvents: [Event] = []
+                    for eventObj in eventsAroundMe! {
+                        let event = Event(event: eventObj)
+                        retrievedEvents.append(event)
+                        if let location = event.location {
+                            self.addPinToMapView(forMapView: self.trophiesMapView, location: location, event: event)
+                            print("Pin added for event")
+                        } else {
+                            print("Could not add pin for event")
+                        }
+                    }
+                    self.allEvents = retrievedEvents
+                    print("Events around me: \(eventsAroundMe?.count ?? 0)")
+                    self.firstLoad = false
                 }
             }
-            allEvents = retrievedEvents
-            print("Events around me: \(eventsAroundMe.count)")
-            firstLoad = false
-        } catch {
-            print("Error: \(error.localizedDescription)")
         }
     }
     

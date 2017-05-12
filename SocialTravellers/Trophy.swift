@@ -20,7 +20,7 @@ class Trophy: NSObject{
     var itemNode: SCNNode?
     
     init?(trophy: PFObject) {
-        guard let id = trophy.objectId as? String else{ return nil}
+        guard let id = trophy.objectId else{ return nil}
         self.objectId = id
         
         self.name = trophy["name"] as? String

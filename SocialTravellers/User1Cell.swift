@@ -17,7 +17,7 @@ class User1Cell: UITableViewCell {
     
     var user: User! {
         didSet {
-            print("setting up user cell for \(user.firstName)")
+            print("setting up user cell for \(user.firstName ?? "USER IS NIL")")
             if let firstName = user.firstName{
                 if let lastName = user.lastName{
                      nameLabel.text = "\(String(describing: firstName)) \(String(describing: lastName))"
@@ -25,7 +25,7 @@ class User1Cell: UITableViewCell {
             }
            
             profileImageView.setImageWith(URL(string:user.profilePicUrl!)!)
-            rankLabel.text = user.rank ?? "noob"
+            rankLabel.text = user.rank 
             if let exp = user.experiencePoints{
                 experiencePointsLabel.text = "\(exp)"
             }

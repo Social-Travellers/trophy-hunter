@@ -77,6 +77,8 @@ class User: NSObject {
     
     // Parse response dictionary
     init(PFObject: PFObject) {
+        super.init()
+        
         // self.dictionary = PFObject
         var newDictionary = [String:AnyObject]()
         for key in PFUserKeys{
@@ -94,26 +96,9 @@ class User: NSObject {
         self.lastName = PFObject["lastName"] as? String
         self.profilePicUrl = PFObject["profilePicUrl"] as? String
         self.coverPicUrl = PFObject["coverPicUrl"] as? String
-        //        if let backendTrophies = PFObject["trophies"] as? [PFObject] {
-        //            for trophyObj in backendTrophies {
-        //                let trophy = Trophy(trophy: trophyObj)
-        //                self.trophies?.append(trophy!)
-        //            }
-        //        }
         
         let relation = PFObject.relation(forKey: "trophies")
-        let query = relation.query()
-        
-        do {
-            let objects = try query.findObjects()
-            
-            for object in objects{
-                let trophy = Trophy(trophy: object)
-                self.trophies?.append(trophy!)
-            }
-        } catch {
-            print("Could not fetch trophy for user \(self.objectId ?? "0")")
-        }
+        getUser(query: relation.query())
         
         self.experiencePoints = PFObject["experiencePoints"] as? NSNumber
         self.tagline = PFObject["tagline"] as? String
@@ -143,6 +128,21 @@ class User: NSObject {
                 defaults.removeObject(forKey: currentUserDataKey)
             }
             defaults.synchronize()
+        }
+    }
+    
+    func getUser(query: PFQuery<PFObject>){
+        query.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                for object in objects!{
+                    let trophy = Trophy(trophy: object)
+                    self.trophies?.append(trophy!)
+                }
+            }
+            else {
+                print(error.debugDescription)
+            }
         }
     }
     

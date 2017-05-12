@@ -33,10 +33,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("ViewDidLoad: MenuViewController")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        trophiesViewController = storyboard.instantiateViewController(withIdentifier: "TrophiesMapViewController") as! UIViewController
-        userProfileViewController = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController") as! UIViewController
-        userTrophiesViewController = storyboard.instantiateViewController(withIdentifier: "UserTrophiesViewController")  as! UIViewController
-        scoreboardViewController = storyboard.instantiateViewController(withIdentifier: "ScoreboardViewController") as! UIViewController
+        trophiesViewController = storyboard.instantiateViewController(withIdentifier: "TrophiesMapViewController") 
+        userProfileViewController = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController") 
+        userTrophiesViewController = storyboard.instantiateViewController(withIdentifier: "UserTrophiesViewController")  
+        scoreboardViewController = storyboard.instantiateViewController(withIdentifier: "ScoreboardViewController") 
         
         viewControllers.append(trophiesViewController)
         viewControllers.append(userProfileViewController)

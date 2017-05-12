@@ -21,7 +21,7 @@ class RankTable: NSObject {
     func expToNextRank(experiencePoints: NSNumber) -> String{
         let expAsInt = Int(experiencePoints)
         
-        if expAsInt != nil{
+//        if expAsInt != nil{
             switch expAsInt {
             case 0..<noobExp:
                 let expToNextRank = noobExp-expAsInt
@@ -41,14 +41,14 @@ class RankTable: NSObject {
                 let expToNextRank = noobExp-expAsInt
                 return String(expToNextRank)
             }
-        }
-        return String(noobExp)
+//        }
+//        return String(noobExp)
     }
     
     func lookUpRank(experiencePoints: NSNumber) -> String {
         let expAsInt = Int(experiencePoints)
         
-        if expAsInt != nil{
+//        if expAsInt != nil{
             switch expAsInt {
             case 0..<noobExp:
                 return "Noob"
@@ -63,7 +63,7 @@ class RankTable: NSObject {
             default:
                 return "Noob"
             }
-        }
-        return "Noob"
+//        }
+//        return "Noob"
     }
 }

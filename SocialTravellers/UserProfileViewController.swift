@@ -77,7 +77,7 @@ class UserProfileViewController: UIViewController {
     }
     
     func fetchUser(facebookId: String){
-        var query = PFQuery(className:"User1")
+        let query = PFQuery(className:"User1")
         query.limit = 1; // limit to at most 1 result
         query.whereKey("facebookId", equalTo:facebookId)
         // Investigate if there's a query parameter that will sort this by a key-value (experience points)
@@ -90,7 +90,7 @@ class UserProfileViewController: UIViewController {
                 // Do something with the found objects
                 if let backendUsers = backendUsers {
                     let backendUser = backendUsers[0]
-                    print(backendUser.objectId)
+                    print(backendUser.objectId!)
                     let frontendUser = User(PFObject: backendUser)
                     self.user = frontendUser
                 }
