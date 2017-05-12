@@ -54,24 +54,11 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uGs-3L-Qo0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd2-r0-8zI">
-                                <rect key="frame" x="15" y="612" width="100" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="fRk-Tf-8SR"/>
-                                    <constraint firstAttribute="width" constant="100" id="lhu-S7-wAS"/>
-                                </constraints>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutClicked:" destination="icU-6N-VsL" eventType="touchUpInside" id="LAf-Rr-afZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uGs-3L-Qo0" firstAttribute="top" secondItem="Tis-TQ-koN" secondAttribute="top" id="Mco-jd-LLK"/>
-                            <constraint firstItem="SwN-5C-jng" firstAttribute="top" secondItem="Wd2-r0-8zI" secondAttribute="bottom" constant="15" id="SLy-T4-Nxd"/>
                             <constraint firstAttribute="trailing" secondItem="uGs-3L-Qo0" secondAttribute="trailing" id="Tic-vL-iUg"/>
-                            <constraint firstItem="Wd2-r0-8zI" firstAttribute="leading" secondItem="Tis-TQ-koN" secondAttribute="leading" constant="15" id="X7H-HU-xu8"/>
                             <constraint firstItem="SwN-5C-jng" firstAttribute="top" secondItem="uGs-3L-Qo0" secondAttribute="bottom" id="bEC-xN-GHt"/>
                             <constraint firstItem="uGs-3L-Qo0" firstAttribute="leading" secondItem="Tis-TQ-koN" secondAttribute="leading" id="rG8-MD-1En"/>
                         </constraints>
@@ -435,7 +422,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="szg-aK-JhH" id="7hi-2K-EBF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfU-0h-D1H">
@@ -684,7 +671,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pd0-Qx-tgD" id="eve-6M-GUK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSP-5S-RTE">

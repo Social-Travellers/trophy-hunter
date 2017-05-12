@@ -59,13 +59,14 @@ class TrophiesMapViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
+  /*
     @IBAction func logoutClicked(_ sender: UIButton) {
         let loginManager = LoginManager()
         loginManager.logOut()
         print("loggedout")
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User.userDidLogoutNotification), object: nil)
-    }
+    } */
+    
     // MARK: - MapView helper methods
     
     func startStandardUpdates() {

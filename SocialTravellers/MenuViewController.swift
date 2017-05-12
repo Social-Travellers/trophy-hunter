@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import FacebookLogin
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var trophiesViewController: UIViewController!
@@ -17,7 +18,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     fileprivate var userTrophiesViewController: UIViewController!
     fileprivate var scoreboardViewController: UIViewController!
     
-    var menuLabels = ["Map", "Profile", "Trophies", "High Scores"]
+    var menuLabels = ["Map", "Profile", "Trophies", "High Scores", "Logout"]
     
     var viewControllers: [UIViewController] = []
     var containerViewController: Container1ViewController!
@@ -41,7 +42,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         viewControllers.append(userProfileViewController)
         viewControllers.append(userTrophiesViewController)
         viewControllers.append(scoreboardViewController)
-       
+        //TODO: If another ViewController needs to be added to hamburger menu then didSelectRowAt function needs to be edited.
+        
         containerViewController?.contentViewController = trophiesViewController
         
     }
@@ -57,12 +59,23 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewControllers.count
+        return menuLabels.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        containerViewController.contentViewController = viewControllers[indexPath.row]
+        if indexPath.row == 4 {
+            logoutClicked()
+        } else {
+            containerViewController.contentViewController = viewControllers[indexPath.row]
+        }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func logoutClicked() {
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        print("loggedout")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User.userDidLogoutNotification), object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,15 +83,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
