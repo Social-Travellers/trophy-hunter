@@ -197,6 +197,9 @@ class CameraViewController: UIViewController {
         
         if self.itemDesc == "dragon" {
             enemy?.position = SCNVector3(x: 0, y: -15, z: 0)
+//            enemy?.pivot = SCNMatrix4MakeTranslation(0, 1, 0)
+//            enemy?.pivot = SCNMatrix4MakeRotation(15, 15, 15, 15)
+
         } else if self.itemDesc == "wolf" {
             enemy?.position = SCNVector3(x: 0, y: 0, z: 0)
         } else if self.itemDesc == "wrench"{

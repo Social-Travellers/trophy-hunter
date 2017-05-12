@@ -41,6 +41,12 @@ class TrophiesMapViewController: UIViewController {
         
         setMapViewRegion(forMapView: trophiesMapView, location: userLocation)
         
+        trophiesMapView.userTrackingMode = MKUserTrackingMode.followWithHeading
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        
         retrieveAllTrophiesAround(location: userLocation)
         
         let trophyUnlockedName = NSNotification.Name(rawValue: "TrophyUnlocked")
