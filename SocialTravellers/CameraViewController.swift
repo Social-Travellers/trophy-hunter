@@ -11,17 +11,15 @@ import SceneKit
 import AVFoundation
 import CoreLocation
 
-protocol CameraViewControllerDelegate {
-    func trophyTappedOnCameraViewController(viewController controller: CameraViewController, tappedTrophy trophy: Trophy)
-}
+//protocol CameraViewControllerDelegate {
+//    func trophyTappedOnCameraViewController(viewController controller: CameraViewController, tappedTrophy trophy: Trophy)
+//}
 
 class CameraViewController: UIViewController {
 
     @IBOutlet weak var sceneView: SCNView!
     @IBOutlet weak var leftIndicator: UILabel!
     @IBOutlet weak var rightIndicator: UILabel!
-    
-    var delegate: CameraViewControllerDelegate?
     
     var cameraSession: AVCaptureSession?
     var cameraLayer: AVCaptureVideoPreviewLayer?
@@ -227,14 +225,19 @@ class CameraViewController: UIViewController {
         
         if hitResult.first != nil {
             print("trophyTapped")
+                        
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            if let event = self.selectedEvent {
-                if let trophy = event.trophy {
-                    delegate?.trophyTappedOnCameraViewController(viewController: self, tappedTrophy: trophy)
-                    print("Description: \(String(describing: event.trophy?.itemDescription))")
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "TrophyUnlockedView") as? TrophyUnlockedViewController {
+                if let event = self.selectedEvent {
+                    if let trophy = event.trophy {
+                        viewController.trophy = trophy
+                        print("Description: \(String(describing: event.trophy?.itemDescription))")
+                        self.present(viewController, animated: true, completion: nil)
+                    }
                 }
             }
-                        
+            
         }
         else {
             print("trophy Not Tapped")
