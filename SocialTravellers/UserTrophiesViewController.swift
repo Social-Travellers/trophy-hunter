@@ -8,8 +8,9 @@
 
 import UIKit
 import Parse
+import InteractiveSideMenu
 
-class UserTrophiesViewController: UIViewController {
+class UserTrophiesViewController: MenuItemContentViewController {
     @IBOutlet weak var trophiesCollectionView: UICollectionView!
 
     var userTrophies: [Trophy] = []
@@ -22,11 +23,8 @@ class UserTrophiesViewController: UIViewController {
         
         fetchUserTrophies(withId: User.currentUser!.facebookId!)
     }
+    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func fetchUserTrophies(withId facebookId: String) {
         let query = PFQuery(className:"User1")
@@ -56,15 +54,10 @@ class UserTrophiesViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func onMenuButton(_ sender: Any) {
+        showMenu()
     }
-    */
 
 }
 

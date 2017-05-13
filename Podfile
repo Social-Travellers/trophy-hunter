@@ -7,5 +7,6 @@ target 'SocialTravellers' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'AFNetworking'
+  pod 'InteractiveSideMenu'
 
 end

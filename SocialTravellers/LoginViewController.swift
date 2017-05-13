@@ -76,6 +76,8 @@ extension LoginViewController: LoginButtonDelegate {
         
     }
     
+    
+    
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
         print("Logged out")
     }

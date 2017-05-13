@@ -39,6 +39,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.22.0):
     - FBSDKCoreKit
+  - InteractiveSideMenu (1.0)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
 
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - InteractiveSideMenu
   - Parse
 
 SPEC CHECKSUMS:
@@ -58,8 +60,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
   FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
   FBSDKShareKit: 21ab3c8d173f4fa20c47c1061f3a9fac5950b5fa
+  InteractiveSideMenu: 2966af15dee760f6c3e09a7a80a98c09fed3d7a4
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
 
-PODFILE CHECKSUM: 6e95a2f2dd26d20d9d2aeafbeb3bca39b966522c
+PODFILE CHECKSUM: 9732abbcd2c41b4e89990e084d3caff525f6620c
 
 COCOAPODS: 1.2.0

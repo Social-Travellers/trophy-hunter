@@ -9,8 +9,9 @@
 import UIKit
 import AFNetworking
 import Parse
+import InteractiveSideMenu
 
-class ScoreboardViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,6 +27,11 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
         
         fetchUserList()
     }
+    
+    @IBAction func onMenuButton(_ sender: Any) {
+        showMenu()
+    }
+    
     
     func fetchUserList(){
         let query = PFQuery(className:"User1")

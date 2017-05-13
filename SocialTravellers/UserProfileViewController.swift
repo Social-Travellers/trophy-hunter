@@ -10,8 +10,9 @@ import UIKit
 import AFNetworking
 import FacebookCore
 import Parse
+import InteractiveSideMenu
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: MenuItemContentViewController {
     
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -23,6 +24,8 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var experiencePointsLabel: UILabel!
     @IBOutlet weak var trophiesCountLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
+    
     
     
     var userFromCell: User!
@@ -67,14 +70,22 @@ class UserProfileViewController: UIViewController {
         if let transitionedFromSegue = transitionedFromSegue{
             if transitionedFromSegue == true {
                 closeButton.isHidden = false
+                menuButton.isHidden = true
             } else {
                 closeButton.isHidden = true
+                menuButton.isHidden = false
             }
         } else{
             closeButton.isHidden = true
+            menuButton.isHidden = false
         }
         
     }
+    
+    @IBAction func onMenuButton(_ sender: Any) {
+        showMenu()
+    }
+    
     
     func fetchUser(facebookId: String){
         let query = PFQuery(className:"User1")

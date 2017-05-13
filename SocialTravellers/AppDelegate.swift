@@ -28,15 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(with: configuration)
         
         if AccessToken.current != nil {
-            // User is logged in, so skip to the EventFeedVC
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let menuViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-            let containerViewController = storyBoard.instantiateViewController(withIdentifier: "ContainerViewController") as! Container1ViewController
             
-            window?.rootViewController = containerViewController
-
-            menuViewController.containerViewController = containerViewController
-            containerViewController.menuViewController = menuViewController
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let hostViewController = storyBoard.instantiateViewController(withIdentifier: "HostViewController") as! HostViewController
+            window?.rootViewController = hostViewController
             
         }
         print("AccessToken =\(String(describing: AccessToken.current))")

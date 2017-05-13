@@ -11,9 +11,9 @@ import CoreLocation
 import MapKit
 import Parse
 import FacebookLogin
+import InteractiveSideMenu
 
-
-class TrophiesMapViewController: UIViewController {
+class TrophiesMapViewController: MenuItemContentViewController {
     @IBOutlet weak var trophiesMapView: MKMapView!
     @IBOutlet weak var showCameraSceneButton: UIButton!
     
@@ -54,6 +54,11 @@ class TrophiesMapViewController: UIViewController {
         let trophyUnlockedName = NSNotification.Name(rawValue: "TrophyUnlocked")
         NotificationCenter.default.addObserver(self, selector: #selector(trophyUnlocked), name: trophyUnlockedName, object: nil)
     }
+    
+    @IBAction func onMenuButton(_ sender: Any) {
+        showMenu()
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
