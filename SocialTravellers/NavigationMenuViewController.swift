@@ -12,9 +12,8 @@ import FacebookLogin
 
 class NavigationMenuViewController: MenuViewController {
 
-   // let kItemsCount = 2
-    let kCellReuseIdentifier = "UITableViewCell"
     let viewControllers = ["Map", "High Scores", "Trophies", "Profile"]
+    let menuIcons = [#imageLiteral(resourceName: "map"),#imageLiteral(resourceName: "highScores"),#imageLiteral(resourceName: "trophy"),#imageLiteral(resourceName: "profile")]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,6 +23,7 @@ class NavigationMenuViewController: MenuViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+        tableView.separatorStyle = .none //Hide separator lines
     }
     
     
@@ -45,8 +45,11 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kCellReuseIdentifier, for: indexPath)
-        cell.textLabel?.text = viewControllers[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
+    
+        cell.menuLabel.text = viewControllers[indexPath.row]
+        cell.menuIconImageView.image = menuIcons[indexPath.row]
+        
         
         return cell
     }

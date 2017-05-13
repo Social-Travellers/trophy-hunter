@@ -716,13 +716,38 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" id="J6G-qg-ngn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="J6G-qg-ngn" customClass="MenuCell" customModule="SocialTravellers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J6G-qg-ngn" id="JaH-Lh-PNo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="r6c-6m-tdZ">
+                                                    <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="70A-Dq-QA7"/>
+                                                        <constraint firstAttribute="width" constant="20" id="pTW-y5-GRZ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MenuName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcO-tw-1eb">
+                                                    <rect key="frame" x="35" y="9.5" width="88" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EcO-tw-1eb" firstAttribute="leading" secondItem="r6c-6m-tdZ" secondAttribute="trailing" constant="5" id="LmM-qN-6Kz"/>
+                                                <constraint firstItem="r6c-6m-tdZ" firstAttribute="top" secondItem="JaH-Lh-PNo" secondAttribute="top" constant="10" id="Omo-wZ-xBW"/>
+                                                <constraint firstItem="EcO-tw-1eb" firstAttribute="centerY" secondItem="r6c-6m-tdZ" secondAttribute="centerY" id="hna-wb-cpM"/>
+                                                <constraint firstItem="r6c-6m-tdZ" firstAttribute="leading" secondItem="JaH-Lh-PNo" secondAttribute="leading" constant="10" id="nYM-If-bHM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="menuIconImageView" destination="r6c-6m-tdZ" id="gTT-Nt-OgZ"/>
+                                            <outlet property="menuLabel" destination="EcO-tw-1eb" id="wMD-2Y-j66"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -730,18 +755,35 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhn-an-ZIK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhn-an-ZIK">
                                 <rect key="frame" x="0.0" y="610" width="375" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="  Log Out">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="mYV-sj-xpl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="        Log Out">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onLogoutButton:" destination="kmC-Yi-A0m" eventType="touchUpInside" id="P0g-bP-5Ug"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="Epb-bg-xE8">
+                                <rect key="frame" x="10" y="628" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Rcw-Oa-3VK"/>
+                                    <constraint firstAttribute="width" constant="20" id="yko-eV-zu6"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yhn-an-ZIK" secondAttribute="trailing" id="BlE-I5-9ZP"/>
+                            <constraint firstItem="yhn-an-ZIK" firstAttribute="leading" secondItem="NqP-xt-Vfz" secondAttribute="leading" id="gNj-L4-gHB"/>
+                            <constraint firstItem="Epb-bg-xE8" firstAttribute="leading" secondItem="NqP-xt-Vfz" secondAttribute="leading" constant="10" id="mOP-J0-KKH"/>
+                            <constraint firstItem="Epb-bg-xE8" firstAttribute="centerY" secondItem="yhn-an-ZIK" secondAttribute="centerY" id="ntV-1b-l2E"/>
+                            <constraint firstItem="n89-FW-rwe" firstAttribute="top" secondItem="yhn-an-ZIK" secondAttribute="bottom" id="yh3-Ec-bXM"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="nbQ-1r-Zyc" id="MsY-dQ-91e"/>
@@ -753,7 +795,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logout" width="240" height="240"/>
         <image name="menu" width="26" height="26"/>
         <image name="menuLogo" width="426" height="262"/>
+        <image name="trophy" width="240" height="240"/>
     </resources>
 </document>
