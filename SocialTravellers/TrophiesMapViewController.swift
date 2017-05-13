@@ -13,7 +13,7 @@ import Parse
 import FacebookLogin
 
 
-class TrophiesMapViewController: UIViewController {
+class TrophiesMapViewController: UIViewController, CameraViewControllerDelegate {
     @IBOutlet weak var trophiesMapView: MKMapView!
     @IBOutlet weak var showCameraSceneButton: UIButton!
     
@@ -24,6 +24,8 @@ class TrophiesMapViewController: UIViewController {
     var allEvents: [Event] = []
     var selectedEvent: Event?
     var selectedAnnotationView: MKPinAnnotationView?
+    
+    var tappedTrophy: Trophy!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,6 +132,26 @@ class TrophiesMapViewController: UIViewController {
         }
     }
     
+    // MARK: - CameraVC delegate
+    
+    func trophyTappedOnCameraViewController(viewController controller: CameraViewController, tappedTrophy trophy: Trophy) {
+        print("Protocol delegate notified")
+        print("Trophy has been tapped")
+
+        tappedTrophy = trophy
+        
+        // Dismiss cameraVC and present trophyUnlockedVC
+        dismiss(animated: true, completion: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let vc = storyboard.instantiateViewController(withIdentifier: "TrophyUnlockedView") as? TrophyUnlockedViewController {
+            vc.trophy = tappedTrophy
+            present(vc, animated: true, completion: nil)
+        }
+        
+    }
+    
     // MARK: - Notification observers
     
     func trophyUnlocked() {
@@ -198,6 +220,7 @@ extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegat
             
             if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
                 if let event = self.selectedEvent {
+                    viewController.delegate = self
                     viewController.selectedEvent = event
                     print("Location: \(String(describing: event.location))")
                     print("Description: \(String(describing: event.trophy?.itemDescription))")
