@@ -19,9 +19,9 @@ class Trophy: NSObject{
     var itemDescription: String?
     var itemNode: SCNNode?
     
-    init?(trophy: PFObject) {
-        guard let id = trophy.objectId else{ return nil}
-        self.objectId = id
+    init(trophy: PFObject) {
+//        guard let id = trophy.objectId else{ return nil}
+        self.objectId = trophy.objectId
         
         self.name = trophy["name"] as? String
         

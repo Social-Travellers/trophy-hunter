@@ -29,6 +29,7 @@ class ScoreboardViewController: UIViewController, UITableViewDataSource, UITable
     
     func fetchUserList(){
         let query = PFQuery(className:"User1")
+        query.includeKey("trophies")
         query.limit = 10; // limit to at most 10 results
         query.order(byDescending: "experiencePoints")
         // Investigate if there's a query parameter that will sort this by a key-value (experience points)

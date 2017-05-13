@@ -26,13 +26,8 @@ class TrophyCollectionViewCell: UICollectionViewCell {
                 })
             }
             
-            if let name = trophy.name {
-                trophyNameLabel.text = name
-            }
-            
-            if let exp = trophy.experiencePoints {
-                trophyExpLabel.text = exp.stringValue
-            }
+            trophyNameLabel.text = trophy.name
+            trophyExpLabel.text = trophy.experiencePoints?.stringValue
         }
     }
 }

@@ -33,7 +33,7 @@ class UserProfileViewController: UIViewController {
             nameLabel.text = "\(user.firstName!) \(user.lastName!)"
             rankLabel.text = user.rank
             userTagline.text = user.tagline
-            trophiesCountLabel.text = "\(user.trophies?.count ?? 0)"
+            trophiesCountLabel.text = "\(user.trophies.count ?? 0)"
             
             if let exp = user.experiencePoints{
                 experiencePointsLabel.text = "\(exp)"
@@ -79,6 +79,7 @@ class UserProfileViewController: UIViewController {
     func fetchUser(facebookId: String){
         let query = PFQuery(className:"User1")
         query.limit = 1; // limit to at most 1 result
+        query.includeKey("trophies")
         query.whereKey("facebookId", equalTo:facebookId)
         // Investigate if there's a query parameter that will sort this by a key-value (experience points)
         query.findObjectsInBackground {
@@ -91,6 +92,7 @@ class UserProfileViewController: UIViewController {
                 if let backendUsers = backendUsers {
                     let backendUser = backendUsers[0]
                     print(backendUser.objectId!)
+                    
                     let frontendUser = User(PFObject: backendUser)
                     self.user = frontendUser
                 }

@@ -26,7 +26,7 @@ class User: NSObject {
     var coverPicUrl: String?
     var tagline: String?
     
-    var trophies: [Trophy]?
+    var trophies: [Trophy] = []
     var experiencePoints: NSNumber?
     lazy var rank:String = {
         let rankTable = RankTable()
@@ -97,8 +97,14 @@ class User: NSObject {
         self.profilePicUrl = PFObject["profilePicUrl"] as? String
         self.coverPicUrl = PFObject["coverPicUrl"] as? String
         
-        let relation = PFObject.relation(forKey: "trophies")
-        getUser(query: relation.query())
+        if let trophyObjects = PFObject["trophies"] as? [PFObject] {
+            for trophy in trophyObjects {
+                let trophy = Trophy(trophy: trophy)
+                self.trophies.append(trophy)
+            }
+        }
+//        let relation = PFObject.relation(forKey: "trophies")
+//        getUser(query: relation.query())
         
         self.experiencePoints = PFObject["experiencePoints"] as? NSNumber
         self.tagline = PFObject["tagline"] as? String
@@ -137,7 +143,7 @@ class User: NSObject {
             if error == nil {
                 for object in objects!{
                     let trophy = Trophy(trophy: object)
-                    self.trophies?.append(trophy!)
+                    self.trophies.append(trophy)
                 }
             }
             else {

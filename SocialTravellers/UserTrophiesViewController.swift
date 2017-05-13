@@ -31,6 +31,7 @@ class UserTrophiesViewController: UIViewController {
     func fetchUserTrophies(withId facebookId: String) {
         let query = PFQuery(className:"User1")
         query.limit = 1; // limit to at most 1 result
+        query.includeKey("trophies")
         query.whereKey("facebookId", equalTo: facebookId)
         
         query.findObjectsInBackground { [unowned self] (objects: [PFObject]?, error: Error?) in
@@ -42,26 +43,13 @@ class UserTrophiesViewController: UIViewController {
                         // Got current user
                         print("Got user: \(userPFObject.objectId!)")
                         
-                        let trophiesRelation = userPFObject.relation(forKey: "trophies")
-                        let trophiesQuery = trophiesRelation.query()
+                        let frontendUser = User(PFObject: userPFObject)
                         
-                        trophiesQuery.findObjectsInBackground(block: { (trophyObjects: [PFObject]?, trophyError: Error?) in
-                            if trophyError != nil {
-                                print("Error: \(trophyError!.localizedDescription)")
-                            } else {
-                                if let backendTrophyObjects = trophyObjects {
-                                    // Got user trophies
-                                    for trophyObj in backendTrophyObjects {
-                                        if let trophy = Trophy(trophy: trophyObj) {
-                                            self.userTrophies.append(trophy)
-                                            self.trophiesCollectionView.reloadData()
-                                        } else {
-                                            print("Could not create trophy")
-                                        }
-                                    }
-                                }
-                            }
-                        })
+                        for trophy in frontendUser.trophies {
+                            self.userTrophies.append(trophy)
+                            self.trophiesCollectionView.reloadData()
+                        }
+                        
                     }
                 }
             }
