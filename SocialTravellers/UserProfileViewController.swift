@@ -36,7 +36,7 @@ class UserProfileViewController: MenuItemContentViewController {
             nameLabel.text = "\(user.firstName!) \(user.lastName!)"
             rankLabel.text = user.rank
             userTagline.text = user.tagline
-            trophiesCountLabel.text = "\(user.trophies.count ?? 0)"
+            trophiesCountLabel.text = "\(user.trophies.count)"
             
             if let exp = user.experiencePoints{
                 experiencePointsLabel.text = "\(exp)"

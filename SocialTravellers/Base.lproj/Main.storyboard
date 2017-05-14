@@ -65,84 +65,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="moa-1J-Owc" firstAttribute="top" secondItem="0mo-Cp-dhg" secondAttribute="bottom" constant="10" id="JdI-eV-Yjv"/>
+                            <constraint firstItem="SwN-5C-jng" firstAttribute="top" secondItem="uGs-3L-Qo0" secondAttribute="bottom" id="MU3-X1-xu1"/>
                             <constraint firstItem="uGs-3L-Qo0" firstAttribute="top" secondItem="Tis-TQ-koN" secondAttribute="top" id="Mco-jd-LLK"/>
+                            <constraint firstItem="uGs-3L-Qo0" firstAttribute="leading" secondItem="Tis-TQ-koN" secondAttribute="leading" id="MxD-HJ-QAj"/>
                             <constraint firstAttribute="trailing" secondItem="uGs-3L-Qo0" secondAttribute="trailing" id="Tic-vL-iUg"/>
-                            <constraint firstItem="SwN-5C-jng" firstAttribute="top" secondItem="uGs-3L-Qo0" secondAttribute="bottom" id="bEC-xN-GHt"/>
                             <constraint firstItem="moa-1J-Owc" firstAttribute="leading" secondItem="Tis-TQ-koN" secondAttribute="leading" constant="10" id="nGK-d9-w99"/>
-                            <constraint firstItem="uGs-3L-Qo0" firstAttribute="leading" secondItem="Tis-TQ-koN" secondAttribute="leading" id="rG8-MD-1En"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Kp2-6A-5zr"/>
                     <connections>
                         <outlet property="trophiesMapView" destination="uGs-3L-Qo0" id="fh1-wc-W7W"/>
-                        <segue destination="4t4-bi-A8Z" kind="show" identifier="trophiesToCameraSegue" id="aUw-xS-2iK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0L-Qq-T08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="961"/>
-        </scene>
-        <!--Camera View Controller-->
-        <scene sceneID="vFf-TI-GCa">
-            <objects>
-                <viewController id="4t4-bi-A8Z" customClass="CameraViewController" customModule="SocialTravellers" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pwo-Nt-cOk"/>
-                        <viewControllerLayoutGuide type="bottom" id="TA0-nw-G33"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Wea-1s-F18">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ew5-Px-qkT">
-                                <rect key="frame" x="0.0" y="-1" width="375" height="668"/>
-                            </sceneKitView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgF-Fq-fcl">
-                                <rect key="frame" x="243" y="611" width="132" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="8mP-Zs-Ryk"/>
-                                    <constraint firstAttribute="width" constant="132" id="mXG-D2-Uzq"/>
-                                </constraints>
-                                <state key="normal" title="Trophy Captured"/>
-                                <connections>
-                                    <action selector="trophyCaptured:" destination="4t4-bi-A8Z" eventType="touchUpInside" id="LvW-zi-kJP"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPc-Hx-7sb">
-                                <rect key="frame" x="343" y="318" width="16" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOg-uU-Uxo">
-                                <rect key="frame" x="16" y="318" width="16" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HPc-Hx-7sb" secondAttribute="trailing" constant="16" id="0Iy-3r-MRI"/>
-                            <constraint firstItem="Ew5-Px-qkT" firstAttribute="trailing" secondItem="TgF-Fq-fcl" secondAttribute="trailing" id="ASO-8e-9Jl"/>
-                            <constraint firstAttribute="trailing" secondItem="Ew5-Px-qkT" secondAttribute="trailing" id="B4n-96-FS0"/>
-                            <constraint firstItem="Ew5-Px-qkT" firstAttribute="leading" secondItem="Wea-1s-F18" secondAttribute="leading" id="FAP-Az-NJL"/>
-                            <constraint firstItem="HPc-Hx-7sb" firstAttribute="centerY" secondItem="fOg-uU-Uxo" secondAttribute="centerY" id="Mfe-Zq-gc2"/>
-                            <constraint firstItem="fOg-uU-Uxo" firstAttribute="centerY" secondItem="Ew5-Px-qkT" secondAttribute="centerY" id="OWG-Mo-AVi"/>
-                            <constraint firstItem="fOg-uU-Uxo" firstAttribute="centerY" secondItem="Wea-1s-F18" secondAttribute="centerY" id="PLJ-x2-HXd"/>
-                            <constraint firstAttribute="bottom" secondItem="TgF-Fq-fcl" secondAttribute="bottom" constant="20" symbolic="YES" id="Roj-pR-8iC"/>
-                            <constraint firstItem="fOg-uU-Uxo" firstAttribute="leading" secondItem="Wea-1s-F18" secondAttribute="leading" constant="16" id="W3C-Lb-yJ8"/>
-                            <constraint firstItem="HPc-Hx-7sb" firstAttribute="centerY" secondItem="Ew5-Px-qkT" secondAttribute="centerY" id="r3x-CL-VFA"/>
-                            <constraint firstItem="Ew5-Px-qkT" firstAttribute="bottom" secondItem="TA0-nw-G33" secondAttribute="top" id="ysb-YZ-1v1"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="w7h-BE-5Ua" kind="show" identifier="cameraToUnlockedSegue" id="gre-qb-f7l"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ues-9u-iUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1736.8" y="962.96851574212906"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="agv-M3-fZ2">
@@ -161,14 +98,14 @@
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </sceneKitView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4m-hs-jeF">
-                                <rect key="frame" x="339" y="318" width="16" height="30"/>
+                                <rect key="frame" x="339" y="318.5" width="16" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRu-gL-r0b">
-                                <rect key="frame" x="20" y="319" width="16" height="30"/>
+                                <rect key="frame" x="20" y="318.5" width="16" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -212,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFY-R9-Sqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676" y="1649.3253373313344"/>
+            <point key="canvasLocation" x="1721" y="960"/>
         </scene>
         <!--User Trophies View Controller-->
         <scene sceneID="8Rb-Dy-YGB">
@@ -315,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLH-CY-6jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3341.5999999999999" y="962.96851574212906"/>
+            <point key="canvasLocation" x="3174" y="960"/>
         </scene>
         <!--Trophy Unlocked View Controller-->
         <scene sceneID="DDC-PD-5VH">
@@ -425,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xz9-Bf-6QK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2444" y="962.96851574212906"/>
+            <point key="canvasLocation" x="2444" y="960"/>
         </scene>
         <!--Scoreboard View Controller-->
         <scene sceneID="6zA-KQ-E64">
@@ -448,7 +385,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="szg-aK-JhH" id="7hi-2K-EBF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfU-0h-D1H">
@@ -528,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tee-mB-Ag2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3642.4000000000001" y="1649.3253373313344"/>
+            <point key="canvasLocation" x="1721" y="1774"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="Fp8-mk-yaJ">
@@ -559,43 +496,43 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An engineer who likes to tinker with software and hardware." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0I0-rx-ac8">
-                                        <rect key="frame" x="15" y="404" width="345" height="41"/>
+                                        <rect key="frame" x="15" y="404" width="345" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-Z7-pKj">
-                                        <rect key="frame" x="15" y="465" width="43" height="21"/>
+                                        <rect key="frame" x="15" y="444.5" width="43" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experience: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofp-oY-h5j">
-                                        <rect key="frame" x="15" y="491" width="94" height="21"/>
+                                        <rect key="frame" x="15" y="470.5" width="94" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trophies: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtg-9i-3XF">
-                                        <rect key="frame" x="15" y="517" width="76" height="21"/>
+                                        <rect key="frame" x="15" y="496.5" width="76" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhF-xP-C3g">
-                                        <rect key="frame" x="63" y="465" width="8" height="21"/>
+                                        <rect key="frame" x="63" y="444.5" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBA-Bc-W0f">
-                                        <rect key="frame" x="114" y="491" width="8" height="21"/>
+                                        <rect key="frame" x="114" y="470.5" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9n-WP-Oj8">
-                                        <rect key="frame" x="96" y="517" width="8" height="21"/>
+                                        <rect key="frame" x="96" y="496.5" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -679,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PId-Oq-h26" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4592.8000000000002" y="1647.5262368815593"/>
+            <point key="canvasLocation" x="2444" y="1773"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="dou-7J-iJO">
@@ -697,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYV-Ut-ulT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="2352"/>
+            <point key="canvasLocation" x="140" y="959"/>
         </scene>
         <!--Navigation Menu View Controller-->
         <scene sceneID="r1W-qg-MOk">
@@ -720,7 +657,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J6G-qg-ngn" id="JaH-Lh-PNo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="r6c-6m-tdZ">
@@ -791,7 +728,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="889-dy-Ky9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970.39999999999998" y="2355.472263868066"/>
+            <point key="canvasLocation" x="972" y="1775"/>
         </scene>
     </scenes>
     <resources>
