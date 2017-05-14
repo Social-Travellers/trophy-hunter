@@ -47,6 +47,7 @@ class TrophyUnlockedViewController: UIViewController {
         fetchUser(userId: User.currentUser!.facebookId!)
     }
     
+    
     // Update user's trophies and XP
     func updateUser(userId facebookId: String) {
         let query = PFQuery(className:"User1")
@@ -134,11 +135,7 @@ class TrophyUnlockedViewController: UIViewController {
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     @IBAction func dismissClicked(_ sender: UIButton) {
         // navigationController?.popViewController(animated: true)

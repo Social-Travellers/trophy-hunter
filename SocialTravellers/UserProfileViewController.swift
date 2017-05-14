@@ -22,33 +22,32 @@ class UserProfileViewController: MenuItemContentViewController {
     @IBOutlet weak var userTagline: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var experiencePointsLabel: UILabel!
-    @IBOutlet weak var trophiesCountLabel: UILabel!
+  //  @IBOutlet weak var trophiesCountLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
     
     @IBOutlet var trophyImageViews: [UIImageView]!
     
     @IBOutlet weak var trophyStackView: UIStackView!
+    @IBOutlet weak var trophyPlusLabel: UILabel!
+    @IBOutlet weak var trophyDarkView: UIView!
+    
     
     var userTrophies: [Trophy] = []
     var trophyImages: [UIImage] = []
     
     var userFromCell: User!
     var transitionedFromSegue: Bool!
+    var firstLoad = true
     
     var user: User! {
         didSet{
             nameLabel.text = "\(user.firstName!) \(user.lastName!)"
             rankLabel.text = user.rank
             userTagline.text = user.tagline
-
-            trophiesCountLabel.text = "\(user.trophies.count)"
-            experiencePointsLabel.text = "Experience: \(user.experiencePointsString)"
-
             
-            //            if let exp = user.experiencePointsSt{
-            //                experiencePointsLabel.text = "Experience: \(exp)"
-            //            }
+       //     trophiesCountLabel.text = "\(user.trophies.count)"
+            experiencePointsLabel.text = "Experience: \(user.experiencePointsString)"
             
             if let profilePictureUrl = user.profilePicUrl{
                 profileImageView.setImageWith((URL(string: profilePictureUrl))!)
@@ -68,18 +67,39 @@ class UserProfileViewController: MenuItemContentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("UserProfile: viewDidLoad")
         if userFromCell == nil{
             print("fetching new user from parse")
             fetchUser(facebookId: (User.currentUser?.facebookId)!)
         } else{
             print("receiving user from scoreboard")
             user = userFromCell
+            self.userTrophies = []
+            for trophy in user.trophies {
+                self.userTrophies.append(trophy)
+            }
+            self.fetchTrophyImages()
         }
         
         setupEscapeButtons()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !firstLoad {
+            if userFromCell == nil{
+                print("fetching new user from parse")
+                fetchUser(facebookId: (User.currentUser?.facebookId)!)
+            } else{
+                print("receiving user from scoreboard")
+                user = userFromCell
+            }
+        }
+    }
+    
     func fetchTrophyImages(){
+        trophyImages = []
         for trophy in userTrophies{
             fetchTrophyImage(trophy: trophy)
         }
@@ -93,11 +113,11 @@ class UserProfileViewController: MenuItemContentViewController {
                 } else {
                     let image = UIImage(data: data!)
                     if let image = image{
+                        
                         self.trophyImages.append(image)
-                        let imageView = UIImageView()
-                        imageView.image = image
-                        self.trophyStackView.addArrangedSubview(imageView)
                         self.addImagesToView()
+                        
+                        //    self.addImageToStack(image: image)
                     }
                 }
             })
@@ -107,55 +127,37 @@ class UserProfileViewController: MenuItemContentViewController {
     func addImagesToView(){
         
         for index in [0,1,2,3]{
-            if index == trophyImages.count-1 || index == 3{
-                trophyImageViews[index].image = #imageLiteral(resourceName: "trophy")
-            } else if index < trophyImages.count{
+            if  index > trophyImages.count{
+                trophyImageViews[index].isHidden = true
+                trophyImageViews[index].image = nil
+                trophyPlusLabel.isHidden = true
+                trophyDarkView.isHidden = true
+            } else if index == trophyImages.count && index < 3 {
+                trophyImageViews[index].isHidden = true
+                trophyImageViews[index].image = nil
+                trophyPlusLabel.isHidden = true
+                trophyDarkView.isHidden = true
+            } else if index == trophyImages.count-1 && index == 3 {
                 trophyImageViews[index].image = trophyImages[index]
+                trophyDarkView.isHidden = true
+                trophyImageViews[index].isHidden = false
+                trophyPlusLabel.isHidden = true
+            } else if index < trophyImages.count-1 && index == 3 {
+                trophyImageViews[index].image = trophyImages[index]
+                trophyPlusLabel.text = "+\(trophyImages.count-3)"
+                trophyDarkView.isHidden = false
+                trophyImageViews[index].isHidden = false
+                trophyPlusLabel.isHidden = false
+            }
+            
+            else if index < trophyImages.count{
+                trophyImageViews[index].image = trophyImages[index]
+                trophyImageViews[index].isHidden = false
+                trophyPlusLabel.isHidden = true
+                trophyDarkView.isHidden = true
             }
         }
-        
-//        for image in trophyImages{
-//            let imageIndex = trophyImages.index(of: image)
-//            if imageIndex! < 3{
-//                trophyImageViews[trophyImages.index(of: image)!].image = image
-//            }
-//            
-//        }
-
-        
     }
-    
-    
-    @IBAction func onAddTrophyButton(_ sender: Any) {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "trophy"))
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        imageView.clipsToBounds = true
-        //        trophyStackView.spacing = 10.0
-        //        trophyStackView.distribution = .equalSpacing
-        //        trophyStackView.insertArrangedSubview(imageView, at: 0)
-        //trophyStackView.arrangedSubviews[0] = imageView
-    }
-    
-    func setupEscapeButtons(){
-        if let transitionedFromSegue = transitionedFromSegue{
-            if transitionedFromSegue == true {
-                closeButton.isHidden = false
-                menuButton.isHidden = true
-            } else {
-                closeButton.isHidden = true
-                menuButton.isHidden = false
-            }
-        } else{
-            closeButton.isHidden = true
-            menuButton.isHidden = false
-        }
-    }
-    
-    @IBAction func onMenuButton(_ sender: Any) {
-        showMenu()
-    }
-    
     
     func fetchUser(facebookId: String){
         let query = PFQuery(className:"User1")
@@ -177,6 +179,7 @@ class UserProfileViewController: MenuItemContentViewController {
                     let frontendUser = User(PFObject: backendUser)
                     self.user = frontendUser
                     
+                    self.userTrophies = []
                     for trophy in frontendUser.trophies {
                         self.userTrophies.append(trophy)
                     }
@@ -186,15 +189,66 @@ class UserProfileViewController: MenuItemContentViewController {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.localizedDescription)")
             }
+            self.firstLoad = false
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setupEscapeButtons(){
+        if let transitionedFromSegue = transitionedFromSegue{
+            if transitionedFromSegue == true {
+                closeButton.isHidden = false
+                menuButton.isHidden = true
+            } else {
+                closeButton.isHidden = true
+                menuButton.isHidden = false
+            }
+        } else{
+            closeButton.isHidden = true
+            menuButton.isHidden = false
+        }
     }
+    
+    @IBAction func onAddTrophyButton(_ sender: Any) {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "trophy"))
+        addImageToStack(image: #imageLiteral(resourceName: "trophy"))
+        //        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        //        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        //        imageView.clipsToBounds = true
+        //        trophyStackView.spacing = 10.0
+        //        //trophyStackView.distribution = .fillProportionally
+        //        trophyStackView.insertArrangedSubview(imageView, at: 0)
+        //        trophyStackView.removeArrangedSubview(trophyStackView.arrangedSubviews.last!)
+    }
+    
+    @IBAction func onMenuButton(_ sender: Any) {
+        showMenu()
+    }
+    
     @IBAction func onCancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func addImageToStack(image: UIImage){
+        
+        let imageView = UIImageView()
+        imageView.image = image
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        
+        
+        //        let imageViewWidthConstraint = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 75)
+        //        let imageViewHeightConstraint = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 75)
+        //
+        //        imageView.addConstraints([imageViewWidthConstraint, imageViewHeightConstraint])
+        
+        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        trophyStackView.spacing = 10.0
+        imageView.clipsToBounds = true
+        //trophyStackView.distribution = .fillProportionally
+        print("adding image to StackView")
+        // trophyStackView.addArrangedSubview(imageView)
+        //        trophyStackView.insertArrangedSubview(imageView, at: 0)
+        //        trophyStackView.removeArrangedSubview(trophyStackView.arrangedSubviews.last!)
+        //        trophyStackView.arrangedSubviews.last!.removeFromSuperview()
     }
     
 }
