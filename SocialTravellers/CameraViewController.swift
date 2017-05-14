@@ -196,16 +196,17 @@ class CameraViewController: UIViewController {
         let enemy = scene?.rootNode.childNode(withName: self.itemDesc!, recursively: true)
         
         if self.itemDesc == "dragon" {
-            enemy?.position = SCNVector3(x: 0, y: -15, z: 0)
+            enemy?.position = SCNVector3(x: 0, y: -10, z: -40)
 //            enemy?.pivot = SCNMatrix4MakeTranslation(0, 1, 0)
-//            enemy?.pivot = SCNMatrix4MakeRotation(15, 15, 15, 15)
-
+            enemy?.pivot = SCNMatrix4MakeRotation(146, 0, 1, 0)
         } else if self.itemDesc == "wolf" {
-            enemy?.position = SCNVector3(x: 0, y: 0, z: 0)
+            enemy?.position = SCNVector3(x: 0, y: 0, z: -18)
+            enemy?.pivot = SCNMatrix4MakeRotation(165, 0, 1, 0)
         } else if self.itemDesc == "wrench"{
-            enemy?.position = SCNVector3(x: 0, y: 5, z: 0)
+            enemy?.position = SCNVector3(x: 0, y: -5, z: 15)
+            enemy?.pivot = SCNMatrix4MakeRotation(125, 94, 20, 0)
         } else if self.itemDesc == "arcanine"{
-            enemy?.position = SCNVector3(x: 0, y: 40, z: 0)
+            enemy?.position = SCNVector3(x: 0, y: 20, z: 0)
         } else {
             enemy?.position = SCNVector3(x: 0, y: 0, z: 0)
         }
