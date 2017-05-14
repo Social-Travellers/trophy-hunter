@@ -22,7 +22,7 @@ class UserProfileViewController: MenuItemContentViewController {
     @IBOutlet weak var userTagline: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var experiencePointsLabel: UILabel!
-  //  @IBOutlet weak var trophiesCountLabel: UILabel!
+    //  @IBOutlet weak var trophiesCountLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
     
@@ -46,7 +46,7 @@ class UserProfileViewController: MenuItemContentViewController {
             rankLabel.text = user.rank
             userTagline.text = user.tagline
             
-       //     trophiesCountLabel.text = "\(user.trophies.count)"
+            //     trophiesCountLabel.text = "\(user.trophies.count)"
             experiencePointsLabel.text = "Experience: \(user.experiencePointsString)"
             
             if let profilePictureUrl = user.profilePicUrl{
@@ -82,6 +82,7 @@ class UserProfileViewController: MenuItemContentViewController {
         }
         
         setupEscapeButtons()
+        addRoundEdges()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,6 +97,17 @@ class UserProfileViewController: MenuItemContentViewController {
                 user = userFromCell
             }
         }
+    }
+    
+    func addRoundEdges(){
+        //Round edges on trophy imageViews
+        for imageView in trophyImageViews{
+            imageView.layer.cornerRadius = imageView.frame.size.width / 8
+            imageView.clipsToBounds = true
+        }
+        
+        trophyDarkView.layer.cornerRadius = trophyDarkView.frame.size.width / 8
+        trophyDarkView.clipsToBounds = true
     }
     
     func fetchTrophyImages(){
@@ -149,7 +161,7 @@ class UserProfileViewController: MenuItemContentViewController {
                 trophyImageViews[index].isHidden = false
                 trophyPlusLabel.isHidden = false
             }
-            
+                
             else if index < trophyImages.count{
                 trophyImageViews[index].image = trophyImages[index]
                 trophyImageViews[index].isHidden = false
@@ -209,7 +221,6 @@ class UserProfileViewController: MenuItemContentViewController {
     }
     
     @IBAction func onAddTrophyButton(_ sender: Any) {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "trophy"))
         addImageToStack(image: #imageLiteral(resourceName: "trophy"))
         //        imageView.contentMode = UIViewContentMode.scaleAspectFill
         //        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)

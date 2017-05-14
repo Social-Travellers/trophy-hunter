@@ -25,12 +25,18 @@ class User1Cell: UITableViewCell {
             }
             
             profileImageView.setImageWith(URL(string:user.profilePicUrl!)!)
+            addRoundEdges(imageView: profileImageView)
             rankLabel.text = user.rank
             experiencePointsLabel.text = "\(user.experiencePointsString)"
             
         }
     }
     
+    func addRoundEdges(imageView: UIImageView){
+        //Round edges on trophy imageViews
+            imageView.layer.cornerRadius = imageView.frame.size.width / 8
+            imageView.clipsToBounds = true
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
