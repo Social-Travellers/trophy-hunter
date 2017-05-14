@@ -233,9 +233,10 @@ class CameraViewController: UIViewController {
             
             if let viewController = storyboard.instantiateViewController(withIdentifier: "TrophyUnlockedView") as? TrophyUnlockedViewController {
                 if let event = self.selectedEvent {
+                    viewController.completedEvent = event
                     if let trophy = event.trophy {
                         viewController.trophy = trophy
-                        print("Description: \(String(describing: event.trophy?.itemDescription))")
+                        print("Description: \(String(describing: trophy.itemDescription))")
                         self.present(viewController, animated: true, completion: nil)
                     }
                 }

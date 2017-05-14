@@ -19,7 +19,10 @@ class TrophyUnlockedViewController: UIViewController {
     @IBOutlet weak var expToNextLevelLabel: UILabel!
     @IBOutlet weak var currentRankLabel: UILabel!
     
+    var completedEvent: Event!
     var trophy: Trophy!
+    
+    var pfUser: PFObject?
     
     var user: User! {
         didSet {
@@ -28,6 +31,8 @@ class TrophyUnlockedViewController: UIViewController {
             }
             expToNextLevelLabel.text = user.expToNextRank
             currentRankLabel.text = user.rank
+            
+            addUserToEvent()
         }
     }
     
@@ -44,7 +49,7 @@ class TrophyUnlockedViewController: UIViewController {
         
         updateUser(userId: User.currentUser!.facebookId!)
         updateTrophyLabels(trophy: trophy)
-        fetchUser(userId: User.currentUser!.facebookId!)
+        //fetchUser(userId: User.currentUser!.facebookId!)
     }
     
     
@@ -107,7 +112,7 @@ class TrophyUnlockedViewController: UIViewController {
                 if let backendUsers = backendUsers {
                     let backendUser = backendUsers[0]
                     print(backendUser.objectId!)
-                    
+                    self.pfUser = backendUser
                     let frontendUser = User(PFObject: backendUser)
                     self.user = frontendUser
                 }
@@ -115,6 +120,31 @@ class TrophyUnlockedViewController: UIViewController {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.localizedDescription)")
             }
+        }
+    }
+    
+    func addUserToEvent() {
+        if let _ = self.pfUser {
+            pfUser?.fetchIfNeededInBackground(block: { (fetchedObject: PFObject?, error: Error?) in
+                if error != nil {
+                    print("Error: \(error!.localizedDescription)")
+                } else {
+                    print("User \(fetchedObject!.objectId!) fetched to add to event")
+                    let eventObject = PFObject(withoutDataWithClassName: "Event1", objectId: self.completedEvent.objectId!)
+                    print("Adding user to event: \(eventObject.objectId!)")
+                    eventObject.addUniqueObject(fetchedObject!, forKey: "completedBy")
+                    
+                    eventObject.saveInBackground(block: { (succeeded: Bool, saveError: Error?) in
+                        if saveError != nil {
+                            print("Save error: \(saveError!.localizedDescription)")
+                        } else {
+                            print("User added to event")
+                        }
+                    })
+                }
+            })
+        } else {
+            print("pfUser is nil")
         }
     }
     

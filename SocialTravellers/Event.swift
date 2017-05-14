@@ -25,7 +25,7 @@ class Event: NSObject {
         
         super.init()
         
-        self.objectId = event["objectId"] as? String
+        self.objectId = event.objectId
         self.name = event["name"] as? String
         
         if let location = event["location"] as? PFGeoPoint {
