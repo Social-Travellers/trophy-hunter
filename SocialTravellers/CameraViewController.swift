@@ -205,9 +205,11 @@ class CameraViewController: UIViewController {
         } else if self.itemDesc == "wrench"{
             enemy?.position = SCNVector3(x: 0, y: -5, z: 15)
             enemy?.pivot = SCNMatrix4MakeRotation(125, 94, 20, 0)
-        } else if self.itemDesc == "arcanine"{
-            enemy?.position = SCNVector3(x: 0, y: 20, z: 0)
-        } else {
+        } else if self.itemDesc == "m-dae"{
+            enemy?.position = SCNVector3(x: 0, y: 0, z: 15)
+            enemy?.pivot = SCNMatrix4MakeRotation(0, 0, 20, 0)
+
+        }else {
             enemy?.position = SCNVector3(x: 0, y: 0, z: 0)
         }
         
