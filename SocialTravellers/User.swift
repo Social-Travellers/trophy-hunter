@@ -28,6 +28,15 @@ class User: NSObject {
     
     var trophies: [Trophy] = []
     var experiencePoints: NSNumber?
+    lazy var experiencePointsString: String = {
+        var formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        if let expPoints = self.experiencePoints{
+        return formatter.string(from: expPoints)!
+        }
+        return "0"
+    }()
+    
     lazy var rank:String = {
         let rankTable = RankTable()
         if let expPoints = self.experiencePoints{

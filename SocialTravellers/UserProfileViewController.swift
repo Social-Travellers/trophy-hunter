@@ -26,7 +26,12 @@ class UserProfileViewController: MenuItemContentViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
     
+    @IBOutlet var trophyImageViews: [UIImageView]!
     
+    @IBOutlet weak var trophyStackView: UIStackView!
+    
+    var userTrophies: [Trophy] = []
+    var trophyImages: [UIImage] = []
     
     var userFromCell: User!
     var transitionedFromSegue: Bool!
@@ -36,11 +41,14 @@ class UserProfileViewController: MenuItemContentViewController {
             nameLabel.text = "\(user.firstName!) \(user.lastName!)"
             rankLabel.text = user.rank
             userTagline.text = user.tagline
+
             trophiesCountLabel.text = "\(user.trophies.count)"
+            experiencePointsLabel.text = "Experience: \(user.experiencePointsString)"
+
             
-            if let exp = user.experiencePoints{
-                experiencePointsLabel.text = "\(exp)"
-            }
+            //            if let exp = user.experiencePointsSt{
+            //                experiencePointsLabel.text = "Experience: \(exp)"
+            //            }
             
             if let profilePictureUrl = user.profilePicUrl{
                 profileImageView.setImageWith((URL(string: profilePictureUrl))!)
@@ -67,6 +75,69 @@ class UserProfileViewController: MenuItemContentViewController {
             print("receiving user from scoreboard")
             user = userFromCell
         }
+        
+        setupEscapeButtons()
+    }
+    
+    func fetchTrophyImages(){
+        for trophy in userTrophies{
+            fetchTrophyImage(trophy: trophy)
+        }
+    }
+    
+    func fetchTrophyImage(trophy:Trophy){
+        if let imageFile = trophy.picture {
+            imageFile.getDataInBackground(block: { [unowned self] (data: Data?, error: Error?) in
+                if error != nil {
+                    print("Image error: \(error!.localizedDescription)")
+                } else {
+                    let image = UIImage(data: data!)
+                    if let image = image{
+                        self.trophyImages.append(image)
+                        let imageView = UIImageView()
+                        imageView.image = image
+                        self.trophyStackView.addArrangedSubview(imageView)
+                        self.addImagesToView()
+                    }
+                }
+            })
+        }
+    }
+    
+    func addImagesToView(){
+        
+        for index in [0,1,2,3]{
+            if index == trophyImages.count-1 || index == 3{
+                trophyImageViews[index].image = #imageLiteral(resourceName: "trophy")
+            } else if index < trophyImages.count{
+                trophyImageViews[index].image = trophyImages[index]
+            }
+        }
+        
+//        for image in trophyImages{
+//            let imageIndex = trophyImages.index(of: image)
+//            if imageIndex! < 3{
+//                trophyImageViews[trophyImages.index(of: image)!].image = image
+//            }
+//            
+//        }
+
+        
+    }
+    
+    
+    @IBAction func onAddTrophyButton(_ sender: Any) {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "trophy"))
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        imageView.clipsToBounds = true
+        //        trophyStackView.spacing = 10.0
+        //        trophyStackView.distribution = .equalSpacing
+        //        trophyStackView.insertArrangedSubview(imageView, at: 0)
+        //trophyStackView.arrangedSubviews[0] = imageView
+    }
+    
+    func setupEscapeButtons(){
         if let transitionedFromSegue = transitionedFromSegue{
             if transitionedFromSegue == true {
                 closeButton.isHidden = false
@@ -79,7 +150,6 @@ class UserProfileViewController: MenuItemContentViewController {
             closeButton.isHidden = true
             menuButton.isHidden = false
         }
-        
     }
     
     @IBAction func onMenuButton(_ sender: Any) {
@@ -106,6 +176,11 @@ class UserProfileViewController: MenuItemContentViewController {
                     
                     let frontendUser = User(PFObject: backendUser)
                     self.user = frontendUser
+                    
+                    for trophy in frontendUser.trophies {
+                        self.userTrophies.append(trophy)
+                    }
+                    self.fetchTrophyImages()
                 }
             } else {
                 // Log details of the failure

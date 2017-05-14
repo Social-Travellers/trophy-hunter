@@ -50,7 +50,6 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
         cell.menuLabel.text = viewControllers[indexPath.row]
         cell.menuIconImageView.image = menuIcons[indexPath.row]
         
-        
         return cell
     }
     
