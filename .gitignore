@@ -66,3 +66,10 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+.idea/.name
+.idea/misc.xml
+.idea/modules.xml
+.idea/trophy-hunter.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/xcode.xml
