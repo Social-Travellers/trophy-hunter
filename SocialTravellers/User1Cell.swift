@@ -9,7 +9,7 @@
 import UIKit
 
 class User1Cell: UITableViewCell {
-
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
@@ -20,15 +20,14 @@ class User1Cell: UITableViewCell {
             print("setting up user cell for \(user.firstName ?? "USER IS NIL")")
             if let firstName = user.firstName{
                 if let lastName = user.lastName{
-                     nameLabel.text = "\(String(describing: firstName)) \(String(describing: lastName))"
+                    nameLabel.text = "\(String(describing: firstName)) \(String(describing: lastName))"
                 }
             }
-           
+            
             profileImageView.setImageWith(URL(string:user.profilePicUrl!)!)
-            rankLabel.text = user.rank 
-            if let exp = user.experiencePoints{
-                experiencePointsLabel.text = "\(exp)"
-            }
+            rankLabel.text = user.rank
+            experiencePointsLabel.text = "\(user.experiencePointsString)"
+            
         }
     }
     
@@ -37,11 +36,11 @@ class User1Cell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
