@@ -27,7 +27,7 @@ class UserTrophiesViewController: MenuItemContentViewController {
 
     
     func fetchUserTrophies(withId facebookId: String) {
-        let query = PFQuery(className:"User1")
+        let query = PFQuery(className:Constants.ParseServer.USER)
         query.limit = 1; // limit to at most 1 result
         query.includeKey("trophies")
         query.whereKey("facebookId", equalTo: facebookId)

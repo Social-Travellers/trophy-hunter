@@ -112,7 +112,10 @@ class UserProfileViewController: MenuItemContentViewController {
     
     func fetchTrophyImages(){
         trophyImages = []
-
+        if userTrophies.count == 0{
+            trophyPlusLabel.isHidden = true
+            trophyDarkView.isHidden = true
+        }
             for trophy in userTrophies{
                 fetchTrophyImage(trophy: trophy)
             }
@@ -140,11 +143,7 @@ class UserProfileViewController: MenuItemContentViewController {
     func addImagesToView(){
         
         for index in [0,1,2,3]{
-            if trophyImages.count == 0{
-                trophyImageViews[index].isHidden = true
-                trophyPlusLabel.isHidden = true
-                trophyDarkView.isHidden = true
-            } else if  index > trophyImages.count{
+            if  index > trophyImages.count{
                 trophyImageViews[index].isHidden = true
                 trophyImageViews[index].image = nil
                 trophyPlusLabel.isHidden = true
@@ -177,7 +176,7 @@ class UserProfileViewController: MenuItemContentViewController {
     }
     
     func fetchUser(facebookId: String){
-        let query = PFQuery(className:"User1")
+        let query = PFQuery(className:Constants.ParseServer.USER)
         query.limit = 1; // limit to at most 1 result
         query.includeKey("trophies")
         query.whereKey("facebookId", equalTo:facebookId)

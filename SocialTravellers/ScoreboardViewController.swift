@@ -34,7 +34,7 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
     
     
     func fetchUserList(){
-        let query = PFQuery(className:"User1")
+        let query = PFQuery(className:Constants.ParseServer.USER)
         query.includeKey("trophies")
         query.limit = 10; // limit to at most 10 results
         query.order(byDescending: "experiencePoints")
@@ -101,6 +101,10 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
         if users.count != 0{
             let user = users[indexPath.row]
             cell.user = user
+            print("User.dictionary = \(user.dictionary)")
+            print("User.name = \(user.firstName)")
+            print("User.tagline = \(user.tagline)")
+            print("User.coverPicUrl = \(user.coverPicUrl)")
         }
         print("setting up cell")
         return cell

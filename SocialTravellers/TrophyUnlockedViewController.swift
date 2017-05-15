@@ -55,7 +55,7 @@ class TrophyUnlockedViewController: UIViewController {
     
     // Update user's trophies and XP
     func updateUser(userId facebookId: String) {
-        let query = PFQuery(className:"User1")
+        let query = PFQuery(className:Constants.ParseServer.USER)
         query.limit = 1; // limit to at most 1 result
         query.whereKey("facebookId", equalTo: facebookId)
         // Investigate if there's a query parameter that will sort this by a key-value (experience points)
@@ -96,7 +96,7 @@ class TrophyUnlockedViewController: UIViewController {
     }
     
     func fetchUser(userId facebookId: String) {
-        let query = PFQuery(className:"User1")
+        let query = PFQuery(className:Constants.ParseServer.USER)
         query.limit = 1; // limit to at most 1 result
         query.includeKey("trophies")
         query.whereKey("facebookId", equalTo:facebookId)

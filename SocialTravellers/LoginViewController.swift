@@ -88,7 +88,7 @@ extension LoginViewController: LoginButtonDelegate {
         // if user exists do not save a record but update record
         // UPDATE RECORD BY CHECKING FACEBOOK ID
         // if user DOES NOT exists create a new record
-        let query = PFQuery(className:"User1")
+        let query = PFQuery(className:Constants.ParseServer.USER)
         query.whereKey("facebookId", equalTo: user.facebookId!)
         
         // Check if user already exists
@@ -96,7 +96,7 @@ extension LoginViewController: LoginButtonDelegate {
             if PFUsers == nil || PFUsers?.count == 0{
                 //User not in back end, now saving user as a new entry in back end
                 print("User not in back end, now saving user as a new entry in back end")
-                let backendUser = PFObject(className:"User1")
+                let backendUser = PFObject(className:Constants.ParseServer.USER)
                 backendUser["firstName"] = user.firstName ?? "N/A"
                 backendUser["lastName"] = user.lastName ?? "N/A"
                 backendUser["email"] = user.email ?? "N/A"
@@ -131,7 +131,7 @@ extension LoginViewController: LoginButtonDelegate {
     
     //Update a User given that user's object id
     func updateUserInBackend(objectId: String) {
-        let query = PFQuery(className:"User1")
+        let query = PFQuery(className:Constants.ParseServer.USER)
         query.getObjectInBackground(withId: objectId) { (backendUser: PFObject?, error: Error?) in
             if (error != nil) {
                 print(error!)
@@ -161,7 +161,7 @@ extension LoginViewController: LoginButtonDelegate {
     {
        
         // Create a query for appUsers
-        let query = PFQuery(className:"User1")
+        let query = PFQuery(className:Constants.ParseServer.USER)
         query.getObjectInBackground(withId: objectId) {
             (backendUser: PFObject?, error: Error?) in
             if error == nil && backendUser != nil {

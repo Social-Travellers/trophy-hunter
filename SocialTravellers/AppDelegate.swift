@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Parse config
         let configuration = ParseClientConfiguration {
-            $0.applicationId = Constants.APPLICATION_ID
-            $0.server = Constants.SERVER_URL
+            $0.applicationId = Constants.ParseServer.APPLICATION_ID
+            $0.server = Constants.ParseServer.SERVER_URL
         }
         Parse.initialize(with: configuration)
         

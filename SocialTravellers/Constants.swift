@@ -9,6 +9,11 @@
 import Foundation
 
 struct Constants {
-    static let APPLICATION_ID: String = "AnupParseAppID"
-    static let SERVER_URL: String = "https://sheltered-coast-69961.herokuapp.com/parse"
+    
+    struct ParseServer {
+        static let APPLICATION_ID: String = "AnupParseAppID"
+        static let SERVER_URL: String = "https://sheltered-coast-69961.herokuapp.com/parse"
+        static let USER: String = "User2"
+    }
+    
 }
