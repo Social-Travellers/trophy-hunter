@@ -27,7 +27,7 @@ class TrophyCollectionViewCell: UICollectionViewCell {
             }
             
             trophyNameLabel.text = trophy.name
-            trophyExpLabel.text = trophy.experiencePoints?.stringValue
+            trophyExpLabel.text = "\(trophy.experiencePoints?.stringValue ?? "") xp"
         }
     }
 }

@@ -47,7 +47,7 @@ class TrophyUnlockedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tealColor = UIColor(colorLiteralRed: 121/255.0, green: 204/225.0, blue: 212/255.0, alpha: 1.0)
+        let tealColor = UIColor(red:0.47, green:0.80, blue:0.83, alpha:1.0)
         navigationController?.navigationBar.barTintColor = tealColor
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         titleLabel.textAlignment = NSTextAlignment.center

@@ -12,12 +12,23 @@ import InteractiveSideMenu
 
 class UserTrophiesViewController: MenuItemContentViewController {
     @IBOutlet weak var trophiesCollectionView: UICollectionView!
+    @IBOutlet weak var trophiesNavigationBar: UINavigationBar!
+    @IBOutlet weak var trophiesNavigationItem: UINavigationItem!
 
     var userTrophies: [Trophy] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tealColor = UIColor(red:0.47, green:0.80, blue:0.83, alpha:1.0)
+        trophiesNavigationBar.barTintColor = tealColor
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.text = "Trophies Collection"
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        trophiesNavigationItem.titleView = titleLabel
+        
         trophiesCollectionView.delegate = self
         trophiesCollectionView.dataSource = self
         
