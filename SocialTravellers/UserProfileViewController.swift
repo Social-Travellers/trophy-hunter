@@ -112,14 +112,10 @@ class UserProfileViewController: MenuItemContentViewController {
     
     func fetchTrophyImages(){
         trophyImages = []
-        if trophyImages.count == 0{
-            trophyPlusLabel.isHidden = true
-            trophyDarkView.isHidden = true
-        } else {
+
             for trophy in userTrophies{
                 fetchTrophyImage(trophy: trophy)
             }
-        }
     }
     
     func fetchTrophyImage(trophy:Trophy){
