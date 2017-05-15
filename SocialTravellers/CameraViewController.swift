@@ -11,15 +11,13 @@ import SceneKit
 import AVFoundation
 import CoreLocation
 
-//protocol CameraViewControllerDelegate {
-//    func trophyTappedOnCameraViewController(viewController controller: CameraViewController, tappedTrophy trophy: Trophy)
-//}
-
 class CameraViewController: UIViewController {
 
     @IBOutlet weak var sceneView: SCNView!
     @IBOutlet weak var leftIndicator: UILabel!
     @IBOutlet weak var rightIndicator: UILabel!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var dismissButton: UIButton!
     
     var cameraSession: AVCaptureSession?
     var cameraLayer: AVCaptureVideoPreviewLayer?
@@ -38,6 +36,8 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dismissButton.isHidden = true
+        
         loadCamera()
         self.cameraSession?.startRunning()
         self.locationManger.delegate = self
@@ -46,12 +46,12 @@ class CameraViewController: UIViewController {
         //TODO: setting local location get it from previous VC
         if let location = selectedEvent?.location {
             eventLocation = location
-            print("Event location: \(eventLocation)")
+            debugPrint("Event location: \(eventLocation)")
         } else {
-            print("Could not get location from event")
+            debugPrint("Could not get location from event")
         }
         userLocation = self.locationManger.location!
-        print(userLocation)
+        debugPrint(userLocation)
         
         sceneView.scene = scene
         cameraNode.camera = SCNCamera()
@@ -64,14 +64,14 @@ class CameraViewController: UIViewController {
                     
                     self.itemDesc = itemDesc
                 } else {
-                    print("Description error")
+                    debugPrint("Description error")
                 }
             } else {
-                print("Trophy error")
+                debugPrint("Trophy error")
             }
         }
         else {
-            print("Event error")
+            debugPrint("Event error")
         }
         
         setupTarget()
@@ -80,10 +80,6 @@ class CameraViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func closeClicked(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
     }
     
     func createCaptureSession() -> (session: AVCaptureSession?, error: NSError?) {
@@ -123,7 +119,7 @@ class CameraViewController: UIViewController {
         let captureSessionResult = createCaptureSession()
         
         guard captureSessionResult.error == nil, let session = captureSessionResult.session else {
-            print("Error creating capture session")
+            debugPrint("Error creating capture session")
             return
         }
         
@@ -217,7 +213,7 @@ class CameraViewController: UIViewController {
         node.addChildNode(enemy!)
         node.name = "enemy"
         self.selectedEvent?.trophy?.itemNode = node
-        
+       
 //        createCustomTrophy()
 
     }
@@ -285,7 +281,7 @@ class CameraViewController: UIViewController {
         let hitResult = sceneView.hitTest(location, options: nil)
         
         if hitResult.first != nil {
-            print("trophyTapped")
+            debugPrint("trophyTapped")
                         
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -295,7 +291,10 @@ class CameraViewController: UIViewController {
                         viewController.completedEvent = event
                         if let trophy = event.trophy {
                             viewController.trophy = trophy
-                            print("Description: \(String(describing: trophy.itemDescription))")
+                            debugPrint("Description: \(String(describing: trophy.itemDescription))")
+
+                            dismissButton.isHidden = true
+
                             self.present(navVc, animated: true, completion: nil)
                         }
                     }
@@ -304,10 +303,23 @@ class CameraViewController: UIViewController {
                         
         }
         else {
-            print("trophy Not Tapped")
+            debugPrint("trophy Not Tapped")
 
         }
     }
+    
+    //Show Dismiss button when double tapped on the screen
+    @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
+        debugPrint("Double Tapped")
+        dismissButton.isHidden = false
+
+    }
+    
+    @IBAction func dismissButtonTapped(_ sender: Any) {
+        dismissButton.isHidden = true
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension CameraViewController: CLLocationManagerDelegate {

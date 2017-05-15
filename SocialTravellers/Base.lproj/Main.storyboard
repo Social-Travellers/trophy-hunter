@@ -111,6 +111,10 @@
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1QO-MC-0GF">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Qmo-jm-Jpz" appends="YES" id="oka-Pk-mFp"/>
+                                </connections>
                             </sceneKitView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4m-hs-jeF">
                                 <rect key="frame" x="339" y="318.5" width="16" height="30"/>
@@ -126,45 +130,57 @@
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1N-Te-ktB">
-                                <rect key="frame" x="10" y="30" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQ8-Uo-0Pm">
+                                <rect key="frame" x="0.0" y="595" width="375" height="72"/>
+                                <color key="backgroundColor" red="0.47319883109999999" green="0.80112999679999997" blue="0.83099007609999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="DGo-Jt-xxD"/>
-                                    <constraint firstAttribute="height" constant="30" id="K9O-Kk-HM6"/>
+                                    <constraint firstAttribute="width" constant="375" id="M3o-g9-9DB"/>
+                                    <constraint firstAttribute="height" constant="72" id="XHb-Cc-Bki"/>
                                 </constraints>
-                                <state key="normal" title="Close"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="DISMISS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="closeClicked:" destination="G0R-cc-ILR" eventType="touchUpInside" id="0bI-CE-lR0"/>
+                                    <action selector="dismissButtonTapped:" destination="G0R-cc-ILR" eventType="touchUpInside" id="4kj-Qg-zKs"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1QO-MC-0GF" secondAttribute="trailing" id="3fO-Gf-lXx"/>
+                            <constraint firstItem="9Ad-iZ-dhc" firstAttribute="top" secondItem="XQ8-Uo-0Pm" secondAttribute="bottom" id="625-IG-AdZ"/>
                             <constraint firstAttribute="trailing" secondItem="I4m-hs-jeF" secondAttribute="trailing" constant="20" symbolic="YES" id="6pn-Fg-tCy"/>
                             <constraint firstItem="1QO-MC-0GF" firstAttribute="top" secondItem="zt7-Vp-qvh" secondAttribute="bottom" id="8xr-rA-rSu"/>
                             <constraint firstItem="I4m-hs-jeF" firstAttribute="centerY" secondItem="r6E-h8-sAz" secondAttribute="centerY" id="GHp-3J-aaM"/>
                             <constraint firstItem="wRu-gL-r0b" firstAttribute="leading" secondItem="r6E-h8-sAz" secondAttribute="leading" constant="20" symbolic="YES" id="HP3-c4-gSi"/>
                             <constraint firstItem="1QO-MC-0GF" firstAttribute="leading" secondItem="r6E-h8-sAz" secondAttribute="leading" id="MxD-W3-MKn"/>
                             <constraint firstItem="1QO-MC-0GF" firstAttribute="top" secondItem="zt7-Vp-qvh" secondAttribute="bottom" id="ZOe-SN-XHA"/>
-                            <constraint firstItem="z1N-Te-ktB" firstAttribute="top" secondItem="zt7-Vp-qvh" secondAttribute="bottom" constant="10" id="Zcb-gw-2nQ"/>
                             <constraint firstItem="9Ad-iZ-dhc" firstAttribute="top" secondItem="1QO-MC-0GF" secondAttribute="bottom" id="eOC-B7-bxy"/>
                             <constraint firstItem="1QO-MC-0GF" firstAttribute="bottom" secondItem="9Ad-iZ-dhc" secondAttribute="top" id="gUe-Us-dDj"/>
-                            <constraint firstItem="z1N-Te-ktB" firstAttribute="leading" secondItem="r6E-h8-sAz" secondAttribute="leading" constant="10" id="jaI-nQ-Lli"/>
+                            <constraint firstItem="XQ8-Uo-0Pm" firstAttribute="leading" secondItem="r6E-h8-sAz" secondAttribute="leading" id="loS-dg-7JC"/>
+                            <constraint firstAttribute="trailing" secondItem="XQ8-Uo-0Pm" secondAttribute="trailing" id="naa-yQ-VcV"/>
                             <constraint firstItem="wRu-gL-r0b" firstAttribute="centerY" secondItem="r6E-h8-sAz" secondAttribute="centerY" id="pG8-sH-bwV"/>
                             <constraint firstItem="1QO-MC-0GF" firstAttribute="leading" secondItem="r6E-h8-sAz" secondAttribute="leading" id="pr6-HV-fbq"/>
                             <constraint firstAttribute="trailing" secondItem="1QO-MC-0GF" secondAttribute="trailing" id="rSm-Wd-Kiw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dismissButton" destination="XQ8-Uo-0Pm" id="XvW-Ds-eRR"/>
                         <outlet property="leftIndicator" destination="wRu-gL-r0b" id="eyd-Df-2vb"/>
                         <outlet property="rightIndicator" destination="I4m-hs-jeF" id="RyM-fz-qxU"/>
                         <outlet property="sceneView" destination="1QO-MC-0GF" id="Z03-b1-ql9"/>
+                        <outlet property="tapGestureRecognizer" destination="Qmo-jm-Jpz" id="D2C-eV-Y5K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFY-R9-Sqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Qmo-jm-Jpz">
+                    <connections>
+                        <action selector="screenTapped:" destination="G0R-cc-ILR" id="zPF-gR-Eqi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1721" y="960"/>
+            <point key="canvasLocation" x="1720.8" y="959.37031484257875"/>
         </scene>
         <!--User Trophies View Controller-->
         <scene sceneID="8Rb-Dy-YGB">
@@ -445,7 +461,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="szg-aK-JhH" id="7hi-2K-EBF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfU-0h-D1H">
@@ -602,7 +618,6 @@
                                             <color key="titleColor" red="0.53146660329999995" green="0.77966594700000003" blue="0.81572866440000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="closeClicked:" destination="G0R-cc-ILR" eventType="touchUpInside" id="oJq-BS-zuS"/>
                                             <action selector="onCancelButton:" destination="Rml-9V-QM6" eventType="touchUpInside" id="rAD-YR-o31"/>
                                         </connections>
                                     </button>
@@ -770,7 +785,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J6G-qg-ngn" id="JaH-Lh-PNo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="r6c-6m-tdZ">
