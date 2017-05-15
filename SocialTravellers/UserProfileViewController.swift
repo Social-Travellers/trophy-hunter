@@ -16,19 +16,13 @@ class UserProfileViewController: MenuItemContentViewController {
     
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var userTagline: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var experiencePointsLabel: UILabel!
-    //  @IBOutlet weak var trophiesCountLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
-    
     @IBOutlet var trophyImageViews: [UIImageView]!
-    
-    @IBOutlet weak var trophyStackView: UIStackView!
     @IBOutlet weak var trophyPlusLabel: UILabel!
     @IBOutlet weak var trophyDarkView: UIView!
     
@@ -224,17 +218,6 @@ class UserProfileViewController: MenuItemContentViewController {
         }
     }
     
-    @IBAction func onAddTrophyButton(_ sender: Any) {
-        addImageToStack(image: #imageLiteral(resourceName: "trophy"))
-        //        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        //        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        //        imageView.clipsToBounds = true
-        //        trophyStackView.spacing = 10.0
-        //        //trophyStackView.distribution = .fillProportionally
-        //        trophyStackView.insertArrangedSubview(imageView, at: 0)
-        //        trophyStackView.removeArrangedSubview(trophyStackView.arrangedSubviews.last!)
-    }
-    
     @IBAction func onMenuButton(_ sender: Any) {
         showMenu()
     }
@@ -242,28 +225,4 @@ class UserProfileViewController: MenuItemContentViewController {
     @IBAction func onCancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    func addImageToStack(image: UIImage){
-        
-        let imageView = UIImageView()
-        imageView.image = image
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        
-        
-        //        let imageViewWidthConstraint = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 75)
-        //        let imageViewHeightConstraint = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 75)
-        //
-        //        imageView.addConstraints([imageViewWidthConstraint, imageViewHeightConstraint])
-        
-        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        trophyStackView.spacing = 10.0
-        imageView.clipsToBounds = true
-        //trophyStackView.distribution = .fillProportionally
-        print("adding image to StackView")
-        // trophyStackView.addArrangedSubview(imageView)
-        //        trophyStackView.insertArrangedSubview(imageView, at: 0)
-        //        trophyStackView.removeArrangedSubview(trophyStackView.arrangedSubviews.last!)
-        //        trophyStackView.arrangedSubviews.last!.removeFromSuperview()
-    }
-    
 }
