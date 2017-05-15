@@ -76,9 +76,22 @@
                                     <action selector="onMenuButton:" destination="icU-6N-VsL" eventType="touchUpInside" id="jRf-x4-L8a"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tn-ai-1Uu">
+                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.47319883109999999" green="0.80112999679999997" blue="0.83099007609999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Bqc-yH-e5r"/>
+                                    <constraint firstAttribute="height" constant="50" id="C5F-4j-BDE"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="centerMapButtonTapped:" destination="icU-6N-VsL" eventType="touchUpInside" id="Qln-Zg-rSo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Tn-ai-1Uu" secondAttribute="trailing" constant="16" id="CsR-zv-WSX"/>
+                            <constraint firstItem="SwN-5C-jng" firstAttribute="top" secondItem="2Tn-ai-1Uu" secondAttribute="bottom" constant="20" id="DeK-oe-8Kk"/>
                             <constraint firstItem="moa-1J-Owc" firstAttribute="top" secondItem="0mo-Cp-dhg" secondAttribute="bottom" constant="10" id="JdI-eV-Yjv"/>
                             <constraint firstItem="SwN-5C-jng" firstAttribute="top" secondItem="uGs-3L-Qo0" secondAttribute="bottom" id="MU3-X1-xu1"/>
                             <constraint firstItem="uGs-3L-Qo0" firstAttribute="top" secondItem="Tis-TQ-koN" secondAttribute="top" id="Mco-jd-LLK"/>
@@ -89,6 +102,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Kp2-6A-5zr"/>
                     <connections>
+                        <outlet property="centerMapButton" destination="2Tn-ai-1Uu" id="kJb-IU-RGk"/>
                         <outlet property="trophiesMapView" destination="uGs-3L-Qo0" id="fh1-wc-W7W"/>
                     </connections>
                 </viewController>
@@ -461,7 +475,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="szg-aK-JhH" id="7hi-2K-EBF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfU-0h-D1H">
@@ -785,7 +799,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J6G-qg-ngn" id="JaH-Lh-PNo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="r6c-6m-tdZ">

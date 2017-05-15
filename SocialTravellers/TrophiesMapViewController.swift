@@ -19,6 +19,7 @@ import RKDropdownAlert
 class TrophiesMapViewController: MenuItemContentViewController {
     @IBOutlet weak var trophiesMapView: MKMapView!
     @IBOutlet weak var showCameraSceneButton: UIButton!
+    @IBOutlet weak var centerMapButton: UIButton!
     
     let locationManager = CLLocationManager()
     var userLocation: CLLocation!
@@ -161,6 +162,10 @@ class TrophiesMapViewController: MenuItemContentViewController {
      }
      */
     
+    @IBAction func centerMapButtonTapped(_ sender: Any) {
+        debugPrint("buttonTapped")
+        trophiesMapView.region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 0.002, 0.002)
+    }
 }
 
 extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
