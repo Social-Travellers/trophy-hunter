@@ -205,7 +205,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rRM-7N-Lxd">
                                                 <rect key="frame" x="16" y="30" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="menu2"/>
+                                                <state key="normal" image="menu_white"/>
                                                 <connections>
                                                     <action selector="onMenuButton:" destination="cNy-5B-9fP" eventType="touchUpInside" id="U7x-kB-rFn"/>
                                                     <action selector="onMenuButton:" destination="ZWs-lQ-dhK" eventType="touchUpInside" id="huJ-ru-klC"/>
@@ -461,7 +461,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="szg-aK-JhH" id="7hi-2K-EBF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfU-0h-D1H">
@@ -785,7 +785,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J6G-qg-ngn" id="JaH-Lh-PNo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="r6c-6m-tdZ">
@@ -883,8 +883,8 @@
         <image name="exp" width="82" height="64"/>
         <image name="logout" width="240" height="240"/>
         <image name="menu" width="240" height="240"/>
-        <image name="menu2" width="26" height="26"/>
         <image name="menuLogo" width="426" height="262"/>
+        <image name="menu_white" width="52" height="41"/>
         <image name="trophy" width="240" height="240"/>
     </resources>
 </document>
