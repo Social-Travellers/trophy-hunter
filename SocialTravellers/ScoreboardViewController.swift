@@ -25,6 +25,7 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
         tableView.dataSource = self
         configureRowHeight()
         
+        addRefreshControl()
         fetchUserList()
     }
     
@@ -47,6 +48,7 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
                 print("Successfully retrieved \(backendUsers!.count) users.")
                 // Do something with the found objects
                 if let backendUsers = backendUsers {
+                    self.users = []
                     for backendUser in backendUsers {
                         print(backendUser.objectId!)
                         let frontendUser = User(PFObject: backendUser)
@@ -101,10 +103,6 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
         if users.count != 0{
             let user = users[indexPath.row]
             cell.user = user
-            print("User.dictionary = \(user.dictionary)")
-            print("User.name = \(user.firstName)")
-            print("User.tagline = \(user.tagline)")
-            print("User.coverPicUrl = \(user.coverPicUrl)")
         }
         print("setting up cell")
         return cell
@@ -112,5 +110,42 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Add segue to send to that user's profileView
+    }
+    fileprivate func addRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+    }
+    
+    @objc fileprivate func refreshControlAction(refreshControl: UIRefreshControl) {
+        let query = PFQuery(className:Constants.ParseServer.USER)
+        query.includeKey("trophies")
+        query.limit = 10; // limit to at most 10 results
+        query.order(byDescending: "experiencePoints")
+        // Investigate if there's a query parameter that will sort this by a key-value (experience points)
+        query.findObjectsInBackground {
+            (backendUsers: [PFObject]?, error: Error?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(backendUsers!.count) users.")
+                // Do something with the found objects
+                if let backendUsers = backendUsers {
+                    self.users = []
+                    for backendUser in backendUsers {
+                        print(backendUser.objectId!)
+                        let frontendUser = User(PFObject: backendUser)
+                        self.users.append(frontendUser)
+                        print("reloading table view")
+                        self.tableView.reloadData()
+                        refreshControl.endRefreshing()
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.localizedDescription)")
+                refreshControl.endRefreshing()
+            }
+        }
     }
 }
