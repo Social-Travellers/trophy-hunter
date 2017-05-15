@@ -238,6 +238,7 @@
 					0E316C451EA5C7DC0030D8DE = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = S2LHGGTQ8D;
+						DevelopmentTeam = 2ANGJ89X6H;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -477,6 +478,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = S2LHGGTQ8D;
+				DEVELOPMENT_TEAM = 2ANGJ89X6H;
 				INFOPLIST_FILE = SocialTravellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -494,6 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = S2LHGGTQ8D;
+				DEVELOPMENT_TEAM = 2ANGJ89X6H;
 				INFOPLIST_FILE = SocialTravellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

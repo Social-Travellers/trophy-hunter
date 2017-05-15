@@ -54,6 +54,7 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         DispatchQueue.main.async {
             guard let menuContainerViewController = self.menuContainerViewController else { return }
             menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[indexPath.row])

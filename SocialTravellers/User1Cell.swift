@@ -14,6 +14,7 @@ class User1Cell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var experiencePointsLabel: UILabel!
+    @IBOutlet weak var trophiesCountLabel: UILabel!
     
     var user: User! {
         didSet {
@@ -23,7 +24,7 @@ class User1Cell: UITableViewCell {
                     nameLabel.text = "\(String(describing: firstName)) \(String(describing: lastName))"
                 }
             }
-            
+            trophiesCountLabel.text = "\(user.trophies.count)"
             profileImageView.setImageWith(URL(string:user.profilePicUrl!)!)
             addRoundEdges(imageView: profileImageView)
             rankLabel.text = user.rank
