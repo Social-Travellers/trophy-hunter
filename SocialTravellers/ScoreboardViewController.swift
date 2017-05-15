@@ -14,6 +14,9 @@ import InteractiveSideMenu
 class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var scoreboardNavigationBar: UINavigationBar!
+    @IBOutlet weak var scoreboardNavigationItem: UINavigationItem!
+    
     
     var users: [User] = []
     
@@ -25,6 +28,7 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
         tableView.dataSource = self
         configureRowHeight()
         
+        setUpNavigationBar()
         addRefreshControl()
         fetchUserList()
     }
@@ -148,5 +152,15 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
                 refreshControl.endRefreshing()
             }
         }
+    }
+    
+    func setUpNavigationBar(){
+        scoreboardNavigationBar.barTintColor = Constants.Color.THEMECOLOR
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.text = "High Scores"
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        scoreboardNavigationItem.titleView = titleLabel
     }
 }

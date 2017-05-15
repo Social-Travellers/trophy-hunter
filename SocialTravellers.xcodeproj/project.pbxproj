@@ -111,8 +111,8 @@
 				139AA3DF1EB47480009A42E5 /* Views */,
 				51607DCA1EBE936D005D0909 /* Deprecated Files */,
 				139AA3DE1EB4745D009A42E5 /* ViewControllers */,
-				0E316C4D1EA5C7DC0030D8DE /* Main.storyboard */,
 				0E316C491EA5C7DC0030D8DE /* AppDelegate.swift */,
+				0E316C4D1EA5C7DC0030D8DE /* Main.storyboard */,
 				0E316C501EA5C7DC0030D8DE /* Assets.xcassets */,
 				0E316C521EA5C7DC0030D8DE /* LaunchScreen.storyboard */,
 				0E316C551EA5C7DC0030D8DE /* Info.plist */,
@@ -237,7 +237,6 @@
 				TargetAttributes = {
 					0E316C451EA5C7DC0030D8DE = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = S2LHGGTQ8D;
 						DevelopmentTeam = 2ANGJ89X6H;
 						ProvisioningStyle = Automatic;
 					};
@@ -477,7 +476,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = S2LHGGTQ8D;
 				DEVELOPMENT_TEAM = 2ANGJ89X6H;
 				INFOPLIST_FILE = SocialTravellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -495,7 +493,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = S2LHGGTQ8D;
 				DEVELOPMENT_TEAM = 2ANGJ89X6H;
 				INFOPLIST_FILE = SocialTravellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
