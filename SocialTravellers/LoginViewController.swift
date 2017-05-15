@@ -25,7 +25,10 @@ class LoginViewController: UIViewController {
         }
         
         let loginButton = LoginButton(readPermissions: [.publicProfile, .email, .userFriends])
-        loginButton.center = CGPoint(x: view.bounds.width/2.0, y: view.bounds.height/2.0 + 100)
+        loginButton.frame = CGRect(x: 0, y: 0, width: 340, height: 80)
+        loginButton.center = CGPoint(x: view.bounds.width/2.0, y: view.bounds.height/2.0 + 250)
+        
+        loginButton.sizeToFit()
         loginButton.delegate = self
         
         view.addSubview(loginButton)
@@ -75,8 +78,6 @@ extension LoginViewController: LoginButtonDelegate {
         }
         
     }
-    
-    
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
         print("Logged out")

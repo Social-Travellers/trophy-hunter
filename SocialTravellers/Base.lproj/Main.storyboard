@@ -23,15 +23,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X07-v7-v66">
-                                <rect key="frame" x="16" y="88" width="343" height="218"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="70"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash bg" translatesAutoresizingMaskIntoConstraints="NO" id="z7r-Dy-7Mv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Y9C-fl-Gp7">
+                                <rect key="frame" x="58" y="88" width="259" height="295"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Y9C-fl-Gp7" secondAttribute="trailing" constant="58" id="CWF-C6-P58"/>
+                            <constraint firstItem="Y9C-fl-Gp7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="58" id="H2i-7e-JrU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="z7r-Dy-7Mv" secondAttribute="bottom" id="N5Q-jz-kXN"/>
+                            <constraint firstItem="Y9C-fl-Gp7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="68" id="Slc-xf-opH"/>
+                            <constraint firstItem="z7r-Dy-7Mv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dFR-q8-Dlf"/>
+                            <constraint firstAttribute="trailing" secondItem="z7r-Dy-7Mv" secondAttribute="trailing" id="gRz-KI-hg1"/>
+                            <constraint firstItem="z7r-Dy-7Mv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vvo-5N-EKs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Y9C-fl-Gp7" secondAttribute="bottom" constant="284" id="yWN-1d-5Ax"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="qEZ-ZY-Dwx" kind="show" identifier="loginToTrophies" id="jcN-LN-yw1"/>
@@ -435,7 +444,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="szg-aK-JhH" id="7hi-2K-EBF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfU-0h-D1H">
@@ -760,7 +769,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J6G-qg-ngn" id="JaH-Lh-PNo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="r6c-6m-tdZ">
@@ -853,6 +862,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="517" height="430"/>
+        <image name="Splash bg" width="375" height="664"/>
         <image name="exp" width="82" height="64"/>
         <image name="logout" width="240" height="240"/>
         <image name="menu" width="240" height="240"/>
