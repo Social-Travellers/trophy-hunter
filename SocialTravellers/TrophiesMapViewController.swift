@@ -12,6 +12,9 @@ import MapKit
 import Parse
 import FacebookLogin
 import InteractiveSideMenu
+import ChameleonFramework
+import RKDropdownAlert
+
 
 class TrophiesMapViewController: MenuItemContentViewController {
     @IBOutlet weak var trophiesMapView: MKMapView!
@@ -143,13 +146,8 @@ class TrophiesMapViewController: MenuItemContentViewController {
         print("Notification received")
         print("Trophy has been unlocked")
         selectedAnnotationView!.pinTintColor = UIColor.yellow
-        dismiss(animated: true) { 
-            let alertController = UIAlertController(title: "Trophy Unlocked", message: "You unlocked a trophy. Go get them all!", preferredStyle: .alert)
-        
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            
-            self.present(alertController, animated: true, completion: nil)
+        dismiss(animated: true) {
+            RKDropdownAlert.title("Trophy Unlocked", message: "You unlocked a trophy. Go get them all!", backgroundColor: Constants.Color.THEMECOLOR, textColor: FlatWhite(), time: 3)
         }
     }
     

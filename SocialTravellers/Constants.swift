@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ChameleonFramework
 
 struct Constants {
     
@@ -14,6 +15,10 @@ struct Constants {
         static let APPLICATION_ID: String = "AnupParseAppID"
         static let SERVER_URL: String = "https://sheltered-coast-69961.herokuapp.com/parse"
         static let USER: String = "User2"
+    }
+    
+    struct Color {
+        static let THEMECOLOR = UIColor(hexString:"79CCD4")
     }
     
 }
