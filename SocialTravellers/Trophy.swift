@@ -19,6 +19,15 @@ class Trophy: NSObject{
     var itemDescription: String?
     var itemNode: SCNNode?
     
+    lazy var experiencePointsString: String = {
+        var formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        if let expPoints = self.experiencePoints{
+            return formatter.string(from: expPoints)!
+        }
+        return "0"
+    }()
+    
     init(trophy: PFObject) {
 //        guard let id = trophy.objectId else{ return nil}
         self.objectId = trophy.objectId

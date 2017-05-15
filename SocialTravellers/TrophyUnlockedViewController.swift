@@ -26,9 +26,8 @@ class TrophyUnlockedViewController: UIViewController {
     
     var user: User! {
         didSet {
-            if let userExp = user.experiencePoints{
-                currentExpLabel.text = "\(userExp)"
-            }
+            
+            currentExpLabel.text = user.experiencePointsString
             expToNextLevelLabel.text = user.expToNextRank
             currentRankLabel.text = user.rank
             
@@ -158,7 +157,7 @@ class TrophyUnlockedViewController: UIViewController {
     
     func updateTrophyLabels(trophy: Trophy){
         trophyNameLabel.text = trophy.name!
-        expAcquiredLabel.text = "\(String(describing: trophy.experiencePoints!))"
+        expAcquiredLabel.text = trophy.experiencePointsString 
         
         let userImageFile = trophy.picture!
         userImageFile.getDataInBackground {
@@ -172,7 +171,7 @@ class TrophyUnlockedViewController: UIViewController {
             }
         }
     }
-
+    
     
     @IBAction func dismissClicked(_ sender: UIButton) {
         // navigationController?.popViewController(animated: true)

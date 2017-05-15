@@ -21,34 +21,38 @@ class RankTable: NSObject {
     func expToNextRank(experiencePoints: NSNumber) -> String{
         let expAsInt = Int(experiencePoints)
         
-//        if expAsInt != nil{
+        var formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        
             switch expAsInt {
             case 0..<noobExp:
-                let expToNextRank = noobExp-expAsInt
-                return String(expToNextRank)
+                var expToNextRank = noobExp-expAsInt
+                let exp = NSNumber(value: expToNextRank)
+                return formatter.string(from: exp)!
             case 50..<grownUpExp:
                 let expToNextRank = grownUpExp-expAsInt
-                return String(expToNextRank)
+                let exp = NSNumber(value: expToNextRank)
+                return formatter.string(from: exp)!
             case 150..<warriorExp:
                 let expToNextRank = warriorExp-expAsInt
-                return String(expToNextRank)
+                let exp = NSNumber(value: expToNextRank)
+                return formatter.string(from: exp)!
             case 1000..<knightExp:
                 let expToNextRank = knightExp-expAsInt
-                return String(expToNextRank)
+                let exp = NSNumber(value: expToNextRank)
+                return formatter.string(from: exp)!
             case 5000..<Int.max:
                 return "N/A"
             default:
                 let expToNextRank = noobExp-expAsInt
-                return String(expToNextRank)
+                let exp = NSNumber(value: expToNextRank)
+                return formatter.string(from: exp)!
             }
-//        }
-//        return String(noobExp)
     }
     
     func lookUpRank(experiencePoints: NSNumber) -> String {
         let expAsInt = Int(experiencePoints)
         
-//        if expAsInt != nil{
             switch expAsInt {
             case 0..<noobExp:
                 return "Noob"
@@ -63,7 +67,5 @@ class RankTable: NSObject {
             default:
                 return "Noob"
             }
-//        }
-//        return "Noob"
     }
 }
