@@ -110,6 +110,7 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Add segue to send to that user's profileView
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     fileprivate func addRefreshControl() {
         let refreshControl = UIRefreshControl()
