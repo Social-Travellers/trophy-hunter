@@ -47,9 +47,17 @@ class TrophyUnlockedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tealColor = UIColor(colorLiteralRed: 121/255.0, green: 204/225.0, blue: 212/255.0, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = tealColor
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.text = "Trophy Unlocked"
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        navigationItem.titleView = titleLabel
+        
         updateUser(userId: User.currentUser!.facebookId!)
         updateTrophyLabels(trophy: trophy)
-        //fetchUser(userId: User.currentUser!.facebookId!)
     }
     
     
