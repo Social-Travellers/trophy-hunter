@@ -191,8 +191,7 @@ class CameraViewController: UIViewController {
     }
     
     func setupTarget() {
-        let scene = SCNScene(named: "art.scnassets/\(itemDesc!).dae")
-
+        let scene = SCNScene(named: "art.scnassets/\(itemDesc!).scn")
         let enemy = scene?.rootNode.childNode(withName: self.itemDesc!, recursively: true)
         
         if self.itemDesc == "dragon" {
@@ -201,7 +200,7 @@ class CameraViewController: UIViewController {
             enemy?.pivot = SCNMatrix4MakeRotation(146, 0, 1, 0)
         } else if self.itemDesc == "wolf" {
             enemy?.position = SCNVector3(x: 0, y: 0, z: -18)
-            enemy?.pivot = SCNMatrix4MakeRotation(165, 0, 1, 0)
+            enemy?.pivot = SCNMatrix4MakeRotation(165, 1, 2, 0)
         } else if self.itemDesc == "wrench"{
             enemy?.position = SCNVector3(x: 0, y: -5, z: 15)
             enemy?.pivot = SCNMatrix4MakeRotation(125, 94, 20, 0)
@@ -213,10 +212,69 @@ class CameraViewController: UIViewController {
             enemy?.position = SCNVector3(x: 0, y: 0, z: 0)
         }
         
+        
         let node = SCNNode()
         node.addChildNode(enemy!)
         node.name = "enemy"
         self.selectedEvent?.trophy?.itemNode = node
+        
+//        createCustomTrophy()
+
+    }
+    
+    func createCustomTrophy() {
+
+        let scene = SCNScene()
+
+        //Camera Node
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3Make(0, 15, 30)
+        cameraNode.pivot = SCNMatrix4MakeRotation(Float(-Double.pi/7.0), 1, 0, 0);
+        scene.rootNode.addChildNode(cameraNode)
+
+        //A SpotLight
+        let spotLight = SCNLight()
+        spotLight.type = SCNLight.LightType.spot
+        spotLight.color = UIColor.red
+        let spotLightNode = SCNNode()
+        spotLightNode.light = spotLight
+        spotLightNode.position = SCNVector3Make(-2, 1, 0)
+        cameraNode.addChildNode(spotLightNode)
+        
+        //Materials
+        let redMaterial = SCNMaterial()
+        redMaterial.diffuse.contents = UIColor.red
+        
+        //create box
+        let boxSide: CGFloat = 5.0;
+        let box = SCNBox(width: CGFloat(boxSide), height: CGFloat(boxSide), length: CGFloat(boxSide), chamferRadius: 0)
+        box.materials = [redMaterial]
+        
+        let boxNode = SCNNode(geometry: box)
+        boxNode.pivot = SCNMatrix4MakeRotation(.pi/3, 0, 1, 0)
+        
+        //color box 
+        let spotColor = CAKeyframeAnimation(keyPath: "color")
+        spotColor.values = [UIColor.red, UIColor.blue, UIColor.green, UIColor.red]
+        spotColor.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        spotColor.repeatCount = Float.infinity
+        spotColor.duration = 3.0
+        
+        spotLight.addAnimation(spotColor, forKey: "ChangeTheColorOfTheSpot")
+        
+        // Rotating the box
+        let boxRotation = CABasicAnimation(keyPath: "transform")
+//        boxRotation.toValue = NSValue(caTransform3D:CATransform3DRotate(boxNode.transform, Double.pi, 1, 1, 0))
+        boxRotation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        boxRotation.repeatCount = Float.infinity
+        boxRotation.duration = 2.0
+        spotLight.addAnimation(boxRotation, forKey: "RotateTheBox")
+        
+        scene.rootNode.addChildNode(boxNode)
+        boxNode.name = "enemy"
+        self.selectedEvent?.trophy?.itemNode = boxNode
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
