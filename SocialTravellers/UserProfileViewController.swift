@@ -41,7 +41,7 @@ class UserProfileViewController: MenuItemContentViewController {
             userTagline.text = user.tagline
             
             //     trophiesCountLabel.text = "\(user.trophies.count)"
-            experiencePointsLabel.text = "Experience: \(user.experiencePointsString)"
+            experiencePointsLabel.text = "\(user.experiencePointsString)"
             
             if let profilePictureUrl = user.profilePicUrl{
                 profileImageView.setImageWith((URL(string: profilePictureUrl))!)
