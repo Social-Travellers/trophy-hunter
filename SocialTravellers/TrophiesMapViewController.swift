@@ -18,7 +18,6 @@ import RKDropdownAlert
 
 class TrophiesMapViewController: MenuItemContentViewController {
     @IBOutlet weak var trophiesMapView: MKMapView!
-    @IBOutlet weak var showCameraSceneButton: UIButton!
     @IBOutlet weak var centerMapButton: UIButton!
     
     let locationManager = CLLocationManager()
@@ -27,9 +26,12 @@ class TrophiesMapViewController: MenuItemContentViewController {
     var firstLoad = true
     var allEvents: [Event] = []
     var selectedEvent: Event?
-    var selectedAnnotationView: MKPinAnnotationView?
+    var selectedAnnotationView: MKAnnotationView?
     
     var tappedTrophy: Trophy!
+    var trophyImage:UIImage = #imageLiteral(resourceName: "TealPin")
+    var unlockedTrophyImage:UIImage = #imageLiteral(resourceName: "GrayPin")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +65,6 @@ class TrophiesMapViewController: MenuItemContentViewController {
         showMenu()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -76,16 +77,8 @@ class TrophiesMapViewController: MenuItemContentViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  /*
-    @IBAction func logoutClicked(_ sender: UIButton) {
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        print("loggedout")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue:  User.userDidLogoutNotification), object: nil)
-    } */
     
     // MARK: - MapView helper methods
-    
     func startStandardUpdates() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -100,11 +93,11 @@ class TrophiesMapViewController: MenuItemContentViewController {
     
     func addPinToMapView(forMapView mapView: MKMapView, location: CLLocation, event: Event) {
         let mapAnnotation = MapAnnotation(coordinate: location.coordinate, item: event)
+        
         mapView.addAnnotation(mapAnnotation)
     }
     
     // MARK: - Backend helper methods
-    
     func retrieveAllTrophiesAround(location: CLLocation) {
         let lat = location.coordinate.latitude as Double
         let long = location.coordinate.longitude as Double
@@ -121,7 +114,7 @@ class TrophiesMapViewController: MenuItemContentViewController {
             query.findObjectsInBackground {
                 (eventsAroundMe: [PFObject]?, error: Error?) in
                 if error == nil {
-
+                    
                     var retrievedEvents: [Event] = []
                     for eventObj in eventsAroundMe! {
                         let event = Event(event: eventObj)
@@ -146,21 +139,11 @@ class TrophiesMapViewController: MenuItemContentViewController {
     func trophyUnlocked() {
         print("Notification received")
         print("Trophy has been unlocked")
-        selectedAnnotationView!.pinTintColor = UIColor.yellow
+        selectedAnnotationView?.image = unlockedTrophyImage
         dismiss(animated: true) {
             RKDropdownAlert.title("Trophy Unlocked", message: "You unlocked a trophy. Go get them all!", backgroundColor: Constants.Color.THEMECOLOR, textColor: FlatWhite(), time: 3)
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     @IBAction func centerMapButtonTapped(_ sender: Any) {
         debugPrint("buttonTapped")
@@ -187,9 +170,10 @@ extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegat
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: pinIdentifier)
             
             if annotationView == nil {
-                annotationView = MKPinAnnotationView(annotation: mapAnnotation, reuseIdentifier: pinIdentifier)
+                annotationView = MKAnnotationView(annotation: mapAnnotation, reuseIdentifier: pinIdentifier)
                 annotationView!.canShowCallout = true
                 annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                annotationView?.image = trophyImage
             }
             
             return annotationView
@@ -200,7 +184,7 @@ extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegat
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let tappedAnnotation = view.annotation as? MapAnnotation {
-            self.selectedAnnotationView = (view as! MKPinAnnotationView)
+            self.selectedAnnotationView = view
             let selectedEvent = tappedAnnotation.item
             self.selectedEvent = selectedEvent
             
@@ -208,7 +192,6 @@ extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegat
             
             if let viewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
                 if let event = self.selectedEvent {
-//                    viewController.delegate = self
                     viewController.selectedEvent = event
                     print("Location: \(String(describing: event.location))")
                     print("Description: \(String(describing: event.trophy?.itemDescription))")
