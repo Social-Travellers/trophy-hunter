@@ -11,13 +11,16 @@ import Parse
 
 class TrophyUnlockedViewController: UIViewController {
     
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var trophyImageView: UIImageView!
+    @IBOutlet weak var footerView: UIView!
     
     @IBOutlet weak var trophyNameLabel: UILabel!
     @IBOutlet weak var expAcquiredLabel: UILabel!
     @IBOutlet weak var currentExpLabel: UILabel!
     @IBOutlet weak var expToNextLevelLabel: UILabel!
     @IBOutlet weak var currentRankLabel: UILabel!
+    @IBOutlet weak var dismissButton: UIButton!
     
     var completedEvent: Event!
     var trophy: Trophy!
@@ -28,7 +31,11 @@ class TrophyUnlockedViewController: UIViewController {
         didSet {
             
             currentExpLabel.text = user.experiencePointsString
-            expToNextLevelLabel.text = user.expToNextRank
+            if user.expToNextRank == "N/A" {
+                expToNextLevelLabel.text = "You're at the top!"
+            } else {
+                expToNextLevelLabel.text = user.expToNextRank
+            }
             currentRankLabel.text = user.rank
             
             addUserToEvent()
@@ -53,6 +60,29 @@ class TrophyUnlockedViewController: UIViewController {
         titleLabel.textColor = UIColor.white
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         navigationItem.titleView = titleLabel
+        
+        // Rounded corners
+        contentView.layer.cornerRadius = 3
+        contentView.clipsToBounds = true
+        trophyImageView.layer.cornerRadius = 3
+        trophyImageView.clipsToBounds = true
+        
+        // Drop shadow
+        let shadowPath = UIBezierPath(rect: contentView.bounds)
+        contentView.layer.masksToBounds = false
+        contentView.layer.shadowColor = UIColor.darkGray.cgColor
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        contentView.layer.shadowOpacity = 0.4
+        contentView.layer.shadowRadius = 3.0
+        contentView.layer.shadowPath = shadowPath.cgPath
+        
+        let buttonShadowPath = UIBezierPath(rect: footerView.bounds)
+        footerView.layer.masksToBounds = false
+        footerView.layer.shadowColor = UIColor.darkGray.cgColor
+        footerView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        footerView.layer.shadowOpacity = 0.4
+        footerView.layer.shadowRadius = 15.0
+        footerView.layer.shadowPath = buttonShadowPath.cgPath
         
         updateUser(userId: User.currentUser!.facebookId!)
         updateTrophyLabels(trophy: trophy)
