@@ -13,7 +13,7 @@ class TrophyUnlockedViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var trophyImageView: UIImageView!
-    @IBOutlet weak var footerView: UIView!
+//    @IBOutlet weak var footerView: UIView!
     
     @IBOutlet weak var trophyNameLabel: UILabel!
     @IBOutlet weak var expAcquiredLabel: UILabel!
@@ -76,13 +76,13 @@ class TrophyUnlockedViewController: UIViewController {
         contentView.layer.shadowRadius = 3.0
         contentView.layer.shadowPath = shadowPath.cgPath
         
-        let buttonShadowPath = UIBezierPath(rect: footerView.bounds)
-        footerView.layer.masksToBounds = false
-        footerView.layer.shadowColor = UIColor.darkGray.cgColor
-        footerView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        footerView.layer.shadowOpacity = 0.4
-        footerView.layer.shadowRadius = 15.0
-        footerView.layer.shadowPath = buttonShadowPath.cgPath
+//        let buttonShadowPath = UIBezierPath(rect: footerView.bounds)
+//        footerView.layer.masksToBounds = false
+//        footerView.layer.shadowColor = UIColor.darkGray.cgColor
+//        footerView.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        footerView.layer.shadowOpacity = 0.4
+//        footerView.layer.shadowRadius = 15.0
+//        footerView.layer.shadowPath = buttonShadowPath.cgPath
         
         updateUser(userId: User.currentUser!.facebookId!)
         updateTrophyLabels(trophy: trophy)
