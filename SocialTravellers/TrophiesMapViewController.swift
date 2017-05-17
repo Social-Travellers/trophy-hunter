@@ -93,7 +93,6 @@ class TrophiesMapViewController: MenuItemContentViewController {
     
     func addPinToMapView(forMapView mapView: MKMapView, location: CLLocation, event: Event) {
         let mapAnnotation = MapAnnotation(coordinate: location.coordinate, item: event)
-        
         mapView.addAnnotation(mapAnnotation)
     }
     
@@ -172,7 +171,7 @@ extension TrophiesMapViewController: CLLocationManagerDelegate, MKMapViewDelegat
             if annotationView == nil {
                 annotationView = MKAnnotationView(annotation: mapAnnotation, reuseIdentifier: pinIdentifier)
                 annotationView!.canShowCallout = true
-                annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                annotationView!.rightCalloutAccessoryView = UIImageView(image: #imageLiteral(resourceName: "camera"))
                 annotationView?.image = trophyImage
             }
             
