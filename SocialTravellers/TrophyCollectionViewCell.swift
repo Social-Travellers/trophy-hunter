@@ -17,7 +17,7 @@ class TrophyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var trophyExpLabel: UILabel!
     @IBOutlet weak var friendsImageView: UIImageView!
     
-    var imageNames = ["friends1", "friends2", "friends3", "friends4", "friends5"]
+    var imageNames = ["friends11", "friends12", "friends13", "friends14", "friends15"]
     
     var trophy: Trophy! {
         didSet {
