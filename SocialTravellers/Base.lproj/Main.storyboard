@@ -271,14 +271,14 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dragon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKK-0u-SN9">
-                                                            <rect key="frame" x="10" y="344.5" width="56" height="20"/>
+                                                            <rect key="frame" x="10" y="351" width="56" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200xp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyk-et-VFK">
-                                                            <rect key="frame" x="10" y="367.5" width="42" height="17.5"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <rect key="frame" x="10" y="371" width="33.5" height="14"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                             <color key="textColor" red="0.82630076142131981" green="0.82630076142131981" blue="0.82630076142131981" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -291,7 +291,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="ck0-Lb-UG0" secondAttribute="trailing" id="JZ6-pC-lJa"/>
                                                         <constraint firstItem="FKK-0u-SN9" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="10" id="Kl1-F2-f35"/>
                                                         <constraint firstAttribute="bottom" secondItem="ck0-Lb-UG0" secondAttribute="bottom" id="Niw-Kg-Cdk"/>
-                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="top" secondItem="FKK-0u-SN9" secondAttribute="bottom" constant="3" id="oFm-1j-Gne"/>
+                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="top" secondItem="FKK-0u-SN9" secondAttribute="bottom" id="oFm-1j-Gne"/>
                                                         <constraint firstItem="ck0-Lb-UG0" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" id="oWO-0h-GK2"/>
                                                         <constraint firstItem="ck0-Lb-UG0" firstAttribute="top" secondItem="GiG-bJ-OYY" secondAttribute="bottom" id="p85-Xn-hFp"/>
                                                         <constraint firstItem="GiG-bJ-OYY" firstAttribute="top" secondItem="tt1-JI-T85" secondAttribute="top" id="wMl-5p-nP3"/>
