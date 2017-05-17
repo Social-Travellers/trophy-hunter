@@ -21,12 +21,12 @@ class RankTable: NSObject {
     func expToNextRank(experiencePoints: NSNumber) -> String{
         let expAsInt = Int(experiencePoints)
         
-        var formatter = NumberFormatter()
+        let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         
             switch expAsInt {
             case 0..<noobExp:
-                var expToNextRank = noobExp-expAsInt
+                let expToNextRank = noobExp-expAsInt
                 let exp = NSNumber(value: expToNextRank)
                 return formatter.string(from: exp)!
             case 50..<grownUpExp:
