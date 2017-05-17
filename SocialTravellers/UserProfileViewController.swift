@@ -22,10 +22,7 @@ class UserProfileViewController: MenuItemContentViewController {
     @IBOutlet weak var experiencePointsLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
-    @IBOutlet var trophyImageViews: [UIImageView]!
-    @IBOutlet weak var trophyPlusLabel: UILabel!
-    @IBOutlet weak var trophyDarkView: UIView!
-    
+    @IBOutlet weak var trophyIconCollectionView: UICollectionView!
     
     var userTrophies: [Trophy] = []
     var trophyImages: [UIImage] = []
@@ -61,7 +58,10 @@ class UserProfileViewController: MenuItemContentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("UserProfile: viewDidLoad")
+
+        trophyIconCollectionView.dataSource = self
+        trophyIconCollectionView.delegate = self
+        
         if userFromCell == nil{
             print("fetching new user from parse")
             fetchUser(facebookId: (User.currentUser?.facebookId)!)
@@ -72,11 +72,10 @@ class UserProfileViewController: MenuItemContentViewController {
             for trophy in user.trophies {
                 self.userTrophies.append(trophy)
             }
-            self.fetchTrophyImages()
+            trophyIconCollectionView.reloadData()
         }
-        
         setupEscapeButtons()
-        addRoundEdges()
+        trophyIconCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,83 +91,7 @@ class UserProfileViewController: MenuItemContentViewController {
             }
         }
     }
-    
-    func addRoundEdges(){
-        //Round edges on trophy imageViews
-        for imageView in trophyImageViews{
-            imageView.layer.cornerRadius = imageView.frame.size.width / 8
-            imageView.clipsToBounds = true
-        }
-        
-        trophyDarkView.layer.cornerRadius = trophyDarkView.frame.size.width / 8
-        trophyDarkView.clipsToBounds = true
-    }
-    
-    func fetchTrophyImages(){
-        trophyImages = []
-        if userTrophies.count == 0{
-            trophyPlusLabel.isHidden = true
-            trophyDarkView.isHidden = true
-        }
-            for trophy in userTrophies{
-                fetchTrophyImage(trophy: trophy)
-            }
-    }
-    
-    func fetchTrophyImage(trophy:Trophy){
-        if let imageFile = trophy.picture {
-            imageFile.getDataInBackground(block: { [unowned self] (data: Data?, error: Error?) in
-                if error != nil {
-                    print("Image error: \(error!.localizedDescription)")
-                } else {
-                    let image = UIImage(data: data!)
-                    if let image = image{
-                        
-                        self.trophyImages.append(image)
-                        self.addImagesToView()
-                        
-                        //    self.addImageToStack(image: image)
-                    }
-                }
-            })
-        }
-    }
-    
-    func addImagesToView(){
-        
-        for index in [0,1,2,3]{
-            if  index > trophyImages.count{
-                trophyImageViews[index].isHidden = true
-                trophyImageViews[index].image = nil
-                trophyPlusLabel.isHidden = true
-                trophyDarkView.isHidden = true
-            } else if index == trophyImages.count && index < 3 {
-                trophyImageViews[index].isHidden = true
-                trophyImageViews[index].image = nil
-                trophyPlusLabel.isHidden = true
-                trophyDarkView.isHidden = true
-            } else if index == trophyImages.count-1 && index == 3 {
-                trophyImageViews[index].image = trophyImages[index]
-                trophyDarkView.isHidden = true
-                trophyImageViews[index].isHidden = false
-                trophyPlusLabel.isHidden = true
-            } else if index < trophyImages.count-1 && index == 3 {
-                trophyImageViews[index].image = trophyImages[index]
-                trophyPlusLabel.text = "+\(trophyImages.count-3)"
-                trophyDarkView.isHidden = false
-                trophyImageViews[index].isHidden = false
-                trophyPlusLabel.isHidden = false
-            }
-                
-            else if index < trophyImages.count{
-                trophyImageViews[index].image = trophyImages[index]
-                trophyImageViews[index].isHidden = false
-                trophyPlusLabel.isHidden = true
-                trophyDarkView.isHidden = true
-            }
-        }
-    }
-    
+
     func fetchUser(facebookId: String){
         let query = PFQuery(className:Constants.ParseServer.USER)
         query.limit = 1; // limit to at most 1 result
@@ -184,8 +107,6 @@ class UserProfileViewController: MenuItemContentViewController {
                 // Do something with the found objects
                 if let backendUsers = backendUsers {
                     let backendUser = backendUsers[0]
-                    print(backendUser.objectId!)
-                    
                     let frontendUser = User(PFObject: backendUser)
                     self.user = frontendUser
                     
@@ -193,7 +114,7 @@ class UserProfileViewController: MenuItemContentViewController {
                     for trophy in frontendUser.trophies {
                         self.userTrophies.append(trophy)
                     }
-                    self.fetchTrophyImages()
+                    self.trophyIconCollectionView.reloadData()
                 }
             } else {
                 // Log details of the failure
@@ -224,5 +145,20 @@ class UserProfileViewController: MenuItemContentViewController {
     
     @IBAction func onCancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+// Collection View
+extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // Set the number of items in your collection view.
+        return userTrophies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = trophyIconCollectionView.dequeueReusableCell(withReuseIdentifier: "TrophyIconCollectionViewCell", for: indexPath) as! TrophyIconCollectionViewCell
+        cell.trophy = userTrophies[indexPath.row]
+        print("Adding trophyIcon")
+        return cell
     }
 }
