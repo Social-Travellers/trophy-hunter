@@ -14,27 +14,28 @@ class UserTrophiesViewController: MenuItemContentViewController {
     @IBOutlet weak var trophiesCollectionView: UICollectionView!
     @IBOutlet weak var trophiesNavigationBar: UINavigationBar!
     @IBOutlet weak var trophiesNavigationItem: UINavigationItem!
-
+    
     var userTrophies: [Trophy] = []
+    var firstLoad = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        trophiesNavigationBar.barTintColor = Constants.Color.THEMECOLOR
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-        titleLabel.textAlignment = NSTextAlignment.center
-        titleLabel.text = "Trophies Collection"
-        titleLabel.textColor = UIColor.white
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
-        trophiesNavigationItem.titleView = titleLabel
         
         trophiesCollectionView.delegate = self
         trophiesCollectionView.dataSource = self
         
+        setupNavigationBar()
         fetchUserTrophies(withId: User.currentUser!.facebookId!)
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !firstLoad {
+            fetchUserTrophies(withId: User.currentUser!.facebookId!)
+            self.trophiesCollectionView.reloadData()
+        }
+    }
     
     func fetchUserTrophies(withId facebookId: String) {
         let query = PFQuery(className:Constants.ParseServer.USER)
@@ -55,20 +56,28 @@ class UserTrophiesViewController: MenuItemContentViewController {
                         
                         for trophy in frontendUser.trophies {
                             self.userTrophies.append(trophy)
-                            self.trophiesCollectionView.reloadData()
                         }
-                        
+                        self.trophiesCollectionView.reloadData()
                     }
                 }
             }
         }
     }
-
-
+    
+    
     @IBAction func onMenuButton(_ sender: Any) {
         showMenu()
     }
-
+    
+    func setupNavigationBar(){
+        trophiesNavigationBar.barTintColor = Constants.Color.THEMECOLOR
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.text = "Trophies Collection"
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        trophiesNavigationItem.titleView = titleLabel
+    }
 }
 
 extension UserTrophiesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

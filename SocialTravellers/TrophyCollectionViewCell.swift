@@ -33,7 +33,7 @@ class TrophyCollectionViewCell: UICollectionViewCell {
             }
             
             trophyNameLabel.text = trophy.name
-            trophyExpLabel.text = "\(trophy.experiencePoints?.stringValue ?? "") xp"
+            trophyExpLabel.text = "\(trophy.experiencePointsString) xp"
             
             let randomizer = GKRandomSource()
             let imageName = randomizer.arrayByShufflingObjects(in: imageNames)[0] as! String

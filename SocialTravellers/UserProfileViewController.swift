@@ -88,6 +88,7 @@ class UserProfileViewController: MenuItemContentViewController {
             } else{
                 print("receiving user from scoreboard")
                 user = userFromCell
+                trophyIconCollectionView.reloadData()
             }
         }
     }
