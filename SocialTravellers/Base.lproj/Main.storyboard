@@ -255,36 +255,66 @@
                                                                 <constraint firstAttribute="height" constant="400" id="Y6y-nM-FQh"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200xp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyk-et-VFK">
+                                                            <rect key="frame" x="8" y="374.5" width="42" height="17.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ck0-Lb-UG0" userLabel="Labels View">
+                                                            <rect key="frame" x="0.0" y="400" width="314" height="133"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends who unlocked this trophy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-I3-30O">
+                                                                    <rect key="frame" x="8" y="20" width="254" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" red="0.55679994820000001" green="0.55689889189999997" blue="0.55679368969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friends1" translatesAutoresizingMaskIntoConstraints="NO" id="H6o-mu-TFL">
+                                                                    <rect key="frame" x="8" y="67" width="226" height="58"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="58" id="9O5-h8-vgq"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 3 more" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6v-bs-KzN">
+                                                                    <rect key="frame" x="236" y="87" width="60" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                    <color key="textColor" red="0.55679994820000001" green="0.55689889189999997" blue="0.55679368969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="L6v-bs-KzN" firstAttribute="centerY" secondItem="H6o-mu-TFL" secondAttribute="centerY" id="2Pd-pX-pc5"/>
+                                                                <constraint firstItem="H6o-mu-TFL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hOG-I3-30O" secondAttribute="bottom" constant="25" id="7Px-QF-ZLA"/>
+                                                                <constraint firstItem="H6o-mu-TFL" firstAttribute="leading" secondItem="ck0-Lb-UG0" secondAttribute="leading" constant="8" id="7cJ-ej-Yqt"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="H6o-mu-TFL" secondAttribute="trailing" constant="80" id="CW7-zg-YST"/>
+                                                                <constraint firstItem="L6v-bs-KzN" firstAttribute="leading" secondItem="H6o-mu-TFL" secondAttribute="trailing" constant="2" id="Oyw-um-DrC"/>
+                                                                <constraint firstItem="hOG-I3-30O" firstAttribute="leading" secondItem="ck0-Lb-UG0" secondAttribute="leading" constant="8" id="ZSw-rE-Zgn"/>
+                                                                <constraint firstItem="hOG-I3-30O" firstAttribute="top" secondItem="ck0-Lb-UG0" secondAttribute="top" constant="20" id="qVu-Fc-aSe"/>
+                                                                <constraint firstAttribute="bottom" secondItem="H6o-mu-TFL" secondAttribute="bottom" constant="8" id="xLC-np-zxn"/>
+                                                            </constraints>
+                                                        </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dragon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKK-0u-SN9">
-                                                            <rect key="frame" x="5" y="351.5" width="56" height="20"/>
+                                                            <rect key="frame" x="8" y="351.5" width="56" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200xp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyk-et-VFK">
-                                                            <rect key="frame" x="5" y="374.5" width="42" height="17.5"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                            <color key="textColor" red="0.55686274509803924" green="0.55689889189999997" blue="0.55679368969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends who unlocked this trophy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-I3-30O">
-                                                            <rect key="frame" x="5" y="405" width="254" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.55679994820000001" green="0.55689889189999997" blue="0.55679368969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="hOG-I3-30O" firstAttribute="top" secondItem="GiG-bJ-OYY" secondAttribute="bottom" constant="5" id="81U-qj-cdA"/>
                                                         <constraint firstAttribute="trailing" secondItem="GiG-bJ-OYY" secondAttribute="trailing" id="Bi3-Ge-PH7"/>
-                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="bottom" secondItem="GiG-bJ-OYY" secondAttribute="bottom" constant="-8" id="ED2-hI-XI8"/>
+                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="bottom" secondItem="GiG-bJ-OYY" secondAttribute="bottom" constant="-8" id="Coo-Fw-fd5"/>
                                                         <constraint firstItem="GiG-bJ-OYY" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" id="H8c-3h-tfy"/>
-                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="5" id="Nuv-Kh-Dw8"/>
-                                                        <constraint firstItem="hOG-I3-30O" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="5" id="RGR-TU-pmX"/>
-                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="top" secondItem="FKK-0u-SN9" secondAttribute="bottom" constant="3" id="cbh-fK-BQj"/>
-                                                        <constraint firstItem="FKK-0u-SN9" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="5" id="l8b-h5-h0K"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ck0-Lb-UG0" secondAttribute="trailing" id="JZ6-pC-lJa"/>
+                                                        <constraint firstItem="FKK-0u-SN9" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="8" id="Kl1-F2-f35"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ck0-Lb-UG0" secondAttribute="bottom" id="Niw-Kg-Cdk"/>
+                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="top" secondItem="FKK-0u-SN9" secondAttribute="bottom" constant="3" id="oFm-1j-Gne"/>
+                                                        <constraint firstItem="ck0-Lb-UG0" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" id="oWO-0h-GK2"/>
+                                                        <constraint firstItem="ck0-Lb-UG0" firstAttribute="top" secondItem="GiG-bJ-OYY" secondAttribute="bottom" id="p85-Xn-hFp"/>
                                                         <constraint firstItem="GiG-bJ-OYY" firstAttribute="top" secondItem="tt1-JI-T85" secondAttribute="top" id="wMl-5p-nP3"/>
+                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="8" id="wwh-fg-llM"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -296,9 +326,11 @@
                                             <constraint firstItem="tt1-JI-T85" firstAttribute="leading" secondItem="qtm-f6-jXI" secondAttribute="leading" id="nn3-Ze-zfg"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="friendsImageView" destination="H6o-mu-TFL" id="R4w-EH-h0o"/>
                                             <outlet property="trophyContentView" destination="tt1-JI-T85" id="Bly-QI-vIf"/>
                                             <outlet property="trophyExpLabel" destination="cyk-et-VFK" id="Fbl-OP-Xu1"/>
                                             <outlet property="trophyImageView" destination="GiG-bJ-OYY" id="M6d-do-Kfv"/>
+                                            <outlet property="trophyLabelsView" destination="ck0-Lb-UG0" id="f2T-cx-XeO"/>
                                             <outlet property="trophyNameLabel" destination="FKK-0u-SN9" id="c1S-dY-KpW"/>
                                         </connections>
                                     </collectionViewCell>
@@ -934,6 +966,7 @@
         <image name="Splash bg" width="375" height="664"/>
         <image name="crosshair" width="64" height="64"/>
         <image name="exp" width="82" height="64"/>
+        <image name="friends1" width="488" height="116"/>
         <image name="logout" width="240" height="240"/>
         <image name="menu3" width="60" height="60"/>
         <image name="menuLogo" width="426" height="262"/>

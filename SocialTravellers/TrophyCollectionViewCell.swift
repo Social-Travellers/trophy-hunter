@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import GameplayKit
 
 class TrophyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var trophyContentView: UIView!
+    @IBOutlet weak var trophyLabelsView: UIView!
     @IBOutlet weak var trophyImageView: UIImageView!
     @IBOutlet weak var trophyNameLabel: UILabel!
     @IBOutlet weak var trophyExpLabel: UILabel!
+    @IBOutlet weak var friendsImageView: UIImageView!
+    
+    var imageNames = ["friends1", "friends2", "friends3", "friends4", "friends5"]
     
     var trophy: Trophy! {
         didSet {
@@ -29,16 +34,19 @@ class TrophyCollectionViewCell: UICollectionViewCell {
             
             trophyNameLabel.text = trophy.name
             trophyExpLabel.text = "\(trophy.experiencePoints?.stringValue ?? "") xp"
+            
+            let randomizer = GKRandomSource()
+            let imageName = randomizer.arrayByShufflingObjects(in: imageNames)[0] as! String
+            friendsImageView.image = UIImage(named: imageName)
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         self.contentView.layer.cornerRadius = 3.0
-//        self.contentView.clipsToBounds = true
         self.contentView.layer.masksToBounds = true
-//        self.layer.cornerRadius = 3.0
-//        self.clipsToBounds = true
+        
         let cellShadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius)
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.black.cgColor
@@ -47,17 +55,15 @@ class TrophyCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = 3.0
         self.layer.shadowPath = cellShadowPath.cgPath
         
-//        trophyImageView.layer.cornerRadius = 3.0
         trophyImageView.clipsToBounds = true
         
-//        trophyLabelsView.layer.cornerRadius = 3.0
-//        trophyLabelsView.clipsToBounds = true
-//        let labelShadowPath = UIBezierPath(rect: trophyLabelsView.bounds)
-//        trophyLabelsView.layer.masksToBounds = false
-//        trophyLabelsView.layer.shadowColor = UIColor.black.cgColor
-//        trophyLabelsView.layer.shadowOffset = CGSize(width: 0, height: -50)
-//        trophyLabelsView.layer.shadowOpacity = 0.6
-//        trophyLabelsView.layer.shadowRadius = 8.0
-//        trophyLabelsView.layer.shadowPath = labelShadowPath.cgPath
+        trophyLabelsView.clipsToBounds = true
+        let labelShadowPath = UIBezierPath(rect: trophyLabelsView.bounds)
+        trophyLabelsView.layer.masksToBounds = false
+        trophyLabelsView.layer.shadowColor = UIColor.black.cgColor
+        trophyLabelsView.layer.shadowOffset = CGSize(width: 0, height: -50)
+        trophyLabelsView.layer.shadowOpacity = 0.6
+        trophyLabelsView.layer.shadowRadius = 8.0
+        trophyLabelsView.layer.shadowPath = labelShadowPath.cgPath
     }
 }
