@@ -16,27 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
         // Facebook config - Initial setup
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+
         // Parse config
         let configuration = ParseClientConfiguration {
             $0.applicationId = Constants.ParseServer.APPLICATION_ID
             $0.server = Constants.ParseServer.SERVER_URL
         }
         Parse.initialize(with: configuration)
-        
+
         if AccessToken.current != nil {
-            
+
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let hostViewController = storyBoard.instantiateViewController(withIdentifier: "HostViewController") as! HostViewController
             window?.rootViewController = hostViewController
-            
-        }
-        print("AccessToken =\(String(describing: AccessToken.current))")
 
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) {_ in
+        }
+        debugPrint("AccessToken =\(String(describing: AccessToken.current))")
+
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { _ in
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
             self.window?.rootViewController = loginViewController
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        
+
         // Facebook config - Active users tracking
         AppEventsLogger.activate(application)
     }
@@ -69,12 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
         // Facebook config - Handle transition back from Safari
         let handled = SDKApplicationDelegate.shared.application(app, open: url, options: options)
-        
         return handled
     }
-    
+
 }
 

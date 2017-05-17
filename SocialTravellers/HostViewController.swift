@@ -15,14 +15,10 @@ class HostViewController: MenuContainerViewController {
         super.viewDidLoad()
 
         menuViewController = self.storyboard!.instantiateViewController(withIdentifier: "NavigationMenu") as! MenuViewController
-        
         contentViewControllers = contentControllers()
-        
         selectContentViewController(contentViewControllers.first!)
-        
-        // Do any additional setup after loading the view.
+
     }
-    
 
     override func menuTransitionOptionsBuilder() -> TransitionOptionsBuilder? {
         return TransitionOptionsBuilder() { builder in
@@ -30,7 +26,7 @@ class HostViewController: MenuContainerViewController {
             builder.contentScale = 0.9
         }
     }
-    
+
     private func contentControllers() -> [MenuItemContentViewController] {
         var contentList = [MenuItemContentViewController]()
         contentList.append(self.storyboard?.instantiateViewController(withIdentifier: "TrophiesMapViewController") as! MenuItemContentViewController)
@@ -39,15 +35,5 @@ class HostViewController: MenuContainerViewController {
         contentList.append(self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as! MenuItemContentViewController)
         return contentList
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
