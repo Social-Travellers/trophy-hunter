@@ -210,7 +210,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kak-KW-9cH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="kFD-cp-VjV"/>
+                                    <constraint firstAttribute="height" constant="65" id="aMd-Wz-1sb"/>
                                 </constraints>
                                 <items>
                                     <navigationItem title="Trophies Collection" id="G16-sY-H72">
@@ -230,50 +230,73 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XMl-TH-mDQ">
-                                <rect key="frame" x="15" y="80" width="345" height="487"/>
+                                <rect key="frame" x="15" y="80" width="345" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FXZ-ED-KQF">
-                                    <size key="itemSize" width="314" height="481"/>
+                                    <size key="itemSize" width="314" height="533"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrophyCollectionCell" id="qtm-f6-jXI" customClass="TrophyCollectionViewCell" customModule="SocialTravellers" customModuleProvider="target">
-                                        <rect key="frame" x="15.5" y="0.0" width="314" height="481"/>
+                                        <rect key="frame" x="15.5" y="0.0" width="314" height="533"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="314" height="481"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="314" height="533"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GiG-bJ-OYY">
-                                                    <rect key="frame" x="10" y="10" width="294" height="461"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dragon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKK-0u-SN9">
-                                                    <rect key="frame" x="15" y="419.5" width="66" height="23.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200xp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyk-et-VFK">
-                                                    <rect key="frame" x="15" y="448" width="50.5" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tt1-JI-T85" userLabel="Content View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="533"/>
+                                                    <subviews>
+                                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GiG-bJ-OYY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="314" height="400"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="400" id="Y6y-nM-FQh"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dragon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKK-0u-SN9">
+                                                            <rect key="frame" x="5" y="351.5" width="56" height="20"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200xp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyk-et-VFK">
+                                                            <rect key="frame" x="5" y="374.5" width="42" height="17.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" red="0.55686274509803924" green="0.55689889189999997" blue="0.55679368969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends who unlocked this trophy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-I3-30O">
+                                                            <rect key="frame" x="5" y="405" width="254" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.55679994820000001" green="0.55689889189999997" blue="0.55679368969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="hOG-I3-30O" firstAttribute="top" secondItem="GiG-bJ-OYY" secondAttribute="bottom" constant="5" id="81U-qj-cdA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GiG-bJ-OYY" secondAttribute="trailing" id="Bi3-Ge-PH7"/>
+                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="bottom" secondItem="GiG-bJ-OYY" secondAttribute="bottom" constant="-8" id="ED2-hI-XI8"/>
+                                                        <constraint firstItem="GiG-bJ-OYY" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" id="H8c-3h-tfy"/>
+                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="5" id="Nuv-Kh-Dw8"/>
+                                                        <constraint firstItem="hOG-I3-30O" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="5" id="RGR-TU-pmX"/>
+                                                        <constraint firstItem="cyk-et-VFK" firstAttribute="top" secondItem="FKK-0u-SN9" secondAttribute="bottom" constant="3" id="cbh-fK-BQj"/>
+                                                        <constraint firstItem="FKK-0u-SN9" firstAttribute="leading" secondItem="tt1-JI-T85" secondAttribute="leading" constant="5" id="l8b-h5-h0K"/>
+                                                        <constraint firstItem="GiG-bJ-OYY" firstAttribute="top" secondItem="tt1-JI-T85" secondAttribute="top" id="wMl-5p-nP3"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="GiG-bJ-OYY" firstAttribute="top" secondItem="qtm-f6-jXI" secondAttribute="top" constant="10" id="1oC-dY-Za7"/>
-                                            <constraint firstAttribute="bottom" secondItem="cyk-et-VFK" secondAttribute="bottom" constant="12" id="5D8-Fn-LE8"/>
-                                            <constraint firstItem="GiG-bJ-OYY" firstAttribute="leading" secondItem="qtm-f6-jXI" secondAttribute="leading" constant="10" id="BPs-lD-Uzq"/>
-                                            <constraint firstAttribute="trailing" secondItem="GiG-bJ-OYY" secondAttribute="trailing" constant="10" id="GPo-Oy-g4N"/>
-                                            <constraint firstItem="cyk-et-VFK" firstAttribute="top" secondItem="FKK-0u-SN9" secondAttribute="bottom" constant="5" id="UCN-cI-4tt"/>
-                                            <constraint firstItem="FKK-0u-SN9" firstAttribute="leading" secondItem="qtm-f6-jXI" secondAttribute="leading" constant="15" id="XUX-OF-zYv"/>
-                                            <constraint firstAttribute="bottom" secondItem="GiG-bJ-OYY" secondAttribute="bottom" constant="10" id="l7q-RZ-xDw"/>
-                                            <constraint firstItem="cyk-et-VFK" firstAttribute="leading" secondItem="qtm-f6-jXI" secondAttribute="leading" constant="15" id="pJd-B8-ED6"/>
+                                            <constraint firstAttribute="trailing" secondItem="tt1-JI-T85" secondAttribute="trailing" id="0lF-Pw-1Di"/>
+                                            <constraint firstItem="tt1-JI-T85" firstAttribute="top" secondItem="qtm-f6-jXI" secondAttribute="top" id="K9h-9d-nTM"/>
+                                            <constraint firstAttribute="bottom" secondItem="tt1-JI-T85" secondAttribute="bottom" id="LGg-jE-K4s"/>
+                                            <constraint firstItem="tt1-JI-T85" firstAttribute="leading" secondItem="qtm-f6-jXI" secondAttribute="leading" id="nn3-Ze-zfg"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="trophyContentView" destination="tt1-JI-T85" id="Bly-QI-vIf"/>
                                             <outlet property="trophyExpLabel" destination="cyk-et-VFK" id="Fbl-OP-Xu1"/>
                                             <outlet property="trophyImageView" destination="GiG-bJ-OYY" id="M6d-do-Kfv"/>
                                             <outlet property="trophyNameLabel" destination="FKK-0u-SN9" id="c1S-dY-KpW"/>
@@ -284,13 +307,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XMl-TH-mDQ" firstAttribute="top" secondItem="kak-KW-9cH" secondAttribute="bottom" constant="15" id="AGc-iv-ZM3"/>
-                            <constraint firstItem="kak-KW-9cH" firstAttribute="leading" secondItem="U5d-Va-UMc" secondAttribute="leading" id="MuS-W6-hix"/>
-                            <constraint firstAttribute="trailing" secondItem="kak-KW-9cH" secondAttribute="trailing" id="RIf-bH-zi3"/>
-                            <constraint firstItem="kak-KW-9cH" firstAttribute="top" secondItem="U5d-Va-UMc" secondAttribute="top" id="T5k-ba-q6L"/>
-                            <constraint firstItem="XMl-TH-mDQ" firstAttribute="leading" secondItem="U5d-Va-UMc" secondAttribute="leading" constant="15" id="UEB-MX-386"/>
-                            <constraint firstAttribute="trailing" secondItem="XMl-TH-mDQ" secondAttribute="trailing" constant="15" id="fO7-V5-mKc"/>
-                            <constraint firstItem="GmO-u6-jWf" firstAttribute="top" secondItem="XMl-TH-mDQ" secondAttribute="bottom" constant="100" id="gAf-Py-3MH"/>
+                            <constraint firstItem="GmO-u6-jWf" firstAttribute="top" secondItem="XMl-TH-mDQ" secondAttribute="bottom" constant="20" id="0pl-Lq-Roc"/>
+                            <constraint firstItem="XMl-TH-mDQ" firstAttribute="top" secondItem="kak-KW-9cH" secondAttribute="bottom" constant="15" id="2vo-Bp-Z9M"/>
+                            <constraint firstItem="XMl-TH-mDQ" firstAttribute="leading" secondItem="U5d-Va-UMc" secondAttribute="leading" constant="15" id="A7x-aP-jXb"/>
+                            <constraint firstItem="kak-KW-9cH" firstAttribute="leading" secondItem="U5d-Va-UMc" secondAttribute="leading" id="Gdx-Ab-1Wt"/>
+                            <constraint firstAttribute="trailing" secondItem="XMl-TH-mDQ" secondAttribute="trailing" constant="15" id="TAK-Oa-mPS"/>
+                            <constraint firstItem="kak-KW-9cH" firstAttribute="top" secondItem="U5d-Va-UMc" secondAttribute="top" id="aVH-7f-SCh"/>
+                            <constraint firstAttribute="trailing" secondItem="kak-KW-9cH" secondAttribute="trailing" id="wb6-9d-h6b"/>
                         </constraints>
                     </view>
                     <connections>
