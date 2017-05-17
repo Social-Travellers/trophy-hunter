@@ -73,7 +73,7 @@ class UserTrophiesViewController: MenuItemContentViewController {
         trophiesNavigationBar.barTintColor = Constants.Color.THEMECOLOR
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         titleLabel.textAlignment = NSTextAlignment.center
-        titleLabel.text = "Trophies Collection"
+        titleLabel.text = "Trophies"
         titleLabel.textColor = UIColor.white
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         trophiesNavigationItem.titleView = titleLabel
