@@ -18,7 +18,6 @@ class User1Cell: UITableViewCell {
 
     var user: User! {
         didSet {
-            print("setting up user cell for \(user.firstName ?? "USER IS NIL")")
             if let firstName = user.firstName {
                 if let lastName = user.lastName {
                     nameLabel.text = "\(String(describing: firstName)) \(String(describing: lastName))"

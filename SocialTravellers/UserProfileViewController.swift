@@ -161,7 +161,6 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = trophyIconCollectionView.dequeueReusableCell(withReuseIdentifier: "TrophyIconCollectionViewCell", for: indexPath) as! TrophyIconCollectionViewCell
         cell.trophy = userTrophies[indexPath.row]
-        debugPrint("Adding trophyIcon")
         return cell
     }
 }

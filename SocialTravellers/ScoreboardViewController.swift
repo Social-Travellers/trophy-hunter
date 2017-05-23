@@ -102,7 +102,6 @@ class ScoreboardViewController: MenuItemContentViewController, UITableViewDataSo
             let user = users[indexPath.row]
             cell.user = user
         }
-        debugPrint("setting up cell")
         return cell
     }
 
