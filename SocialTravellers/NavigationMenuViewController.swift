@@ -12,8 +12,8 @@ import FacebookLogin
 
 class NavigationMenuViewController: MenuViewController {
 
-    let viewControllers = ["Map", "High Scores", "Trophies", "Profile"]
-    let menuIcons = [#imageLiteral(resourceName:"map"), #imageLiteral(resourceName:"highScores"), #imageLiteral(resourceName:"trophy"), #imageLiteral(resourceName:"profile")]
+    let viewControllers = ["Map", "High Scores", "Trophies", "Profile", "Create Trophy"]
+    let menuIcons = [#imageLiteral(resourceName:"map"), #imageLiteral(resourceName:"highScores"), #imageLiteral(resourceName:"trophy"), #imageLiteral(resourceName:"profile"), #imageLiteral(resourceName: "trophy")]
 
     @IBOutlet weak var tableView: UITableView!
 

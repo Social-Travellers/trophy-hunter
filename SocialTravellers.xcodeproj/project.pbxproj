@@ -33,6 +33,7 @@
 		51607DCC1EBE9402005D0909 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCB1EBE9401005D0909 /* CameraViewController.swift */; };
 		51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */; };
 		51607DD01EBECF07005D0909 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCF1EBECF07005D0909 /* MapAnnotation.swift */; };
+		517125C41ED64D6E007B4E12 /* CreateTrophyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517125C31ED64D6E007B4E12 /* CreateTrophyViewController.swift */; };
 		518037A21EC449C9003FB9A0 /* UserTrophiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518037A11EC449C9003FB9A0 /* UserTrophiesViewController.swift */; };
 		518037A41EC44D55003FB9A0 /* TrophyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518037A31EC44D55003FB9A0 /* TrophyCollectionViewCell.swift */; };
 		6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */; };
@@ -68,6 +69,7 @@
 		51607DCB1EBE9401005D0909 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyUnlockedViewController.swift; sourceTree = "<group>"; };
 		51607DCF1EBECF07005D0909 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		517125C31ED64D6E007B4E12 /* CreateTrophyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrophyViewController.swift; sourceTree = "<group>"; };
 		518037A11EC449C9003FB9A0 /* UserTrophiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrophiesViewController.swift; sourceTree = "<group>"; };
 		518037A31EC44D55003FB9A0 /* TrophyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyCollectionViewCell.swift; sourceTree = "<group>"; };
 		8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				518037A11EC449C9003FB9A0 /* UserTrophiesViewController.swift */,
 				1363A75A1EC798DA00B7E35C /* HostViewController.swift */,
 				1363A75C1EC798EF00B7E35C /* NavigationMenuViewController.swift */,
+				517125C31ED64D6E007B4E12 /* CreateTrophyViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -240,7 +243,7 @@
 				TargetAttributes = {
 					0E316C451EA5C7DC0030D8DE = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 2ANGJ89X6H;
+						DevelopmentTeam = 7QBT6FUF69;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -347,6 +350,7 @@
 				139AA3E71EB47EA4009A42E5 /* UserCell.swift in Sources */,
 				139AA3DD1EB47446009A42E5 /* EventDetailHeader.swift in Sources */,
 				138F9F9A1EBFFF8C002DD4E6 /* User1Cell.swift in Sources */,
+				517125C41ED64D6E007B4E12 /* CreateTrophyViewController.swift in Sources */,
 				0E316C4A1EA5C7DC0030D8DE /* AppDelegate.swift in Sources */,
 				1363A75B1EC798DA00B7E35C /* HostViewController.swift in Sources */,
 				51607D581EB2891A005D0909 /* LoginViewController.swift in Sources */,
@@ -480,11 +484,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2ANGJ89X6H;
+				DEVELOPMENT_TEAM = 7QBT6FUF69;
 				INFOPLIST_FILE = SocialTravellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.trophyHunters;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trophyHunters1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -497,11 +501,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2ANGJ89X6H;
+				DEVELOPMENT_TEAM = 7QBT6FUF69;
 				INFOPLIST_FILE = SocialTravellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.trophyHunters;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trophyHunters1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;

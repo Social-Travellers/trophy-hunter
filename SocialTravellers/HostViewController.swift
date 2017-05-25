@@ -33,6 +33,7 @@ class HostViewController: MenuContainerViewController {
         contentList.append(self.storyboard?.instantiateViewController(withIdentifier: "ScoreboardViewController") as! MenuItemContentViewController)
         contentList.append(self.storyboard?.instantiateViewController(withIdentifier: "UserTrophiesViewController") as! MenuItemContentViewController)
         contentList.append(self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as! MenuItemContentViewController)
+        contentList.append(self.storyboard?.instantiateViewController(withIdentifier: "CreateTrophyViewController") as! MenuItemContentViewController)
         return contentList
     }
 
