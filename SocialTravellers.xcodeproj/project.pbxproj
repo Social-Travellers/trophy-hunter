@@ -34,6 +34,8 @@
 		51607DCE1EBE997E005D0909 /* TrophyUnlockedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */; };
 		51607DD01EBECF07005D0909 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51607DCF1EBECF07005D0909 /* MapAnnotation.swift */; };
 		517125C41ED64D6E007B4E12 /* CreateTrophyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517125C31ED64D6E007B4E12 /* CreateTrophyViewController.swift */; };
+		517125D01ED7AFAD007B4E12 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517125CF1ED7AFAD007B4E12 /* LocationSearchViewController.swift */; };
+		517125D21ED813D8007B4E12 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517125D11ED813D8007B4E12 /* LocationSearchTable.swift */; };
 		518037A21EC449C9003FB9A0 /* UserTrophiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518037A11EC449C9003FB9A0 /* UserTrophiesViewController.swift */; };
 		518037A41EC44D55003FB9A0 /* TrophyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518037A31EC44D55003FB9A0 /* TrophyCollectionViewCell.swift */; };
 		6E851C6A6A648ABF975AD2E9 /* Pods_SocialTravellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C0E91E9118084A66946CD8 /* Pods_SocialTravellers.framework */; };
@@ -70,6 +72,8 @@
 		51607DCD1EBE997E005D0909 /* TrophyUnlockedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyUnlockedViewController.swift; sourceTree = "<group>"; };
 		51607DCF1EBECF07005D0909 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		517125C31ED64D6E007B4E12 /* CreateTrophyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrophyViewController.swift; sourceTree = "<group>"; };
+		517125CF1ED7AFAD007B4E12 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		517125D11ED813D8007B4E12 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		518037A11EC449C9003FB9A0 /* UserTrophiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrophiesViewController.swift; sourceTree = "<group>"; };
 		518037A31EC44D55003FB9A0 /* TrophyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyCollectionViewCell.swift; sourceTree = "<group>"; };
 		8833248D5C159AF5E8542791 /* Pods-SocialTravellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTravellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTravellers/Pods-SocialTravellers.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				1363A75A1EC798DA00B7E35C /* HostViewController.swift */,
 				1363A75C1EC798EF00B7E35C /* NavigationMenuViewController.swift */,
 				517125C31ED64D6E007B4E12 /* CreateTrophyViewController.swift */,
+				517125CF1ED7AFAD007B4E12 /* LocationSearchViewController.swift */,
+				517125D11ED813D8007B4E12 /* LocationSearchTable.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -346,6 +352,8 @@
 				51607DC91EBE7D76005D0909 /* TrophiesMapViewController.swift in Sources */,
 				0EBC89591EB14F6000B443A1 /* Constants.swift in Sources */,
 				139AA3D91EB44ACB009A42E5 /* EventCell.swift in Sources */,
+				517125D01ED7AFAD007B4E12 /* LocationSearchViewController.swift in Sources */,
+				517125D21ED813D8007B4E12 /* LocationSearchTable.swift in Sources */,
 				0EBC89561EB14CC500B443A1 /* Event.swift in Sources */,
 				139AA3E71EB47EA4009A42E5 /* UserCell.swift in Sources */,
 				139AA3DD1EB47446009A42E5 /* EventDetailHeader.swift in Sources */,
